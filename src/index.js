@@ -8,7 +8,7 @@ import "./stylesheets/main.css";
 // passing the apiHandler object into formHandler directly
 const displayHandler = () => {
   const cast = document.querySelector(".cast-display");
-  console.log(cast);
+  const currentTemp = document.querySelector(".current-temp");
 
   const updateData = (data) => {
     const imageData = imageHandler(data);
@@ -18,6 +18,9 @@ const displayHandler = () => {
 
     cast.innerHTML = "";
     cast.appendChild(newImg);
+
+    currentTemp.innerHTML = "";
+    currentTemp.textContent = `${data["main"]["temp"]}°C`
     return;
   };
   return {

@@ -12,8 +12,8 @@
 
 .cast-display > img {
   animation: slide-in 0.5s forwards ease-in-out;
-  height: 326px;
-  width: 350px;
+  height: 325px;
+  width: 326px;
 }
 
 @keyframes slide-in {
@@ -32,7 +32,11 @@
   font-weight: 500;
 
   flex-direction: column;
+  width: 80%;
 }
 
 .current-temp {
+  color: white;
+  text-align: center;
+  font-size: 55px;
 }
