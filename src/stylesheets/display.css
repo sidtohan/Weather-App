@@ -1,0 +1,23 @@
+.weather-display{
+  display: flex;
+  width: 80%;
+}
+
+.cast-display{
+  display: block;
+  height: auto;
+
+  align-items: center;
+}
+
+.info-display{
+  display: flex;
+  font-size: 30px;
+  font-weight: 500;
+
+  flex-direction: column;
+}
+
+.current-temp{
+  
+}

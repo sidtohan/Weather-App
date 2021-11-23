@@ -72,19 +72,4 @@ header > h1 {
   bottom: 2px;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  box-sizing: border-box;
-  padding: 0 20px;
-  background-color: black;
-}
-
-body,
-html {
-  font-family: "Poppins", sans-serif, Verdana, Geneva, Tahoma;
-  margin: 0;
-  width: 100%;
-}
