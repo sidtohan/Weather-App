@@ -7,9 +7,11 @@ header {
 }
 
 header > h1 {
+  margin: 0;
   color: white;
   font-weight: 700;
   font-size: 40px;
+  padding: 36px 0;
 }
 
 .user-input {
@@ -71,5 +73,3 @@ header > h1 {
   position: relative;
   bottom: 2px;
 }
-
-
