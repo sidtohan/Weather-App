@@ -26,17 +26,42 @@
     transform: translateY(0);
   }
 }
+
 .info-display {
-  display: flex;
   font-size: 30px;
   font-weight: 500;
+  font-family: "M PLUS 2", Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  text-align: center;
 
+  display: flex;
   flex-direction: column;
-  width: 80%;
+  align-items: center;
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
 }
 
 .current-temp {
-  color: white;
-  text-align: center;
   font-size: 55px;
+  font-weight: 700;
+}
+
+.cast-temp {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.humidity {
+  display: flex;
+  gap: 5px;
+}
+
+.humidity > img {
+  display: inline-block;
 }

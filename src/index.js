@@ -9,18 +9,61 @@ import "./stylesheets/main.css";
 const displayHandler = () => {
   const cast = document.querySelector(".cast-display");
   const currentTemp = document.querySelector(".current-temp");
+  const minTemp = document.querySelector(".min-temp");
+  const maxTemp = document.querySelector(".max-temp");
+  const castText = document.querySelector(".cast");
+  const humidityDiv = document.querySelector(".humidity");
 
-  const updateData = (data) => {
-    const imageData = imageHandler(data);
+  const updateImage = (condition) => {
+    const imageData = imageHandler().weatherIcon(condition);
     const newImg = new Image();
-
     newImg.src = imageData;
 
     cast.innerHTML = "";
     cast.appendChild(newImg);
 
+    return;
+  };
+
+  const updateCurrentTemp = (temp) => {
     currentTemp.innerHTML = "";
-    currentTemp.textContent = `${data["main"]["temp"]}°C`
+    currentTemp.textContent = `${Math.round(temp - 273)}°C`;
+    return;
+  };
+
+  const updateMaxTemp = (temp) => {
+    maxTemp.textContent = `${Math.round(temp - 273)}°C(Max)`;
+    return;
+  };
+
+  const updateMinTemp = (temp) => {
+    minTemp.textContent = `${Math.round(temp - 273)}°C(Min)`;
+    return;
+  };
+
+  const updateCast = (cast) => {
+    castText.textContent = cast;
+    return;
+  };
+
+  const updateHumidity = (humidity) => {
+    humidityDiv.innerHTML = "";
+    humidityDiv.textContent = humidity;
+
+    const humidityLogo = new Image();
+    humidityLogo.src = imageHandler().getHumidityImage();
+    humidityDiv.appendChild(humidityLogo);
+    return;
+  };
+
+  const updateData = (data) => {
+    console.log(data);
+    updateImage(data["weather"][0]["main"]);
+    updateCurrentTemp(data["main"]["temp"]);
+    updateMaxTemp(data["main"]["temp_max"]);
+    updateMinTemp(data["main"]["temp_min"]);
+    updateCast(data["weather"][0]["main"]);
+    updateHumidity(data["main"]["humidity"]);
     return;
   };
   return {

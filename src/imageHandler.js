@@ -1,12 +1,22 @@
 import Haze from "./assets/weather/haze.svg";
 import Cloudy from "./assets/weather/cloudy.svg";
+import Humidity from "./assets/humidity.svg";
 
-const imageHandler = (data) => {
-  if (data["weather"][0]["main"] == "Haze") {
-    return Haze;
-  } else {
-    return Cloudy;
-  }
+const imageHandler = () => {
+  const weatherIcon = (data) => {
+    if (data == "Haze") {
+      return Haze;
+    } else {
+      return Cloudy;
+    }
+  };
+  const getHumidityImage = () => {
+    return Humidity;
+  };
+  return {
+    weatherIcon,
+    getHumidityImage,
+  };
 };
 
 export default imageHandler;
