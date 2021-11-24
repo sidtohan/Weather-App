@@ -1,14 +1,17 @@
 import apiHandler from "./apiHandler";
 import imageHandler from "./imageHandler";
+import loadingHandler from "./loadingHandler";
 
 import "./stylesheets/header.css";
 import "./stylesheets/display.css";
 import "./stylesheets/main.css";
-import "./stylesheets/responsive.css"
+import "./stylesheets/responsive.css";
+import "./stylesheets/loading.css";
 
 // passing the apiHandler object into formHandler directly
 const displayHandler = () => {
   const cast = document.querySelector(".cast-display");
+  const weatherDisplay = document.querySelector(".weather-display");
   const currentTemp = document.querySelector(".current-temp");
   const minTemp = document.querySelector(".min-temp");
   const maxTemp = document.querySelector(".max-temp");
@@ -17,14 +20,17 @@ const displayHandler = () => {
   const windDiv = document.querySelector(".wind");
 
   const updateImage = (condition) => {
-    const imageData = imageHandler().weatherIcon(condition);
-    const newImg = new Image();
-    newImg.src = imageData;
+    imageHandler()
+      .weatherIcon(condition)
+      .then((imageData) => {
+        const newImg = new Image();
+        newImg.src = imageData;
 
-    cast.innerHTML = "";
-    cast.appendChild(newImg);
+        cast.innerHTML = "";
+        cast.appendChild(newImg);
 
-    return;
+        return;
+      });
   };
 
   const updateCurrentTemp = (temp) => {
@@ -52,25 +58,41 @@ const displayHandler = () => {
     humidityDiv.innerHTML = "";
     humidityDiv.textContent = humidity;
 
-    const humidityLogo = new Image();
-    humidityLogo.src = imageHandler().getHumidityImage();
-    humidityDiv.appendChild(humidityLogo);
-    return;
+    imageHandler()
+      .getHumidityImage()
+      .then((imageData) => {
+        const humidityLogo = new Image();
+        humidityLogo.src = imageData;
+        humidityDiv.appendChild(humidityLogo);
+        return;
+      });
+  };
+
+  const removeLoading = () => {
+    loadingHandler.removeLoading();
+    weatherDisplay.classList.remove("hidden");
   };
 
   const updateWind = (wind) => {
     windDiv.innerHTML = "";
     windDiv.textContent = wind;
 
-    const windLogo = new Image();
-    windLogo.src = imageHandler().getWindImage();
-    windDiv.appendChild(windLogo);
-    return;
+    imageHandler()
+      .getWindImage()
+      .then((imageData) => {
+        const windLogo = new Image();
+        windLogo.src = imageData;
+        windDiv.appendChild(windLogo);
+        removeLoading();
+        return;
+      });
   };
-  
+
   const updateData = (data) => {
     console.log(data);
 
+    loadingHandler.addLoading();
+    weatherDisplay.classList.add("hidden");
     updateImage(data["weather"][0]["main"]);
     updateCurrentTemp(data["main"]["temp"]);
     updateMaxTemp(data["main"]["temp_max"]);
@@ -78,7 +100,6 @@ const displayHandler = () => {
     updateCast(data["weather"][0]["main"]);
     updateHumidity(data["main"]["humidity"]);
     updateWind(data["wind"]["speed"]);
-
     return;
   };
   return {

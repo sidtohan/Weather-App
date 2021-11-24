@@ -1,20 +1,30 @@
 .weather-display {
   display: flex;
   width: 80%;
+  opacity: 1;
+
+  justify-content: space-between;
+  transition: 0.5s ease-in-out;
+}
+
+.weather-display.hidden {
+  opacity: 0;
 }
 
 .cast-display {
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 30%;
+  height: 300px;
 }
 
 .cast-display > img {
   animation: slide-in 0.5s forwards ease-in-out;
+  animation-delay: 0.2s;
   height: 300px;
-  width: auto;
+  width: 100%;
+  opacity: 0;
 }
 
 @keyframes slide-in {
@@ -39,7 +49,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 70%;
+  width: 50%;
   gap: 5px;
 }
 
@@ -52,8 +62,6 @@
 .current-temp {
   font-size: 55px;
   font-weight: 700;
-
-  transition: all 500ms ease-in-out;
 }
 
 .cast-temp {
