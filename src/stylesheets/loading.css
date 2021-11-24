@@ -1,20 +1,26 @@
 .loading-begin {
   color: white;
   font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 55px;
+  font-size: 9vmin;
   font-weight: 500;
   width: 100%;
   text-align: center;
+
   position: absolute;
-  line-height: 400px;
-  top: 175px;
+  top: 30vh;
   height: 450px;
   background-color: black;
   opacity: 0;
+  visibility: hidden;
   transition: opacity 0.5s ease-in-out;
   z-index: 9;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loading-begin.active {
   opacity: 1;
+  visibility: visible;
 }

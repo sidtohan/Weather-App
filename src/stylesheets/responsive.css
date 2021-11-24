@@ -3,7 +3,7 @@
     width: 100%;
   }
   header > h1 {
-    font-size: 11vmin;
+    font-size: 10vmin;
   }
   header {
     flex-direction: column;
@@ -25,5 +25,8 @@
   .cast-display > img {
     height: auto;
     width: 100%;
-}
+  }
+  .loading-begin {
+    top: 35vh;
+  }
 }
