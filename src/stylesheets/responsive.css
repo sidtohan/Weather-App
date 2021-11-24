@@ -27,6 +27,6 @@
     width: 100%;
   }
   .loading-begin {
-    top: 35vh;
+    top: 35vh !important;
   }
 }
