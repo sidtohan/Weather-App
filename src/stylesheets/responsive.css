@@ -22,4 +22,8 @@
   .info {
     gap: 10vmin;
   }
+  .cast-display > img {
+    height: auto;
+    width: 100%;
+}
 }
