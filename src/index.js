@@ -4,6 +4,7 @@ import imageHandler from "./imageHandler";
 import "./stylesheets/header.css";
 import "./stylesheets/display.css";
 import "./stylesheets/main.css";
+import "./stylesheets/responsive.css"
 
 // passing the apiHandler object into formHandler directly
 const displayHandler = () => {

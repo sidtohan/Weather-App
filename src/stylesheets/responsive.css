@@ -1,0 +1,25 @@
+@media screen and (max-width: 380px) {
+  .city-name {
+    width: 100%;
+  }
+  header > h1 {
+    font-size: 11vmin;
+  }
+  header {
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+  }
+  .weather-display {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 0;
+  }
+  .cast-display {
+    width: 100%;
+  }
+  .info {
+    gap: 10vmin;
+  }
+}
