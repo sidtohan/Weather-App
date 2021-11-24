@@ -13,6 +13,7 @@ const displayHandler = () => {
   const maxTemp = document.querySelector(".max-temp");
   const castText = document.querySelector(".cast");
   const humidityDiv = document.querySelector(".humidity");
+  const windDiv = document.querySelector(".wind");
 
   const updateImage = (condition) => {
     const imageData = imageHandler().weatherIcon(condition);
@@ -56,14 +57,27 @@ const displayHandler = () => {
     return;
   };
 
+  const updateWind = (wind) => {
+    windDiv.innerHTML = "";
+    windDiv.textContent = wind;
+
+    const windLogo = new Image();
+    windLogo.src = imageHandler().getWindImage();
+    windDiv.appendChild(windLogo);
+    return;
+  };
+  
   const updateData = (data) => {
     console.log(data);
+
     updateImage(data["weather"][0]["main"]);
     updateCurrentTemp(data["main"]["temp"]);
     updateMaxTemp(data["main"]["temp_max"]);
     updateMinTemp(data["main"]["temp_min"]);
     updateCast(data["weather"][0]["main"]);
     updateHumidity(data["main"]["humidity"]);
+    updateWind(data["wind"]["speed"]);
+
     return;
   };
   return {
