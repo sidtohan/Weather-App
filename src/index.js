@@ -1,12 +1,6 @@
 import apiHandler from "./apiLoadingHandler";
 import imageHandler from "./imageHandler";
 
-import "./stylesheets/header.css";
-import "./stylesheets/display.css";
-import "./stylesheets/main.css";
-import "./stylesheets/responsive.css";
-import "./stylesheets/loading.css";
-
 const displayHandler = () => {
   let first = true;
   const weatherDisplay = document.querySelector(".weather-display");
