@@ -8,11 +8,6 @@
   transition: 0.5s ease-in-out;
 }
 
-.weather-display.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
 .cast-display {
   display: flex;
   justify-content: center;

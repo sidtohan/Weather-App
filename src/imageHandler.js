@@ -8,21 +8,18 @@ import Thunderstorm from "./assets/weather/thunderstorm.svg";
 import Humidity from "./assets/humidity.svg";
 import Wind from "./assets/wind.svg";
 const imageHandler = () => {
-  async function weatherIcon(data) {
-    const newImage;
-    if(data == "Haze"){
-      newImage.src = await fetch(Haze);
+  function weatherIcon(data) {
+    if (data == "Haze") {
+      return Haze;
+    } else if (data == "Rain") {
+      return Rain;
+    } else if (data == "Clouds") {
+      return Cloudy;
+    } else if (data == "Drizzle") {
+      return Drizzle;
+    } else {
+      return Thunderstorm;
     }
-    else if(data == "Rain"){
-      newImage.src = await fetch(Rain);
-    }
-    else if(data == "Clouds"){
-      newImage.src = await fetch(Cloudy);
-    }
-    else if(data == "Drizzle"){
-      newImage.src = await fetch(Drizzle);
-    }
-    
   }
 
   function getHumidityImage() {

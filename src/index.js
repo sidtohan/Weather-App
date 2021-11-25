@@ -1,6 +1,5 @@
-import apiHandler from "./apiHandler";
+import apiHandler from "./apiLoadingHandler";
 import imageHandler from "./imageHandler";
-import loadingHandler from "./loadingHandler";
 
 import "./stylesheets/header.css";
 import "./stylesheets/display.css";
@@ -8,35 +7,29 @@ import "./stylesheets/main.css";
 import "./stylesheets/responsive.css";
 import "./stylesheets/loading.css";
 
-
 const displayHandler = () => {
-  const cast = document.querySelector(".cast-display");
+  let first = true;
   const weatherDisplay = document.querySelector(".weather-display");
-  const currentTemp = document.querySelector(".current-temp");
   const minTemp = document.querySelector(".min-temp");
   const maxTemp = document.querySelector(".max-temp");
   const castText = document.querySelector(".cast");
   const humidityDiv = document.querySelector(".humidity");
   const windDiv = document.querySelector(".wind");
 
-  const updateImage = (condition) => {
-    imageHandler()
-      .weatherIcon(condition)
-      .then((imageData) => {
-        const newImg = new Image();
-        newImg.src = imageData;
-
-        cast.innerHTML = "";
-        cast.appendChild(newImg);
-
-        return;
-      });
+  const returnImage = (condition) => {
+    const imageData = imageHandler().weatherIcon(condition);
+    const newImg = new Image();
+    newImg.src = imageData;
+    console.log(newImg);
+    return newImg;
   };
 
-  const updateCurrentTemp = (temp) => {
-    currentTemp.innerHTML = "";
+  const returnCurrentTemp = (temp) => {
+    const currentTemp = document.createElement("div");
+    currentTemp.classList.add("current-temp");
     currentTemp.textContent = `${Math.round(temp - 273)}°C`;
-    return;
+    console.log(currentTemp);
+    return currentTemp;
   };
 
   const updateMaxTemp = (temp) => {
@@ -68,38 +61,47 @@ const displayHandler = () => {
       });
   };
 
-  const removeLoading = () => {
-    loadingHandler.removeLoading();
-    weatherDisplay.classList.remove("hidden");
-  };
-
   const updateWind = (wind) => {
     windDiv.innerHTML = "";
     windDiv.textContent = wind;
 
-    imageHandler()
-      .getWindImage()
-      .then((imageData) => {
-        const windLogo = new Image();
-        windLogo.src = imageData;
-        windDiv.appendChild(windLogo);
-        removeLoading();
-        return;
-      });
   };
 
   const updateData = (data) => {
     console.log(data);
+    /*
+    const info = `
+    <div class="info-display">
+      <div class="current-temp"></div>
+      <div class="info">
+        <div class="cast-temp">
+          <div class="cast"></div>
+          <div class="max-temp"></div>
+          <div class="min-temp"></div>
+        </div>
+        <div class="misc">
+          <div class="humidity"></div>
+          <div class="wind"></div>
+        </div>
+      </div>
+    </div>`*/
+    weatherDisplay.innerHTML = "";
 
-    loadingHandler.addLoading();
-    weatherDisplay.classList.add("hidden");
-    updateImage(data["weather"][0]["main"]);
-    updateCurrentTemp(data["main"]["temp"]);
-    updateMaxTemp(data["main"]["temp_max"]);
-    updateMinTemp(data["main"]["temp_min"]);
-    updateCast(data["weather"][0]["main"]);
-    updateHumidity(data["main"]["humidity"]);
-    updateWind(data["wind"]["speed"]);
+    const cast = document.createElement("div");
+    const info = document.createElement("div");
+    cast.classList.add("cast-display");
+    info.classList.add("info-display");
+
+    cast.appendChild(returnImage(data["weather"][0]["main"]));
+    info.appendChild(returnCurrentTemp(data["main"]["temp"]));
+    // updateMaxTemp(data["main"]["temp_max"]);
+    // updateMinTemp(data["main"]["temp_min"]);
+    // updateCast(data["weather"][0]["main"]);
+    // updateHumidity(data["main"]["humidity"]);
+    // updateWind(data["wind"]["speed"]);
+
+    weatherDisplay.appendChild(cast);
+    weatherDisplay.appendChild(info);
     return;
   };
   return {

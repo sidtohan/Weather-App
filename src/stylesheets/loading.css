@@ -10,17 +10,10 @@
   top: 30vh;
   height: 400px;
   background-color: inherit;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-in, visibility 0.5s ease-in-out;
+  opacity: 1;
   z-index: 9;
 
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.loading-begin.active {
-  opacity: 1;
-  visibility: visible;
 }
