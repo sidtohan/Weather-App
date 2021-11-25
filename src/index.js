@@ -1,5 +1,6 @@
 import apiHandler from "./apiLoadingHandler";
 import imageHandler from "./imageHandler";
+import "./main.css";
 
 const displayHandler = () => {
   const weatherDisplay = document.querySelector(".weather-display");
@@ -55,7 +56,6 @@ const displayHandler = () => {
   const updateWind = (wind) => {
     windDiv.innerHTML = "";
     windDiv.textContent = wind;
-
   };
 
   const updateData = (data) => {
@@ -121,4 +121,6 @@ const formHandler = () => {
   }
 };
 
-formHandler();
+window.addEventListener("DOMContentLoaded", () => {
+  formHandler();
+});
