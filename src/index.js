@@ -2,7 +2,6 @@ import apiHandler from "./apiLoadingHandler";
 import imageHandler from "./imageHandler";
 
 const displayHandler = () => {
-  let first = true;
   const weatherDisplay = document.querySelector(".weather-display");
   const minTemp = document.querySelector(".min-temp");
   const maxTemp = document.querySelector(".max-temp");
@@ -14,7 +13,6 @@ const displayHandler = () => {
     const imageData = imageHandler().weatherIcon(condition);
     const newImg = new Image();
     newImg.src = imageData;
-    console.log(newImg);
     return newImg;
   };
 
@@ -22,7 +20,6 @@ const displayHandler = () => {
     const currentTemp = document.createElement("div");
     currentTemp.classList.add("current-temp");
     currentTemp.textContent = `${Math.round(temp - 273)}°C`;
-    console.log(currentTemp);
     return currentTemp;
   };
 
@@ -62,7 +59,6 @@ const displayHandler = () => {
   };
 
   const updateData = (data) => {
-    console.log(data);
     /*
     const info = `
     <div class="info-display">
