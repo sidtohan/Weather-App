@@ -9,7 +9,7 @@
   position: absolute;
   top: 30vh;
   height: 400px;
-  background-color: black;
+  background-color: inherit;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease-in, visibility 0.5s ease-in-out;

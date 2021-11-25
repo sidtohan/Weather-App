@@ -54,7 +54,10 @@
   justify-content: center;
   width: 50%;
   gap: 5px;
+
+  transition: all 0.7s ease-in-out;
 }
+
 
 .info {
   display: flex;

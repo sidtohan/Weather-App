@@ -1,4 +1,4 @@
-@media screen and (max-width: 890px) {
+@media screen and (max-width: 1048px) {
   .city-name {
     width: 100%;
   }
@@ -21,10 +21,6 @@
   }
   .info {
     gap: 10vmin;
-  }
-  .cast-display > img {
-    height: auto;
-    width: 100%;
   }
   .loading-begin {
     top: 35vh !important;
