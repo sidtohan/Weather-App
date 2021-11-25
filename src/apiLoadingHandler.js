@@ -4,6 +4,8 @@ const apiHandler = (() => {
   const apiKey = "94a2aad4a38121e794735a95ee415a76";
 
   async function callApi(cityName) {
+    const weatherDisplay = document.querySelector(".weather-display");
+    weatherDisplay.innerHTML = "";
     if (first) {
       document.body.removeChild(document.querySelector(".loading-begin"));
       document.body.appendChild(loadingHandler.returnLoading());

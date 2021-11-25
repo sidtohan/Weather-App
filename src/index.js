@@ -75,8 +75,6 @@ const displayHandler = () => {
         </div>
       </div>
     </div>`*/
-    weatherDisplay.innerHTML = "";
-
     const cast = document.createElement("div");
     const info = document.createElement("div");
     cast.classList.add("cast-display");
@@ -121,6 +119,4 @@ const formHandler = () => {
   }
 };
 
-window.addEventListener("DOMContentLoaded", () => {
-  formHandler();
-});
+window.addEventListener("DOMContentLoaded", formHandler);
