@@ -8,7 +8,7 @@ import "./stylesheets/main.css";
 import "./stylesheets/responsive.css";
 import "./stylesheets/loading.css";
 
-// passing the apiHandler object into formHandler directly
+
 const displayHandler = () => {
   const cast = document.querySelector(".cast-display");
   const weatherDisplay = document.querySelector(".weather-display");
