@@ -29,4 +29,14 @@
   .loading-begin {
     top: 35vh !important;
   }
+  body{
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width:414px) {
+  .loading-begin{
+    top: 30vh !important;
+  }
+  
 }

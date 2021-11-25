@@ -2,13 +2,15 @@
   display: flex;
   width: 80%;
   opacity: 1;
-
+  visibility: 1;
+  
   justify-content: space-between;
   transition: 0.5s ease-in-out;
 }
 
 .weather-display.hidden {
   opacity: 0;
+  visibility: hidden;
 }
 
 .cast-display {
@@ -37,6 +39,7 @@
     transform: translateY(0);
   }
 }
+
 
 .info-display {
   font-size: 30px;
