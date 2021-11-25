@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@500;700&display=swap");
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+header > h1 {
+  margin: 0;
+  color: white;
+  font-weight: 700;
+  font-size: 52px;
+  padding: 36px 0;
+}
+
+.user-input {
+  display: flex;
+  align-items: center;
+}
+
+.city-name {
+  background: transparent;
+  border-radius: 50px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  padding: 5px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
+  border: solid 2px white;
+}
+
+.city-name:focus {
+  outline: none;
+}
+
+::placeholder {
+  font-weight: 500;
+  color: white;
+  opacity: 1;
+  font-size: 20px;
+
+  font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.city-name:focus::placeholder {
+  color: transparent;
+}
+
+.user-input > button {
+  cursor: pointer;
+  background-color: transparent;
+  font-family: "Poppins";
+  font-size: 20px;
+  padding: 5px 12px;
+  font-weight: 700;
+  border: none;
+  border-top-right-radius: 25px;
+  border: solid 2px white;
+  border-bottom-right-radius: 25px;
+  border-left-width: 0;
+}
+
+.user-input img {
+  vertical-align: middle;
+  height: 23px;
+  width: auto;
+  position: relative;
+  bottom: 2px;
+}
+
+/* DISPLAY */
+.weather-display {
+  display: flex;
+  width: 80%;
+  opacity: 1;
+  visibility: 1;
+
+  justify-content: space-between;
+  transition: 0.5s ease-in-out;
+}
+
+.cast-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 300px;
+}
+
+.cast-display > img {
+  animation: slide-in 0.5s forwards ease-in-out;
+  animation-delay: 0.2s;
+  height: 300px;
+  width: 100%;
+  opacity: 0;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-display {
+  font-size: 30px;
+  font-weight: 500;
+  font-family: "M PLUS 2", Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  gap: 5px;
+
+  transition: all 0.7s ease-in-out;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.current-temp {
+  font-size: 55px;
+  font-weight: 700;
+}
+
+.cast-temp {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 2px;
+}
+
+.humidity {
+  display: flex;
+  gap: 5px;
+}
+
+.humidity > img {
+  display: inline-block;
+}
+
+.cast {
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.misc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.wind {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.wind > img {
+  display: inline-block;
+}
+
+/* LOADING */
+.loading-begin {
+  color: white;
+  font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 9vmin;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+
+  position: static;
+  top: 30vh;
+  height: 400px;
+  background-color: inherit;
+  opacity: 1;
+  z-index: 9;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+
+  box-sizing: border-box;
+  background-color: black;
+}
+
+body,
+html {
+  font-family: "Poppins", sans-serif, Verdana, Geneva, Tahoma;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1048px) {
+  .city-name {
+    width: 100%;
+  }
+  header > h1 {
+    font-size: 10vw;
+  }
+  header {
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+  }
+  .weather-display {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 0;
+  }
+  .cast-display {
+    width: 100%;
+  }
+  .info {
+    gap: 10vmin;
+  }
+  .loading-begin {
+    top: 35vh !important;
+  }
+  body {
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .loading-begin {
+    top: 30vh !important;
+  }
+}
