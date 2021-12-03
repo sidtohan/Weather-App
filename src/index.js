@@ -10,10 +10,11 @@ const displayHandler = () => {
   const humidityDiv = document.querySelector(".humidity");
   const windDiv = document.querySelector(".wind");
 
-  const returnImage = (condition) => {
-    const imageData = imageHandler().weatherIcon(condition);
+  const returnImage = async (condition) => {
+    const imageData = await imageHandler().weatherIcon(condition);
     const newImg = new Image();
     newImg.src = imageData;
+    console.log(newImg);
     return newImg;
   };
 
@@ -58,7 +59,7 @@ const displayHandler = () => {
     windDiv.textContent = wind;
   };
 
-  const updateData = (data) => {
+  const updateData = async (data) => {
     /*
     const info = `
     <div class="info-display">
@@ -80,7 +81,8 @@ const displayHandler = () => {
     cast.classList.add("cast-display");
     info.classList.add("info-display");
 
-    cast.appendChild(returnImage(data["weather"][0]["main"]));
+    const imgDat = await returnImage(data["weather"][0]["main"]);
+    cast.appendChild(imgDat);
     info.appendChild(returnCurrentTemp(data["main"]["temp"]));
     // updateMaxTemp(data["main"]["temp_max"]);
     // updateMinTemp(data["main"]["temp_min"]);
@@ -88,8 +90,10 @@ const displayHandler = () => {
     // updateHumidity(data["main"]["humidity"]);
     // updateWind(data["wind"]["speed"]);
 
+    
     weatherDisplay.appendChild(cast);
     weatherDisplay.appendChild(info);
+    document.body.removeChild(document.querySelector(".loading-begin"));
     return;
   };
   return {

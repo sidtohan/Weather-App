@@ -17,7 +17,6 @@ const apiHandler = (() => {
       mode: "cors",
     });
     const data = await response.json();
-    document.body.removeChild(document.querySelector(".loading-begin"));
     return data;
   }
 

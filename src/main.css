@@ -134,7 +134,7 @@ header > h1 {
 }
 
 .current-temp {
-  font-size: 55px;
+  font-size: 70px;
   font-weight: 700;
 }
 
@@ -182,7 +182,7 @@ header > h1 {
 .loading-begin {
   color: white;
   font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 9vmin;
+  font-size: 6vw;
   font-weight: 500;
   width: 100%;
   text-align: center;
@@ -197,6 +197,7 @@ header > h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: inherit;
 }
 
 body {
@@ -204,9 +205,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 60px;
-
   box-sizing: border-box;
-  background-color: rebeccapurple;
 }
 
 body,
@@ -215,8 +214,12 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
+  height: 100%;
 }
 
+html{
+  background: linear-gradient(246.17deg, #7a04c3 21.35%, #103753 97.99%);
+}
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -228,7 +231,9 @@ html {
   }
   header > h1 {
     font-size: 10vw;
+    padding-bottom: 2vh;
   }
+
   header {
     flex-direction: column;
     width: 80%;
@@ -237,25 +242,29 @@ html {
   .weather-display {
     flex-direction: column;
     align-items: center;
-    gap: 1.5vh;
+    gap: 30px;
     width: 100%;
+  }
+  .cast-display > img {
+    height: 267px;
+    width: 85%;
   }
   .cast-display {
     width: 100%;
-    height: 400px;
-  }
-  .cast-display > img{
-    height: 400px;
-    width: 80%;
+    height: auto;
   }
   .info {
-    gap: 10vmin;
+    gap: 10vw;
+  }
+  .current-temp {
+    font-size: 13vw;
   }
   .loading-begin {
     top: 35vh !important;
+    font-size: 9vw;
   }
   body {
-    gap: 15px;
+    gap: 10vh;
   }
 }
 

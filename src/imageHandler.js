@@ -8,7 +8,7 @@ import Thunderstorm from "./assets/weather/thunderstorm.svg";
 import Humidity from "./assets/humidity.svg";
 import Wind from "./assets/wind.svg";
 const imageHandler = () => {
-  function weatherIcon(data) {
+  async function weatherIcon(data) {
     if (data == "Haze") {
       return Haze;
     } else if (data == "Rain") {
