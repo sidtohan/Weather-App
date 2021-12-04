@@ -4,8 +4,6 @@ import "./main.css";
 
 const displayHandler = () => {
   const weatherDisplay = document.querySelector(".weather-display");
-  const minTemp = document.querySelector(".min-temp");
-  const maxTemp = document.querySelector(".max-temp");
   const castText = document.querySelector(".cast");
   const humidityDiv = document.querySelector(".humidity");
   const windDiv = document.querySelector(".wind");
@@ -14,7 +12,6 @@ const displayHandler = () => {
     const imageData = await imageHandler().weatherIcon(condition);
     const newImg = new Image();
     newImg.src = imageData;
-    console.log(newImg);
     return newImg;
   };
 
@@ -25,14 +22,35 @@ const displayHandler = () => {
     return currentTemp;
   };
 
-  const updateMaxTemp = (temp) => {
-    maxTemp.textContent = `${Math.round(temp - 273)}°C(Max)`;
-    return;
+  const returnMaxTemp = (temp) => {
+    const maxTemp = document.createElement("div");
+    maxTemp.classList.add("max-temp");
+
+    imageHandler()
+      .getUpTriangle()
+      .then((dat) => {
+        const newImage = new Image();
+        newImage.src = dat;
+        newImage.classList.add("max-temp-logo");
+        maxTemp.appendChild(newImage);
+      });
+    maxTemp.textContent = `${Math.round(temp - 273)}°C`;
+    return maxTemp;
   };
 
-  const updateMinTemp = (temp) => {
-    minTemp.textContent = `${Math.round(temp - 273)}°C(Min)`;
-    return;
+  const returnMinTemp = (temp) => {
+    const minTemp = document.createElement("div");
+    minTemp.classList.add("min-temp");
+    imageHandler()
+      .getDownTriangle()
+      .then((dat) => {
+        const newImage = new Image();
+        newImage.src = dat;
+        newImage.classList.add("min-temp-logo");
+        minTemp.appendChild(newImage);
+      });
+    minTemp.textContent = `${Math.round(temp - 273)}°C`;
+    return minTemp;
   };
 
   const updateCast = (cast) => {
@@ -60,6 +78,7 @@ const displayHandler = () => {
   };
 
   const updateData = async (data) => {
+    console.log(data);
     /*
     const info = `
     <div class="info-display">
@@ -78,19 +97,26 @@ const displayHandler = () => {
     </div>`*/
     const cast = document.createElement("div");
     const info = document.createElement("div");
+    const minMaxTemp = document.createElement("div");
+    const whiteBlock = document.createElement("div");
+
     cast.classList.add("cast-display");
     info.classList.add("info-display");
+    minMaxTemp.classList.add("min-max-temp");
+    whiteBlock.classList.add("white-block");
 
+    // need to await here cuz of the possible image delays
     const imgDat = await returnImage(data["weather"][0]["main"]);
     cast.appendChild(imgDat);
     info.appendChild(returnCurrentTemp(data["main"]["temp"]));
-    // updateMaxTemp(data["main"]["temp_max"]);
-    // updateMinTemp(data["main"]["temp_min"]);
+    minMaxTemp.appendChild(returnMaxTemp(data["main"]["temp_max"]));
+    minMaxTemp.appendChild(returnMinTemp(data["main"]["temp_min"]));
     // updateCast(data["weather"][0]["main"]);
     // updateHumidity(data["main"]["humidity"]);
     // updateWind(data["wind"]["speed"]);
 
-    
+    info.appendChild(whiteBlock);
+    info.appendChild(minMaxTemp);
     weatherDisplay.appendChild(cast);
     weatherDisplay.appendChild(info);
     document.body.removeChild(document.querySelector(".loading-begin"));

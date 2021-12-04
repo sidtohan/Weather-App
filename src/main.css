@@ -77,7 +77,7 @@ header > h1 {
 /* DISPLAY */
 .weather-display {
   display: flex;
-  width: 60%;
+  width: 70%;
   opacity: 1;
   justify-content: center;
   transition: 0.5s ease-in-out;
@@ -116,15 +116,18 @@ header > h1 {
   font-family: "M PLUS 2", Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   text-align: center;
-
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 50%;
-  gap: 5px;
-
+  gap: 20px;
   transition: all 0.7s ease-in-out;
+}
+
+.white-block{
+  height:70px;
+  width: 7px;
+  background-color: #fff;
 }
 
 .info {
@@ -133,6 +136,11 @@ header > h1 {
   gap: 100px;
 }
 
+.max-temp-logo,.min-temp-logo{
+  height: 20px;
+  margin-left: 7px;
+  display: inline-block;
+}
 .current-temp {
   font-size: 70px;
   font-weight: 700;
@@ -143,6 +151,11 @@ header > h1 {
   flex-direction: column;
   text-align: left;
   gap: 2px;
+}
+
+.min-max-temp{
+  display: flex;
+  flex-direction: column;
 }
 
 .humidity {
@@ -182,7 +195,7 @@ header > h1 {
 .loading-begin {
   color: white;
   font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 6vw;
+  font-size: 60px;
   font-weight: 500;
   width: 100%;
   text-align: center;
@@ -217,7 +230,7 @@ html {
   height: 100%;
 }
 
-html{
+html {
   background: linear-gradient(246.17deg, #7a04c3 21.35%, #103753 97.99%);
 }
 * {

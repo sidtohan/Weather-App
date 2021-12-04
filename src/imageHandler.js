@@ -5,6 +5,8 @@ import Clear from "./assets/weather/clear.svg";
 import Drizzle from "./assets/weather/drizzle.svg";
 import Thunderstorm from "./assets/weather/thunderstorm.svg";
 
+import UpTriangle from "./assets/up-triangle.svg";
+import DownTriangle from "./assets/down-triangle.svg";
 import Humidity from "./assets/humidity.svg";
 import Wind from "./assets/wind.svg";
 const imageHandler = () => {
@@ -22,16 +24,24 @@ const imageHandler = () => {
     }
   }
 
-  function getHumidityImage() {
+  async function getHumidityImage() {
     return Humidity;
   }
-  function getWindImage() {
+  async function getWindImage() {
     return Wind;
+  }
+  async function getUpTriangle() {
+    return UpTriangle;
+  }
+  async function getDownTriangle() {
+    return DownTriangle;
   }
   return {
     weatherIcon,
     getHumidityImage,
     getWindImage,
+    getUpTriangle,
+    getDownTriangle,
   };
 };
 
