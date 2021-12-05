@@ -144,11 +144,19 @@ header > h1 {
   width: 450px;
 }
 
-.display-city-name {
+.display-city-name,
+.display-cast-name {
   margin: 0;
   font-size: 45px;
   color: white;
 }
+
+.display-cast-name {
+  font-family: "M PLUS 2", Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+}
+
 .max-temp-logo,
 .min-temp-logo {
   height: 20px;
@@ -250,6 +258,8 @@ html {
 
 html {
   background: linear-gradient(246.17deg, #7a04c3 21.35%, #103753 97.99%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -286,6 +296,9 @@ html {
   }
   .info {
     gap: 10vw;
+  }
+  .info-holder{
+    padding-bottom: 40px;
   }
   .current-temp {
     font-size: 13vw;

@@ -86,6 +86,7 @@ const displayHandler = () => {
     const whiteBlock = document.createElement("div");
     const infoHolder = document.createElement("div");
     const cityName = document.createElement("h2");
+    const castName = document.createElement("h2");
 
     cast.classList.add("cast-display");
     info.classList.add("info-display");
@@ -93,6 +94,7 @@ const displayHandler = () => {
     whiteBlock.classList.add("white-block");
     infoHolder.classList.add("info-holder");
     cityName.classList.add("display-city-name");
+    castName.classList.add("display-cast-name");
 
     // need to await here cuz of the possible image delays
     const imgDat = await returnImage(data["weather"][0]["main"]);
@@ -105,11 +107,13 @@ const displayHandler = () => {
     // updateWind(data["wind"]["speed"]);
 
     cityName.textContent = data["name"];
+    castName.textContent = data["weather"][0]["main"];
     info.appendChild(whiteBlock);
     info.appendChild(minMaxTemp);
 
     infoHolder.appendChild(cityName);
     infoHolder.appendChild(info);
+    infoHolder.appendChild(castName);
     weatherDisplay.appendChild(cast);
     weatherDisplay.appendChild(infoHolder);
     document.body.removeChild(document.querySelector(".loading-begin"));
