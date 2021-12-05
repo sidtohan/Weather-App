@@ -79,31 +79,20 @@ const displayHandler = () => {
 
   const updateData = async (data) => {
     console.log(data);
-    /*
-    const info = `
-    <div class="info-display">
-      <div class="current-temp"></div>
-      <div class="info">
-        <div class="cast-temp">
-          <div class="cast"></div>
-          <div class="max-temp"></div>
-          <div class="min-temp"></div>
-        </div>
-        <div class="misc">
-          <div class="humidity"></div>
-          <div class="wind"></div>
-        </div>
-      </div>
-    </div>`*/
+
     const cast = document.createElement("div");
     const info = document.createElement("div");
     const minMaxTemp = document.createElement("div");
     const whiteBlock = document.createElement("div");
+    const infoHolder = document.createElement("div");
+    const cityName = document.createElement("h2");
 
     cast.classList.add("cast-display");
     info.classList.add("info-display");
     minMaxTemp.classList.add("min-max-temp");
     whiteBlock.classList.add("white-block");
+    infoHolder.classList.add("info-holder");
+    cityName.classList.add("display-city-name");
 
     // need to await here cuz of the possible image delays
     const imgDat = await returnImage(data["weather"][0]["main"]);
@@ -115,10 +104,14 @@ const displayHandler = () => {
     // updateHumidity(data["main"]["humidity"]);
     // updateWind(data["wind"]["speed"]);
 
+    cityName.textContent = data["name"];
     info.appendChild(whiteBlock);
     info.appendChild(minMaxTemp);
+
+    infoHolder.appendChild(cityName);
+    infoHolder.appendChild(info);
     weatherDisplay.appendChild(cast);
-    weatherDisplay.appendChild(info);
+    weatherDisplay.appendChild(infoHolder);
     document.body.removeChild(document.querySelector(".loading-begin"));
     return;
   };

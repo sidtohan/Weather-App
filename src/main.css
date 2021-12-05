@@ -119,13 +119,13 @@ header > h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 100%;
   gap: 20px;
   transition: all 0.7s ease-in-out;
 }
 
-.white-block{
-  height:70px;
+.white-block {
+  height: 70px;
   width: 7px;
   background-color: #fff;
 }
@@ -136,7 +136,21 @@ header > h1 {
   gap: 100px;
 }
 
-.max-temp-logo,.min-temp-logo{
+.info-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 450px;
+}
+
+.display-city-name {
+  margin: 0;
+  font-size: 45px;
+  color: white;
+}
+.max-temp-logo,
+.min-temp-logo {
   height: 20px;
   margin-left: 7px;
   display: inline-block;
@@ -153,7 +167,7 @@ header > h1 {
   gap: 2px;
 }
 
-.min-max-temp{
+.min-max-temp {
   display: flex;
   flex-direction: column;
 }
@@ -191,6 +205,10 @@ header > h1 {
   display: inline-block;
 }
 
+.min-temp,
+.max-temp {
+  text-align: right;
+}
 /* LOADING */
 .loading-begin {
   color: white;
