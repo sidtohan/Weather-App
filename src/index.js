@@ -7,12 +7,20 @@ const displayHandler = () => {
   const castText = document.querySelector(".cast");
   const humidityDiv = document.querySelector(".humidity");
   const windDiv = document.querySelector(".wind");
+  const tempInfo = document.querySelector(".temp-info");
 
   const returnImage = async (condition) => {
     const imageData = await imageHandler().weatherIcon(condition);
     const newImg = new Image();
     newImg.src = imageData;
     return newImg;
+  };
+
+  const returnCityName = (name) => {
+    const nameDiv = document.createElement("div");
+    nameDiv.textContent = name;
+    nameDiv.classList.add("display-city-name");
+    return nameDiv;
   };
 
   const returnCurrentTemp = (temp) => {
@@ -78,13 +86,11 @@ const displayHandler = () => {
   };
 
   const updateData = async (data) => {
-    weatherDisplay.innerHTML = '';  
+    tempInfo.innerHTML = "";
     console.log(data);
 
-    const tempInfo = document.createElement("div");
-    tempInfo.classList.add("temp-info");
-
     tempInfo.appendChild(returnCurrentTemp(data["main"]["temp"]));
+    tempInfo.appendChild(returnCityName(data["name"]));
     weatherDisplay.appendChild(tempInfo);
 
     document.body.removeChild(document.querySelector(".loading-begin"));

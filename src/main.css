@@ -5,7 +5,7 @@
 header {
   display: flex;
   justify-content: center;
-  padding: 10vh 0;
+  padding: 50px 0;
   width: 80%;
 }
 
@@ -83,6 +83,16 @@ header > h1 {
   opacity: 1;
   justify-content: center;
   color: #fff;
+
+  font-size: 50px;
+  padding: 20px;
+  gap: 50px;
+}
+
+.temp-info{
+  display: flex;
+  flex-direction: column;
+  font-size: 60px;
 }
 
 .cast-display {
@@ -146,18 +156,11 @@ header > h1 {
   width: 450px;
 }
 
-.display-city-name,
-.display-cast-name {
-  margin: 0;
-  font-size: 45px;
-  color: white;
+.display-city-name{
+  font-size: 50px;
+  font-weight: 500;
 }
 
-.display-cast-name {
-  font-family: "M PLUS 2", Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 35px;
-  font-weight: 700;
-}
 
 .max-temp-logo,
 .min-temp-logo {
@@ -167,7 +170,6 @@ header > h1 {
 }
 
 .current-temp {
-  font-size: 70px;
   font-weight: 700;
 }
 
