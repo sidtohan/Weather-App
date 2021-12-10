@@ -78,44 +78,15 @@ const displayHandler = () => {
   };
 
   const updateData = async (data) => {
+    weatherDisplay.innerHTML = '';
     console.log(data);
 
-    const cast = document.createElement("div");
-    const info = document.createElement("div");
-    const minMaxTemp = document.createElement("div");
-    const whiteBlock = document.createElement("div");
-    const infoHolder = document.createElement("div");
-    const cityName = document.createElement("h2");
-    const castName = document.createElement("h2");
+    const tempInfo = document.createElement("div");
+    tempInfo.classList.add("temp-info");
 
-    cast.classList.add("cast-display");
-    info.classList.add("info-display");
-    minMaxTemp.classList.add("min-max-temp");
-    whiteBlock.classList.add("white-block");
-    infoHolder.classList.add("info-holder");
-    cityName.classList.add("display-city-name");
-    castName.classList.add("display-cast-name");
+    tempInfo.appendChild(returnCurrentTemp(data["main"]["temp"]));
+    weatherDisplay.appendChild(tempInfo);
 
-    // need to await here cuz of the possible image delays
-    const imgDat = await returnImage(data["weather"][0]["main"]);
-    cast.appendChild(imgDat);
-    info.appendChild(returnCurrentTemp(data["main"]["temp"]));
-    minMaxTemp.appendChild(returnMaxTemp(data["main"]["temp_max"]));
-    minMaxTemp.appendChild(returnMinTemp(data["main"]["temp_min"]));
-    // updateCast(data["weather"][0]["main"]);
-    // updateHumidity(data["main"]["humidity"]);
-    // updateWind(data["wind"]["speed"]);
-
-    cityName.textContent = data["name"];
-    castName.textContent = data["weather"][0]["main"];
-    info.appendChild(whiteBlock);
-    info.appendChild(minMaxTemp);
-
-    infoHolder.appendChild(cityName);
-    infoHolder.appendChild(info);
-    infoHolder.appendChild(castName);
-    weatherDisplay.appendChild(cast);
-    weatherDisplay.appendChild(infoHolder);
     document.body.removeChild(document.querySelector(".loading-begin"));
     return;
   };
@@ -146,4 +117,13 @@ const formHandler = () => {
   }
 };
 
+window.addEventListener("DOMContentLoaded", () => {
+  apiHandler
+    .callApi("New Delhi")
+    .then((data) => displayHandler().updateData(data))
+    .catch((error) => {
+      console.log(error);
+    });
+  inputForm.reset();
+});
 window.addEventListener("DOMContentLoaded", formHandler);

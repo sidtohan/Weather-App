@@ -29,7 +29,7 @@ header > h1 {
   border-top-right-radius: 0;
   padding: 5px;
   text-align: center;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 700;
   color: #4d4b4b;
   font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
@@ -45,7 +45,7 @@ header > h1 {
   font-weight: 700;
   color: #4d4b4b;
   opacity: 1;
-  font-size: 40px;
+  font-size: 35px;
 
   font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -58,7 +58,7 @@ header > h1 {
   cursor: pointer;
   background-color: white;
   font-family: "Poppins";
-  font-size: 40px;
+  font-size: 35px;
   padding: 3px 21px;
   font-weight: 700;
   border: none;
@@ -82,7 +82,6 @@ header > h1 {
   width: 70%;
   opacity: 1;
   justify-content: center;
-  transition: 0.5s ease-in-out;
 }
 
 .cast-display {
@@ -165,6 +164,7 @@ header > h1 {
   margin-left: 7px;
   display: inline-block;
 }
+
 .current-temp {
   font-size: 70px;
   font-weight: 700;
@@ -228,39 +228,58 @@ header > h1 {
   width: 100%;
   text-align: center;
 
-  position: static;
-  top: 30vh;
-  height: 400px;
-  background-color: inherit;
-  opacity: 1;
-  z-index: 9;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: inherit;
+  background-color: #01223aef;
+  z-index: 10;
 }
 
 /* WEATHER EFFECTs */
 .sun {
-  background-image: url("./assets/sun.svg");
+  background-image: url(http://127.0.0.1:5500/dist/818f59af4f556d601fba.svg);
   background-size: cover;
   height: 150px;
   width: 150px;
-  position: absolute;
-  top: 25%;
-  left: 80%;
+  z-index: 9;
+
+  
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 60px 10px rgb(255 255 0);
 }
+
+.hills1,
+.hills2 {
+  background-size: cover;
+  position: absolute;
+  
+  top: 380px;
+  width: 100%;
+  height: 45vh;
+}
+.hills1 {
+  background-image: url("./assets/hills1.svg");
+  z-index: 9;
+}
+
+.hills2 {
+  background-image: url("./assets/hills2.svg");
+  z-index: 8;
+  top: 360px;
+}
+/* BODY */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
   box-sizing: border-box;
 
-  background: url("assets/background.svg");
-  background-size: 100%;
-  background-repeat: no-repeat;
+  background-color: #0095ff;
 }
 
 body,
@@ -318,13 +337,5 @@ html {
     top: 35vh !important;
     font-size: 9vw;
   }
-  body {
-    gap: 10vh;
-  }
 }
 
-@media screen and (max-width: 414px) {
-  .loading-begin {
-    top: 30vh !important;
-  }
-}
