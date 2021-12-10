@@ -78,7 +78,7 @@ const displayHandler = () => {
   };
 
   const updateData = async (data) => {
-    weatherDisplay.innerHTML = '';
+    weatherDisplay.innerHTML = '';  
     console.log(data);
 
     const tempInfo = document.createElement("div");
