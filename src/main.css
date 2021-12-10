@@ -4,7 +4,8 @@
 /* HEADER */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  padding: 10vh 0;
   width: 80%;
 }
 
@@ -22,17 +23,18 @@ header > h1 {
 }
 
 .city-name {
-  background: transparent;
+  background: #fff;
   border-radius: 50px;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   padding: 5px;
   text-align: center;
-  font-size: 20px;
-  font-weight: 500;
-  color: white;
+  font-size: 40px;
+  font-weight: 700;
+  color: #4d4b4b;
   font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
-  border: solid 2px white;
+
+  border: none;
 }
 
 .city-name:focus {
@@ -40,10 +42,10 @@ header > h1 {
 }
 
 ::placeholder {
-  font-weight: 500;
-  color: white;
+  font-weight: 700;
+  color: #4d4b4b;
   opacity: 1;
-  font-size: 20px;
+  font-size: 40px;
 
   font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -54,21 +56,21 @@ header > h1 {
 
 .user-input > button {
   cursor: pointer;
-  background-color: transparent;
+  background-color: white;
   font-family: "Poppins";
-  font-size: 20px;
-  padding: 5px 12px;
+  font-size: 40px;
+  padding: 3px 21px;
   font-weight: 700;
   border: none;
-  border-top-right-radius: 25px;
+  border-top-right-radius: 35px;
   border: solid 2px white;
-  border-bottom-right-radius: 25px;
+  border-bottom-right-radius: 35px;
   border-left-width: 0;
 }
 
 .user-input img {
   vertical-align: middle;
-  height: 23px;
+  height: 30px;
   width: auto;
   position: relative;
   bottom: 2px;
@@ -239,12 +241,26 @@ header > h1 {
   background-color: inherit;
 }
 
+/* WEATHER EFFECTs */
+.sun {
+  background-image: url("./assets/sun.svg");
+  background-size: cover;
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  top: 25%;
+  left: 80%;
+}
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 60px;
   box-sizing: border-box;
+
+  background: url("assets/background.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 body,
@@ -256,11 +272,6 @@ html {
   height: 100%;
 }
 
-html {
-  background: linear-gradient(246.17deg, #7a04c3 21.35%, #103753 97.99%);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-}
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -297,7 +308,7 @@ html {
   .info {
     gap: 10vw;
   }
-  .info-holder{
+  .info-holder {
     padding-bottom: 40px;
   }
   .current-temp {
