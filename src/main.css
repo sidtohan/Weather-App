@@ -255,25 +255,29 @@ header > h1 {
   box-shadow: 0 0 60px 10px rgb(255 255 0);
 }
 
+.hills-container{
+  margin-top: 50px;
+  height: 400px;
+  width: 100%;
+}
+
 .hills1,
 .hills2 {
   background-size: cover;
   position: absolute;
 
-  top: 380px;
   width: 100%;
-  height: 45vh;
+  height: 400px;
 }
 .hills1 {
   background-image: url("./assets/hills1.svg");
-  z-index: 9;
 }
 
 .hills2 {
   background-image: url("./assets/hills2.svg");
-  z-index: 8;
-  top: 360px;
+  bottom: -10px;
 }
+
 /* BODY */
 body {
   display: flex;
