@@ -7,7 +7,6 @@ const displayHandler = () => {
   const castText = document.querySelector(".cast");
   const humidityDiv = document.querySelector(".humidity");
   const windDiv = document.querySelector(".wind");
-  const tempInfo = document.querySelector(".temp-info");
 
   const returnImage = async (condition) => {
     const imageData = await imageHandler().weatherIcon(condition);
@@ -85,12 +84,20 @@ const displayHandler = () => {
     windDiv.textContent = wind;
   };
 
-  const updateData = async (data) => {
-    tempInfo.innerHTML = "";
+  const updateData = (data) => {
+    weatherDisplay.innerHTML = "";
     console.log(data);
+
+    const tempInfo = document.createElement("div");
+    tempInfo.classList.add("temp-info");
+
+    const sun = document.createElement("div");
+    sun.classList.add("sun");
 
     tempInfo.appendChild(returnCurrentTemp(data["main"]["temp"]));
     tempInfo.appendChild(returnCityName(data["name"]));
+
+    weatherDisplay.appendChild(sun);
     weatherDisplay.appendChild(tempInfo);
 
     document.body.removeChild(document.querySelector(".loading-begin"));
@@ -106,16 +113,23 @@ const formHandler = () => {
   inputForm.onsubmit = passCityName;
 
   function getCityName() {
-    return inputForm.elements[0];
+    return inputForm.elements[0].value;
   }
 
   function passCityName(e) {
     const cityName = getCityName();
     e.preventDefault();
 
+    if (cityName == "") {
+      console.log("Empty");
+      inputForm.reset();
+      return;
+    }
     apiHandler
-      .callApi(cityName.value)
-      .then((data) => displayHandler().updateData(data))
+      .callApi(cityName)
+      .then((data) => {
+        displayHandler().updateData(data);
+      })
       .catch((error) => {
         console.log(error);
       });
