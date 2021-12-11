@@ -5,8 +5,8 @@
 header {
   display: flex;
   justify-content: center;
-  padding: 50px 0;
-  width: 80%;
+  width: 60%;
+  margin-top: 60px;
 }
 
 header > h1 {
@@ -20,6 +20,8 @@ header > h1 {
 .user-input {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 80%;
 }
 
 .city-name {
@@ -35,6 +37,7 @@ header > h1 {
   font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
 
   border: none;
+  width: 90%;
 }
 
 .city-name:focus {
@@ -66,6 +69,9 @@ header > h1 {
   border: solid 2px white;
   border-bottom-right-radius: 35px;
   border-left-width: 0;
+
+  width: 10%;
+  min-width: 70px;
 }
 
 .user-input img {
@@ -89,10 +95,11 @@ header > h1 {
   gap: 50px;
 }
 
-.temp-info{
+.temp-info {
   display: flex;
   flex-direction: column;
-  font-size: 60px;
+  font-size: 50px;
+  justify-content: center;
 }
 
 .cast-display {
@@ -156,11 +163,10 @@ header > h1 {
   width: 450px;
 }
 
-.display-city-name{
-  font-size: 50px;
+.display-city-name {
+  font-size: 45px;
   font-weight: 500;
 }
-
 
 .max-temp-logo,
 .min-temp-logo {
@@ -171,6 +177,7 @@ header > h1 {
 
 .current-temp {
   font-weight: 700;
+  line-height: 40px;
 }
 
 .cast-temp {
@@ -255,39 +262,35 @@ header > h1 {
   box-shadow: 0 0 60px 10px rgb(255 255 0);
 }
 
-.hills-container{
-  margin-top: 50px;
-  height: 400px;
+.hills-container {
+  min-height: 400px;
   width: 100%;
+
+  position: relative;
 }
 
 .hills1,
 .hills2 {
   background-size: cover;
+  background-repeat: no-repeat;
   position: absolute;
+  bottom: 0;
 
   width: 100%;
-  height: 400px;
+  height: 100%;
 }
 .hills1 {
   background-image: url("./assets/hills1.svg");
+  height: 70%;
+  z-index: 9;
 }
 
 .hills2 {
   background-image: url("./assets/hills2.svg");
-  bottom: -10px;
+  z-index: 8;
 }
 
 /* BODY */
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-
-  background-color: #0095ff;
-}
-
 body,
 html {
   font-family: "Poppins", sans-serif, Verdana, Geneva, Tahoma;
@@ -297,50 +300,25 @@ html {
   height: 100%;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 60px;
+
+  box-sizing: border-box;
+  background-color: #0095ff;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 1048px) {
-  .city-name {
-    width: 100%;
-  }
-  header > h1 {
-    font-size: 10vw;
-    padding-bottom: 2vh;
-  }
-
-  header {
-    flex-direction: column;
-    width: 80%;
-    align-items: center;
-  }
-  .weather-display {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-  }
-  .cast-display > img {
-    height: 267px;
-    width: 85%;
-  }
-  .cast-display {
-    width: 100%;
-    height: auto;
-  }
-  .info {
-    gap: 10vw;
-  }
-  .info-holder {
-    padding-bottom: 40px;
-  }
-  .current-temp {
-    font-size: 13vw;
-  }
-  .loading-begin {
-    top: 35vh !important;
-    font-size: 9vw;
-  }
 }

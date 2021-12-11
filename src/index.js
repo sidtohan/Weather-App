@@ -130,6 +130,5 @@ window.addEventListener("DOMContentLoaded", () => {
     .catch((error) => {
       console.log(error);
     });
-  inputForm.reset();
 });
 window.addEventListener("DOMContentLoaded", formHandler);
