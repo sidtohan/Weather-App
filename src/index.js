@@ -4,15 +4,12 @@ import "./main.css";
 
 const displayHandler = () => {
   const weatherDisplay = document.querySelector(".weather-display");
-  const castText = document.querySelector(".cast");
-  const humidityDiv = document.querySelector(".humidity");
-  const windDiv = document.querySelector(".wind");
-
-  const returnImage = async (condition) => {
-    const imageData = await imageHandler().weatherIcon(condition);
-    const newImg = new Image();
-    newImg.src = imageData;
-    return newImg;
+  
+  const returnCondition = (cond) => {
+    const condDiv = document.createElement("div");
+    condDiv.textContent = cond;
+    condDiv.classList.add("display-condition");
+    return condDiv;
   };
 
   const returnCityName = (name) => {
@@ -24,7 +21,7 @@ const displayHandler = () => {
 
   const returnCurrentTemp = (temp) => {
     const currentTemp = document.createElement("div");
-    currentTemp.classList.add("current-temp");
+    currentTemp.classList.add("display-current-temp");
     currentTemp.textContent = `${Math.round(temp - 273)}°C`;
     return currentTemp;
   };
@@ -60,29 +57,8 @@ const displayHandler = () => {
     return minTemp;
   };
 
-  const updateCast = (cast) => {
-    castText.textContent = cast;
-    return;
-  };
 
-  const updateHumidity = (humidity) => {
-    humidityDiv.innerHTML = "";
-    humidityDiv.textContent = humidity;
 
-    imageHandler()
-      .getHumidityImage()
-      .then((imageData) => {
-        const humidityLogo = new Image();
-        humidityLogo.src = imageData;
-        humidityDiv.appendChild(humidityLogo);
-        return;
-      });
-  };
-
-  const updateWind = (wind) => {
-    windDiv.innerHTML = "";
-    windDiv.textContent = wind;
-  };
 
   const updateData = (data) => {
     weatherDisplay.innerHTML = "";
@@ -95,6 +71,7 @@ const displayHandler = () => {
     sun.classList.add("sun");
 
     tempInfo.appendChild(returnCurrentTemp(data["main"]["temp"]));
+    tempInfo.appendChild(returnCondition(data["weather"][0]["main"]));
     tempInfo.appendChild(returnCityName(data["name"]));
 
     weatherDisplay.appendChild(sun);

@@ -91,7 +91,7 @@ header > h1 {
   color: #fff;
 
   font-size: 50px;
-  padding: 60px 20px;
+  padding: 80px 20px;
   gap: 50px;
 }
 
@@ -102,20 +102,20 @@ header > h1 {
   justify-content: center;
 }
 
-.cast-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  height: 350px;
+.display-city-name {
+  font-size: 45px;
+  font-weight: 500;
 }
 
-.cast-display > img {
-  animation: slide-in 0.5s forwards ease-in-out;
-  animation-delay: 0.2s;
-  height: 350px;
-  width: 100%;
-  opacity: 0;
+.display-condition{
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.display-current-temp {
+  font-weight: 700;
+  line-height: 40px;
 }
 
 @keyframes slide-in {
@@ -163,11 +163,6 @@ header > h1 {
   width: 450px;
 }
 
-.display-city-name {
-  font-size: 45px;
-  font-weight: 500;
-}
-
 .max-temp-logo,
 .min-temp-logo {
   height: 20px;
@@ -175,10 +170,6 @@ header > h1 {
   display: inline-block;
 }
 
-.current-temp {
-  font-weight: 700;
-  line-height: 40px;
-}
 
 .cast-temp {
   display: flex;
@@ -251,7 +242,7 @@ header > h1 {
 
 /* WEATHER EFFECTs */
 .sun {
-  background-image: url(http://127.0.0.1:5500/dist/818f59af4f556d601fba.svg);
+  background-image: url("./assets/sun.svg");
   background-size: cover;
   height: 150px;
   width: 150px;
