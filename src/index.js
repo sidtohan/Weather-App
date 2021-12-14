@@ -4,7 +4,7 @@ import "./main.css";
 
 const displayHandler = () => {
   const weatherDisplay = document.querySelector(".weather-display");
-  
+
   const returnCondition = (cond) => {
     const condDiv = document.createElement("div");
     condDiv.textContent = cond;
@@ -57,12 +57,17 @@ const displayHandler = () => {
     return minTemp;
   };
 
-
-
+  const updateBackground = (cond) => {
+    if (cond == "Haze" || cond == "Smoke") {
+      document.body.style.background =
+        "linear-gradient(180deg, rgba(1, 69, 117, 0) 0%, rgba(1, 69, 117, 0.5) 0.01%, #014575 100%)";
+    } else {
+      document.body.style.background = "#0095ff";
+    }
+  };
 
   const updateData = (data) => {
     weatherDisplay.innerHTML = "";
-    console.log(data);
 
     const tempInfo = document.createElement("div");
     tempInfo.classList.add("temp-info");
@@ -77,6 +82,7 @@ const displayHandler = () => {
     weatherDisplay.appendChild(sun);
     weatherDisplay.appendChild(tempInfo);
 
+    updateBackground(data["weather"][0]["main"]);
     document.body.removeChild(document.querySelector(".loading-begin"));
     return;
   };
@@ -93,12 +99,31 @@ const formHandler = () => {
     return inputForm.elements[0].value;
   }
 
+  function handleError(err) {
+    console.log(err);
+    const errorDiv = document.createElement("div");
+    if (err.message == "404") {
+      errorDiv.textContent = "Invalid City Name";
+    } else {
+      errorDiv.textContent = "Empty Input";
+    }
+    errorDiv.classList.add("display-error");
+    errorDiv.addEventListener("animationend", (e) => {
+      document.body.removeChild(errorDiv);
+    });
+    document.body.appendChild(errorDiv);
+    return;
+  }
   function passCityName(e) {
     const cityName = getCityName();
+    const errorDiv = document.querySelector(".display-error");
+    if (errorDiv) {
+      document.body.removeChild(errorDiv);
+    }
     e.preventDefault();
 
     if (cityName == "") {
-      console.log("Empty");
+      handleError(new Error("Empty"));
       inputForm.reset();
       return;
     }
@@ -108,7 +133,7 @@ const formHandler = () => {
         displayHandler().updateData(data);
       })
       .catch((error) => {
-        console.log(error);
+        handleError(error);
       });
     inputForm.reset();
   }
@@ -118,8 +143,6 @@ window.addEventListener("DOMContentLoaded", () => {
   apiHandler
     .callApi("New Delhi")
     .then((data) => displayHandler().updateData(data))
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => {});
 });
 window.addEventListener("DOMContentLoaded", formHandler);
