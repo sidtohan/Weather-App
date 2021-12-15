@@ -7,7 +7,7 @@
   transform: translateY(-100%);
   animation: error-pop-in 3s ease-in-out forwards;
   color: white;
-  background-color: rgb(252, 69, 69);
+  background-color: rgb(255, 30, 30);
   padding: 10px 20px;
   font-size: 20px;
   border-radius: 0 0 10px 10px;
