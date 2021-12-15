@@ -70,7 +70,7 @@ header > h1 {
   font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
 
   border: none;
-  width: 90%;
+  width: 90%; 
 }
 
 .city-name:focus {
@@ -83,6 +83,7 @@ header > h1 {
   opacity: 1;
   font-size: 35px;
 
+  text-align: center;
   font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -95,7 +96,8 @@ header > h1 {
   background-color: white;
   font-family: "Poppins";
   font-size: 35px;
-  padding: 3px 21px;
+
+  padding: 3px 10px;
   font-weight: 700;
   border: none;
   border-top-right-radius: 35px;
@@ -104,7 +106,11 @@ header > h1 {
   border-left-width: 0;
 
   width: 10%;
+  height: 100%;
   min-width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-input img {
@@ -388,14 +394,22 @@ footer {
     font-size: 30px;
   }
 
+  .city-name{
+    width: 85%;
+  }
+  .user-input > button{
+    width: 15%;
+    min-width: 50px;
+  }
   /* WEATHER DISPLAY  */
   .weather-display {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .display-current-temp,
-  .display-condition,.display-city-name{
+  .display-condition,
+  .display-city-name {
     text-align: center;
     font-size: 36px;
   }
@@ -404,5 +418,43 @@ footer {
   .credits {
     text-align: center;
     font-size: 25px;
+  }
+
+  /* LOADING  */
+  .loading-begin {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  /* ERROR  */
+  .display-error{
+    width: 75%;
+  }
+  
+  /* HEADER  */
+  header {
+    width: 95%;
+  }
+
+  .city-name,
+  *::placeholder,
+  .user-input > button {
+    font-size: 23px;
+  }
+
+  .user-input > button{
+    width: 10%;
+    min-width: 40px;
+  }
+  .city-name{
+    width: 90%;
+  }
+  .user-input img {
+    height: 22px;
+  }
+  /* LOADING  */
+  .loading-begin {
+    font-size: 45px;
   }
 }
