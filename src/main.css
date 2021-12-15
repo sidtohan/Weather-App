@@ -6,10 +6,13 @@
   position: absolute;
   transform: translateY(-100%);
   animation: error-pop-in 3s ease-in-out forwards;
+
   color: white;
+  font-weight: 500;
+  font-size: 20px;
+
   background-color: rgb(255, 30, 30);
   padding: 10px 20px;
-  font-size: 20px;
   border-radius: 0 0 10px 10px;
 }
 
@@ -334,7 +337,7 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -344,6 +347,7 @@ body {
 
   box-sizing: border-box;
   background: #0095ff;
+  background-repeat: no-repeat;
 }
 
 *::-webkit-scrollbar {
@@ -372,5 +376,33 @@ footer {
 }
 
 /* MEDIA QUERIES */
-@media screen and (max-width: 1048px) {
+@media screen and (max-width: 768px) {
+  /* HEADER  */
+  header {
+    width: 85%;
+  }
+
+  .city-name,
+  *::placeholder,
+  .user-input > button {
+    font-size: 30px;
+  }
+
+  /* WEATHER DISPLAY  */
+  .weather-display {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .display-current-temp,
+  .display-condition,.display-city-name{
+    text-align: center;
+    font-size: 36px;
+  }
+
+  /* CREDITS  */
+  .credits {
+    text-align: center;
+    font-size: 25px;
+  }
 }
