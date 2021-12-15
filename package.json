@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-prod": "npx webpack --mode=production",
-    "build-dev" : "npx webpack --mode=development"
+    "build-dev": "npx webpack --mode=development"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.64.2",
     "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "tsparticles": "^1.37.5"
   }
 }
