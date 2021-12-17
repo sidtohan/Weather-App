@@ -1,5 +1,5 @@
 import apiHandler from "./apiLoadingHandler";
-import imageHandler from "./imageHandler";
+import handleParticles from "./particleHandler";
 import "./main.css";
 
 const displayHandler = () => {
@@ -83,6 +83,8 @@ const displayHandler = () => {
     weatherDisplay.appendChild(tempInfo);
 
     updateBackground(data["weather"][0]["main"]);
+    handleParticles.evaluate(data["weather"][0]["main"]);
+    
     document.body.removeChild(document.querySelector(".loading-begin"));
     return;
   };
