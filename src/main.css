@@ -130,7 +130,7 @@ table {
 
 /* PARTICLES */
 #tsparticles {
-  position: absolute;
+  position: sticky;
   width: 100%;
   min-height: 100%;
   z-index: -1;
