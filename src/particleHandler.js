@@ -37,28 +37,32 @@ const handleParticles = () => {
   }
   function addSnowParticles() {
     tsParticles.load("tsparticles", {
-      fpsLimit: 60,
       particles: {
         number: {
-          value: 20,
+          value: 60,
           density: {
-            value_area: 400,
+            enable: true,
+            value_area: 700,
           },
         },
-        color: {
-          value: "#fff",
-        },
-        shape: {
-          type: "circle",
-        },
         size: {
+          value: 6,
+          random: true,
+          anim: {
+            enable: true,
+            minimumValue: 1,
+          },
+        },
+        opacity: {
           value: 5,
+          random: true,
         },
         move: {
           enable: true,
           direction: "bottom",
-          straight: true,
-          speed: 6,
+        },
+        shape: {
+          value: "circle",
         },
       },
     });
