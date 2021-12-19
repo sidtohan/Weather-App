@@ -18,7 +18,6 @@ const displayHandler = () => {
     nameDiv.classList.add("display-city-name");
     return nameDiv;
   };
-
   const returnCurrentTemp = (temp) => {
     const currentTemp = document.createElement("div");
     currentTemp.classList.add("display-current-temp");
@@ -84,7 +83,7 @@ const displayHandler = () => {
 
     updateBackground(data["weather"][0]["main"]);
     handleParticles.evaluate(data["weather"][0]["main"]);
-    
+
     document.body.removeChild(document.querySelector(".loading-begin"));
     return;
   };

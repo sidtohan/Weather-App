@@ -3,73 +3,65 @@ import RainDrop from "./assets/raindrop.svg";
 
 const handleParticles = () => {
   function addRainParticles() {
-    tsParticles
-      .load("tsparticles", {
-        fpsLimit: 60,
-        particles: {
-          number: {
-            value: 30,
-            density: {
-              value_area: 400,
-            },
-          },
-          color: {
-            value: "#000000",
-          },
-          shape: {
-            type: "image",
-            image: {
-              src: RainDrop,
-              width: 1,
-              height: 10,
-            },
-          },
-          size: {
-            value: 1,
-          },
-          move: {
-            enable: true,
-            direction: "bottom",
-            straight: true,
-            speed: 6,
+    tsParticles.load("tsparticles", {
+      fpsLimit: 60,
+      particles: {
+        number: {
+          value: 30,
+          density: {
+            value_area: 400,
           },
         },
-      })
-      .then((data) => {
-        console.log(data);
-      });
+        color: {
+          value: "#000000",
+        },
+        shape: {
+          type: "image",
+          image: {
+            src: RainDrop,
+            width: 1,
+            height: 10,
+          },
+        },
+        size: {
+          value: 1,
+        },
+        move: {
+          enable: true,
+          direction: "bottom",
+          straight: true,
+          speed: 6,
+        },
+      },
+    });
   }
   function addSnowParticles() {
-    tsParticles
-      .load("tsparticles", {
-        fpsLimit: 60,
-        particles: {
-          number: {
-            value: 20,
-            density: {
-              value_area: 400,
-            },
-          },
-          color: {
-            value: "#000000",
-          },
-          shape: {
-            type: "circle",
-          },
-          size: {
-            value: 3,
-          },
-          move: {
-            enable: true,
-            direction: "bottom",
-            straight: true,
-            speed: 6,
+    tsParticles.load("tsparticles", {
+      fpsLimit: 60,
+      particles: {
+        number: {
+          value: 20,
+          density: {
+            value_area: 400,
           },
         },
-      })
-      .then((data) => {
-        console.log(data);
-      });
+        color: {
+          value: "#fff",
+        },
+        shape: {
+          type: "circle",
+        },
+        size: {
+          value: 5,
+        },
+        move: {
+          enable: true,
+          direction: "bottom",
+          straight: true,
+          speed: 6,
+        },
+      },
+    });
   }
 
   function addParticles(cond) {
