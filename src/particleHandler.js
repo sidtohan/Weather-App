@@ -4,10 +4,9 @@ import RainDrop from "./assets/raindrop.svg";
 const handleParticles = () => {
   function addRainParticles() {
     tsParticles.load("tsparticles", {
-      fpsLimit: 60,
       particles: {
         number: {
-          value: 30,
+          value: 50,
           density: {
             value_area: 400,
           },
@@ -20,7 +19,7 @@ const handleParticles = () => {
           image: {
             src: RainDrop,
             width: 1,
-            height: 10,
+            height: 7,
           },
         },
         size: {
@@ -30,7 +29,7 @@ const handleParticles = () => {
           enable: true,
           direction: "bottom",
           straight: true,
-          speed: 6,
+          speed: 7,
         },
       },
     });
@@ -84,6 +83,7 @@ const handleParticles = () => {
     if (cond == "Rain" || cond == "Snow") {
       addParticles(cond);
     } else {
+      console.log("Hi");
       removeParticles();
     }
   }
