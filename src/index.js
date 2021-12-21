@@ -64,9 +64,17 @@ const displayHandler = () => {
     } else if (cond == "Snow") {
       document.body.style.background = "rgb(139,175,199)";
       sun.style.opacity = 0.9;
+      handleParticles.evaluate(cond);
+    } else if (cond == "Clouds") {
+      document.body.style.background =
+        "linear-gradient(rgb(87 92 95), rgb(196 181 181))";
+      sun.setAttribute(
+        "style",
+        "opacity: 0.7; box-shadow:0 0 2px 0px rgb(255 255 0);"
+      );
     } else {
       document.body.style.background = "#0095ff";
-      sun.style.opacity = 1;
+      sun.removeAttribute("style");
     }
   };
 
@@ -87,7 +95,6 @@ const displayHandler = () => {
     weatherDisplay.appendChild(tempInfo);
 
     updateBackground(data["weather"][0]["main"]);
-    handleParticles.evaluate(data["weather"][0]["main"]);
 
     document.body.removeChild(document.querySelector(".loading-begin"));
     return;
