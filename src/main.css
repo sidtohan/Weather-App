@@ -345,7 +345,7 @@ header > h1 {
 
 /* WEATHER EFFECTs */
 .sun {
-  background-image: url("./assets/sun.svg");
+  background-color: #ffff00;
   background-size: cover;
   height: 150px;
   width: 150px;
@@ -428,6 +428,7 @@ body {
 
   -ms-overflow-style: none;
   scrollbar-width: none;
+  height: 100vh;
 }
 
 * {

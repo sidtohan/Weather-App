@@ -57,11 +57,16 @@ const displayHandler = () => {
   };
 
   const updateBackground = (cond) => {
+    const sun = document.querySelector(".sun");
     if (cond == "Haze" || cond == "Smoke") {
       document.body.style.background =
         "linear-gradient(180deg, rgba(1, 69, 117, 0) 0%, rgba(1, 69, 117, 0.5) 0.01%, #014575 100%)";
+    } else if (cond == "Snow") {
+      document.body.style.background = "rgb(139,175,199)";
+      sun.style.opacity = 0.9;
     } else {
       document.body.style.background = "#0095ff";
+      sun.style.opacity = 1;
     }
   };
 

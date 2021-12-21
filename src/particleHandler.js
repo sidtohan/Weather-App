@@ -42,16 +42,12 @@ const handleParticles = () => {
           value: 60,
           density: {
             enable: true,
-            value_area: 700,
+            value_area: 800,
           },
         },
         size: {
           value: 6,
           random: true,
-          anim: {
-            enable: true,
-            minimumValue: 1,
-          },
         },
         opacity: {
           value: 5,
