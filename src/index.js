@@ -60,22 +60,29 @@ const displayHandler = () => {
     const sun = document.querySelector(".sun");
     if (cond == "Haze" || cond == "Smoke") {
       document.body.style.background =
-        "linear-gradient(rgb(117 119 120 / 0%) 0%, rgb(138 157 171 / 50%) 0.01%, rgb(1, 69, 117) 100%)";
+        "linear-gradient(rgb(117,119,120 / 0%) 0%, rgb(138,157,171 / 50%) 0.01%, rgb(1, 69, 117) 100%)";
     } else if (cond == "Snow") {
       document.body.style.background = "rgb(139,175,199)";
       sun.style.opacity = 0.9;
     } else if (cond == "Clouds") {
       document.body.style.background =
-        "linear-gradient(rgb(87, 92, 95), rgb(121 117 117))";
+        "linear-gradient(rgb(87, 92, 95), rgb(121,117,117))";
       sun.setAttribute(
         "style",
-        "opacity: 0.7; box-shadow:0 0 2px 0px rgb(255 255 0);"
+        "opacity: 0.7; box-shadow:0 0 2px 0px rgb(255,255,0);"
       );
     } else if (cond == "Rain") {
       document.body.style.background = "rgb(5, 43, 69)";
       sun.setAttribute(
         "style",
-        "opacity: 0.8; box-shadow:0 0 2px 0px rgb(255 255 0);"
+        "opacity: 0.8; box-shadow:0 0 2px 0px rgb(255,255,0);"
+      );
+    } else if (cond == "Drizzle") {
+      document.body.style.background = "rgb(67,89,104)";
+      sun.setAttribute(
+        "style",
+        `opacity: 0.8;
+      box-shadow: 0 0 2px 1px rgb(255,255,0)`
       );
     } else {
       document.body.style.background = "#0095ff";

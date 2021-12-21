@@ -28,7 +28,9 @@ const loadingHandler = (() => {
     loading.classList.add("loading-begin");
     fetchData.classList.add("text");
 
-    fetchData.textContent = "Fetching Data";
+    fetchData.innerHTML = `
+    <div class="loader">
+    </div>`;
 
     loading.appendChild(fetchData);
     return loading;
