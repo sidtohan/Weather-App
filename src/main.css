@@ -235,6 +235,7 @@ header > h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 15px;
 }
 
 .display-city-name {
@@ -249,17 +250,10 @@ header > h1 {
 }
 
 .display-current-temp {
+  padding-right: 10px;
   font-weight: 700;
   line-height: 40px;
-}
-
-.display-current-temp::after {
-  display: inline-block;
-  content: "";
-  margin: 0 10px;
-  width: 5px;
-  height: 40px;
-  background: white;
+  border-right: 5px solid #fff;
 }
 
 @keyframes slide-in {
@@ -311,7 +305,6 @@ header > h1 {
 .min-temp {
   font-size: 25px;
   font-weight: 500;
-  margin: 0 10px;
 }
 
 .max-temp-logo,
@@ -537,7 +530,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 440px) {
   /* ERROR  */
   .display-error {
     width: 75%;
@@ -546,6 +539,18 @@ footer {
   /* HEADER  */
   header {
     width: 95%;
+  }
+
+  /* WEATHER DISPLAY */
+  .display-current-temp {
+    font-size: 45px;
+    border-right: none;
+    padding: 0;
+  }
+
+  .temp-data {
+    flex-direction: column;
+    gap: 10px;
   }
 
   .city-name,
