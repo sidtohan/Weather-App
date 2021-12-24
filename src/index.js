@@ -1,5 +1,6 @@
 import apiHandler from "./apiLoadingHandler";
 import handleParticles from "./particleHandler";
+import imageHandler from "./imageHandler";
 import "./main.css";
 
 const displayHandler = () => {
@@ -19,6 +20,7 @@ const displayHandler = () => {
     return nameDiv;
   };
   const returnCurrentTemp = (temp) => {
+    console.log(temp);
     const currentTemp = document.createElement("div");
     currentTemp.classList.add("display-current-temp");
     currentTemp.textContent = `${Math.round(temp - 273)}°C`;
@@ -58,9 +60,14 @@ const displayHandler = () => {
 
   const updateBackground = (cond) => {
     const sun = document.querySelector(".sun");
+    sun.removeAttribute("style");
     if (cond == "Haze" || cond == "Smoke") {
       document.body.style.background =
-        "linear-gradient(rgb(117,119,120 / 0%) 0%, rgb(138,157,171 / 50%) 0.01%, rgb(1, 69, 117) 100%)";
+        "linear-gradient(rgb(198 198 198 / 50%), rgb(0 113 195 / 73%), rgb(17, 152, 250))";
+      sun.style.boxShadow = "0 0 2px 0 rgb(255,255,0)";
+    } else if (cond == "Mist") {
+      document.body.style.background = "linear-gradient(silver, #0095ff)";
+      sun.style.boxShadow = "0 0 3px 0 rgb(255,255,0)";
     } else if (cond == "Snow") {
       document.body.style.background = "rgb(139,175,199)";
       sun.style.opacity = 0.9;
@@ -86,7 +93,6 @@ const displayHandler = () => {
       );
     } else {
       document.body.style.background = "#0095ff";
-      sun.removeAttribute("style");
     }
     handleParticles.evaluate(cond);
   };
@@ -100,7 +106,13 @@ const displayHandler = () => {
     const sun = document.createElement("div");
     sun.classList.add("sun");
 
-    tempInfo.appendChild(returnCurrentTemp(data["main"]["temp"]));
+    const tempDiv = document.createElement("div");
+    tempDiv.classList.add("temp-data");
+    tempDiv.appendChild(returnCurrentTemp(data["main"]["temp"]));
+    tempDiv.appendChild(returnMinTemp(data["main"]["temp_min"]));
+    tempDiv.appendChild(returnMaxTemp(data["main"]["temp_max"]));
+
+    tempInfo.appendChild(tempDiv);
     tempInfo.appendChild(returnCondition(data["weather"][0]["main"]));
     tempInfo.appendChild(returnCityName(data["name"]));
 
