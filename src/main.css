@@ -88,6 +88,7 @@ table {
 
 canvas {
   height: 800px !important;
+  width: 100% !important;
 }
 
 /* ERROR  */
@@ -233,7 +234,7 @@ header > h1 {
 
 .temp-data {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 15px;
 }

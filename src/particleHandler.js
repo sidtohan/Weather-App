@@ -1,36 +1,40 @@
 import { tsParticles } from "tsparticles";
-import RainDrop from "./assets/raindrop.svg";
 
 const handleParticles = () => {
   function addRainParticles() {
     tsParticles.load("tsparticles", {
       particles: {
         number: {
-          value: 50,
+          value: 70,
           density: {
             value_area: 400,
           },
         },
         color: {
-          value: "#000000",
+          value: "#fff",
+        },
+        stroke: {
+          width: 1,
         },
         shape: {
-          type: "image",
-          image: {
-            src: RainDrop,
-            width: 1,
-            height: 7,
+          type: "polygon",
+          polygon: {
+            sides: 1,
+            nb_sides: 1,
           },
         },
+        rotate: {
+          value: 90,
+        },
         size: {
-          value: 1,
+          value: 3,
         },
         move: {
           enable: true,
           direction: "bottom",
           straight: true,
-          speed: 7,
-        },
+          speed: 20,
+        }
       },
     });
   }
