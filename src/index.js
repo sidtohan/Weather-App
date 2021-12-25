@@ -173,6 +173,7 @@ const formHandler = () => {
       .catch((error) => {
         handleError(error);
       });
+    inputForm.elements[0].blur();
     inputForm.reset();
   }
 };
