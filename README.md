@@ -3,9 +3,13 @@ This is a basic weather app build using HTML,CSS and Vanilla Js
 
 ## Table of Contents 
 *[General Info](#general-info)
+
 *[Technologies Used](#technologies-used)
+
 *[Setup](#setup)
+
 *[Current Status](#current-status)
+
 *[Live Link](#live-link)
 
 ## General Info 
