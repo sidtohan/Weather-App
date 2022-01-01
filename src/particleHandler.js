@@ -34,7 +34,7 @@ const handleParticles = () => {
           direction: "bottom",
           straight: true,
           speed: 20,
-        }
+        },
       },
     });
   }
@@ -87,7 +87,6 @@ const handleParticles = () => {
     if (cond == "Rain" || cond == "Snow") {
       addParticles(cond);
     } else {
-      console.log("Hi");
       removeParticles();
     }
   }

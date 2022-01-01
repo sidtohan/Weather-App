@@ -20,7 +20,6 @@ const displayHandler = () => {
     return nameDiv;
   };
   const returnCurrentTemp = (temp) => {
-    console.log(temp);
     const currentTemp = document.createElement("div");
     currentTemp.classList.add("display-current-temp");
     currentTemp.textContent = `${Math.round(temp - 273)}°C`;
@@ -91,8 +90,10 @@ const displayHandler = () => {
         `opacity: 0.8;
       box-shadow: 0 0 2px 1px rgb(255,255,0)`
       );
+    } else if (cond == "Thunderstorm") {
+      document.body.style.background = "rgb(1,14,24)";
     } else {
-      document.body.style.background = "#0095ff";
+      document.body.removeAttribute("style");
     }
     handleParticles.evaluate(cond);
   };
