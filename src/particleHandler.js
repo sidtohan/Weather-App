@@ -71,7 +71,7 @@ const handleParticles = () => {
     const div = document.createElement("div");
     div.id = "tsparticles";
     document.body.appendChild(div);
-    if (cond == "Rain") {
+    if (cond == "Rain" || cond == "Drizzle" || cond == "Thunderstorm") {
       addRainParticles();
     } else {
       addSnowParticles();
@@ -84,7 +84,12 @@ const handleParticles = () => {
   }
 
   function evaluate(cond) {
-    if (cond == "Rain" || cond == "Snow") {
+    if (
+      cond == "Rain" ||
+      cond == "Snow" ||
+      cond == "Drizzle" ||
+      cond == "Thunderstorm"
+    ) {
       addParticles(cond);
     } else {
       removeParticles();
