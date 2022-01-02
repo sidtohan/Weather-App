@@ -49,8 +49,7 @@ const handleParticles = () => {
           },
         },
         size: {
-          value: 6,
-          random: true,
+          value: 6
         },
         opacity: {
           value: 5,

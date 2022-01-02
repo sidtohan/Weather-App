@@ -64,7 +64,7 @@ const displayHandler = () => {
       document.body.style.background =
         "linear-gradient(rgb(198 198 198 / 50%), rgb(0 113 195 / 73%), rgb(17, 152, 250))";
       sun.style.boxShadow = "0 0 2px 0 rgb(255,255,0)";
-    } else if (cond == "Mist") {
+    } else if (cond == "Mist" || cond == "Fog") {
       document.body.style.background = "linear-gradient(silver, #0095ff)";
       sun.style.boxShadow = "0 0 3px 0 rgb(255,255,0)";
     } else if (cond == "Snow") {
