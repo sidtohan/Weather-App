@@ -59,41 +59,42 @@ const displayHandler = () => {
 
   const updateBackground = (cond) => {
     const sun = document.querySelector(".sun");
+    const mainDisplay = document.querySelector(".main-display");
     sun.removeAttribute("style");
     if (cond == "Haze" || cond == "Smoke") {
-      document.body.style.background =
+      mainDisplay.style.background =
         "linear-gradient(rgb(198 198 198 / 50%), rgb(0 113 195 / 73%), rgb(17, 152, 250))";
       sun.style.boxShadow = "0 0 2px 0 rgb(255,255,0)";
     } else if (cond == "Mist" || cond == "Fog") {
-      document.body.style.background = "linear-gradient(silver, #0095ff)";
+      mainDisplay.style.background = "linear-gradient(silver, #0095ff)";
       sun.style.boxShadow = "0 0 3px 0 rgb(255,255,0)";
     } else if (cond == "Snow") {
-      document.body.style.background = "rgb(139,175,199)";
+      mainDisplay.style.background = "rgb(139,175,199)";
       sun.style.opacity = 0.9;
     } else if (cond == "Clouds") {
-      document.body.style.background =
+      mainDisplay.style.background =
         "linear-gradient(rgb(87, 92, 95), rgb(121,117,117))";
       sun.setAttribute(
         "style",
         "opacity: 0.7; box-shadow:0 0 2px 0px rgb(255,255,0);"
       );
     } else if (cond == "Rain") {
-      document.body.style.background = "rgb(5, 43, 69)";
+      mainDisplay.style.background = "rgb(5, 43, 69)";
       sun.setAttribute(
         "style",
         "opacity: 0.8; box-shadow:0 0 2px 0px rgb(255,255,0);"
       );
     } else if (cond == "Drizzle") {
-      document.body.style.background = "rgb(67,89,104)";
+      mainDisplay.style.background = "rgb(67,89,104)";
       sun.setAttribute(
         "style",
         `opacity: 0.8;
       box-shadow: 0 0 2px 1px rgb(255,255,0)`
       );
     } else if (cond == "Thunderstorm") {
-      document.body.style.background = "rgb(1,14,24)";
+      mainDisplay.style.background = "rgb(1,14,24)";
     } else {
-      document.body.removeAttribute("style");
+      mainDisplay.removeAttribute("style");
     }
     handleParticles.evaluate(cond);
   };
