@@ -93,6 +93,8 @@ canvas {
 
 /* ERROR  */
 .display-error {
+  text-align: center;
+
   position: absolute;
   transform: translateY(-100%);
   animation: error-pop-in 3s ease-in-out forwards;
@@ -104,6 +106,7 @@ canvas {
   background-color: rgb(255, 30, 30);
   padding: 10px 20px;
   border-radius: 0 0 10px 10px;
+  z-index: 3;
 }
 
 @keyframes error-pop-in {
@@ -506,10 +509,16 @@ footer {
     font-size: 36px;
   }
 
+  /* HILLS  */
+  .hills {
+    width: 250%;
+  }
+
   /* CREDITS  */
   .credits {
     text-align: center;
     font-size: 25px;
+    padding: 40px 30px;
   }
 
   /* LOADING  */
@@ -557,6 +566,7 @@ footer {
   .user-input img {
     height: 22px;
   }
+
   /* LOADING  */
   .loading-begin {
     font-size: 45px;

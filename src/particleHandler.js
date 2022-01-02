@@ -49,7 +49,7 @@ const handleParticles = () => {
           },
         },
         size: {
-          value: 6
+          value: 6,
         },
         opacity: {
           value: 5,
@@ -68,8 +68,8 @@ const handleParticles = () => {
 
   function addParticles(cond) {
     const div = document.createElement("div");
-    const mainDisplay = document.querySelector(".main-display");
     div.id = "tsparticles";
+    const mainDisplay = document.querySelector(".main-display");
     mainDisplay.appendChild(div);
     if (cond == "Rain" || cond == "Drizzle" || cond == "Thunderstorm") {
       addRainParticles();
@@ -79,6 +79,7 @@ const handleParticles = () => {
   }
 
   function removeParticles() {
+    const mainDisplay = document.querySelector(".main-display");
     const particle = document.querySelector("#tsparticles");
     if (particle) mainDisplay.removeChild(particle);
   }

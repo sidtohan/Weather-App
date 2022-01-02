@@ -155,6 +155,7 @@ const formHandler = () => {
     return;
   }
   function passCityName(e) {
+    inputForm.elements[0].blur();
     const cityName = getCityName();
     const errorDiv = document.querySelector(".display-error");
     if (errorDiv) {
@@ -175,7 +176,6 @@ const formHandler = () => {
       .catch((error) => {
         handleError(error);
       });
-    inputForm.elements[0].blur();
     inputForm.reset();
   }
 };
