@@ -422,6 +422,7 @@ header > h1 {
   background: #0095ff;
   background-attachment: scroll !important;
   background-repeat: no-repeat !important;
+  z-index: 2;
 }
 
 /* BODY */
@@ -464,6 +465,7 @@ footer {
 
   color: white;
   font-size: 30px;
+  z-index: 2;
 }
 
 .credits {

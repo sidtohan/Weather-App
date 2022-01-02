@@ -49,7 +49,7 @@ const handleParticles = () => {
           },
         },
         size: {
-          value: 6,
+          value: 6
         },
         opacity: {
           value: 5,
