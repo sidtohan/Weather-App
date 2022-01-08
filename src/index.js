@@ -93,6 +93,11 @@ const displayHandler = () => {
       );
     } else if (cond == "Thunderstorm") {
       mainDisplay.style.background = "rgb(1,14,24)";
+      sun.setAttribute(
+        "style",
+        `opacity: 0.8;
+      box-shadow: 0 0 2px 1px rgb(255,255,0)`
+      );
     } else {
       mainDisplay.removeAttribute("style");
     }
