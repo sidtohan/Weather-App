@@ -19,7 +19,7 @@ This project was created as a part of the Odin Project curriculum. It features a
 - ts-particles
 
 ## Setup 
-- For production, 
+- For production(installs only production dependencies), 
 ```
 npm install --only=prod
 ```
