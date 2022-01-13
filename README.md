@@ -21,11 +21,11 @@ This project was created as a part of the Odin Project curriculum. It features a
 ## Setup 
 - For production, 
 ```
-npm init 
+npm install --only=prod
 ```
-- For development,
+- For development(installs all dependencies)
 ```
-npm init --save-dev
+npm install
 ```
 
 ## Current Status  
