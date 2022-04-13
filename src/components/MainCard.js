@@ -4,6 +4,7 @@ import Search from "./Search";
 import Switcher from "./Switcher";
 
 const MainCard = () => {
+  // Main Card component
   const city = useSelector((state) => state.city);
   const weather = useSelector((state) => state.weather);
   const day = useSelector((state) => state.day);

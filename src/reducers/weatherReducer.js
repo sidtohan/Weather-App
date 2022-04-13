@@ -4,6 +4,8 @@ const initialState = {
   minTemp: 34,
   maxTemp: 48,
   condition: "Sunny",
+  humidity: 3,
+  wind: 4,
 };
 
 const weatherReducer = (state = initialState, action) => {

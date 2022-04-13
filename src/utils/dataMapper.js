@@ -8,18 +8,23 @@ const dataMapper = (day, i) => {
   const maxTemp = Math.round(day.temp.max) - 273;
   const temp = computeAverageTemp(minTemp, maxTemp);
   const condition = day.weather[0].main;
+  const humidity = day.humidity;
+  const wind = day.wind_speed;
   return {
     temp,
     minTemp,
     maxTemp,
     condition,
+    humidity,
+    wind,
   };
 };
 
+// Converts day index to day name
 const dayMapper = (day) => {
-  if (day == 0) {
+  if (day === 0) {
     return "Today";
-  } else if (day == 1) {
+  } else if (day === 1) {
     return "Tomorrow";
   } else {
     const currentDate = new Date();
