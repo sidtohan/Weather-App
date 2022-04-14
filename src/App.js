@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import MainCard from "./components/MainCard";
-import InfoCard from "./components/InfoCard";
+import InfoHolder from "./components/InfoHolder";
 
 // Api
 import getData from "./services/apiService";
@@ -21,10 +21,7 @@ const App = () => {
   return (
     <div id="main-display">
       <MainCard />
-      <InfoCard type="MinTemp" />
-      <InfoCard type="MaxTemp" />
-      <InfoCard type="Humidity" />
-      <InfoCard type="Wind" />
+      <InfoHolder />
     </div>
   );
 };
