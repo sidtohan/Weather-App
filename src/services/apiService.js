@@ -3,7 +3,7 @@ import axios from "axios";
 const key = process.env.REACT_APP_API_KEY;
 const geoEncode = async (city) => {
   // Returns the latitude and longitude of the city
-  const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${1}&appid=${key}`;
+  const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${1}&appid=${key}`;
   const response = await axios.get(geoUrl);
   return {
     lat: response.data[0].lat,
