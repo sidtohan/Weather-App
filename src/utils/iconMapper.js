@@ -24,10 +24,10 @@ const getIconName = (condition) => {
       return "fluent:weather-thunderstorm-48-filled";
 
     case "haze":
+    case "smoke":
       return "fluent:weather-haze-48-filled";
 
     case "fog":
-    case "smoke":
     case "mist":
       return "fluent:weather-fog-48-filled";
 
@@ -38,6 +38,7 @@ const getIconName = (condition) => {
       return "fa6-solid:tornado";
 
     case "dust":
+    case "sand":
       return "fluent:weather-duststorm-48-filled";
   }
 };

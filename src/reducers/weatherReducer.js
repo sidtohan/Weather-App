@@ -3,7 +3,7 @@ const initialState = {
   temp: 45,
   minTemp: 34,
   maxTemp: 48,
-  condition: "Sunny",
+  condition: "Clear",
   humidity: 3,
   wind: 4,
 };

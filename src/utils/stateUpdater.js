@@ -20,9 +20,7 @@ const updateState = (name, data, dispatch) => {
 
   // Daily Data
   const dailyData = data.daily.slice(0, 7).map(dataMapper);
-  dailyData[0].temp = weatherData.temp;
-  dailyData[0].humidity = weatherData.humidity;
-  dailyData[0].wind = weatherData.wind;
+  dailyData[0] = weatherData;
   // Map current data for the first day
 
   // Update class of root
