@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import getData from "../services/apiService";
 import updateState from "../utils/stateUpdater";
+import { getSearch} from "../utils/iconMapper";
 
 const Search = () => {
   // Form for city search
@@ -18,9 +19,9 @@ const Search = () => {
     updateState(name, data, dispatch);
   };
   return (
-    <form onSubmit={handleCitySearch}>
-      <input type="text" name="city" placeholder="City Name" />
-      <button type="submit">Search</button>
+    <form onSubmit={handleCitySearch} className="city-search">
+      <input type="text" name="city" placeholder="Search" />
+      <button type="submit">{getSearch()}</button>
     </form>
   );
 };

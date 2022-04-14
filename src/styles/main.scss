@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;600;700&display=swap");
+$fontfamt: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin main-style($bgcolor, $fgcolor, $color) {
+  .city-search {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    input {
+      padding: 10px 40px;
+      padding-right: 70px;
+      border-radius: 100px;
+      width: 100%;
+      font-size: 0.23rem;
+      background-color: $bgcolor;
+      color: $color;
+      font-family: $fontfamt;
+      border: none;
+    }
+    input::placeholder {
+      color: $color;
+    }
+    button {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: inherit;
+      border: none;
+      height: 50%;
+      width: auto;
+      svg {
+        color: $color;
+        display: block;
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+  .main-card,
+  .info-card {
+    font-family: $fontfamt;
+    background-color: $fgcolor;
+    color: $color !important;
+    border-radius: 10px;
+  }
+  .main-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .main-card-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.3rem;
+  }
+  .main-card-weather-icon {
+    width: 80%;
+    height: auto;
+    color: $color !important;
+  }
+  .main-card-heading,
+  .info-card-heading {
+    font-size: 0.3rem;
+    font-family: $fontfamh;
+  }
+  .main-card-heading {
+    font-size: 0.4rem;
+    font-weight: bold;
+  }
+  .main-card-switcher {
+    padding-top: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 30px;
+    justify-items: center;
+    button {
+      display: block;
+      background-color: inherit;
+      border: none;
+      height: 100%;
+      width: 100%;
+      svg {
+        margin: auto;
+        color: $color;
+        display: block;
+        height: 90%;
+        width: auto;
+      }
+    }
+    .left {
+      grid-column: 1/2;
+    }
+    .right {
+      grid-column: 4/5;
+    }
+  }
+  .day-name {
+    font-weight: bold;
+    grid-column: 2/4;
+  }
+}
+
+@mixin call-style($bgcolor, $fgcolor, $color) {
+  background-color: $bgcolor;
+  padding: 20px;
+  transition: 0.32s ease-in-out;
+  @include main-style($bgcolor, $fgcolor, $color);
+}
+
+#main-display {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// Weather Styles
+#main-display.clear {
+  $bgcolor: #fd7a00;
+  $fgcolor: #f7a300;
+  $color: #292929;
+  @include call-style($bgcolor, $fgcolor, $color);
+}
+#main-display.rain {
+  $bgcolor: #382c4d;
+  $fgcolor: #524569;
+  $color: #d8d8d8;
+  @include call-style($bgcolor, $fgcolor, $color);
+}
+#main-display.clouds {
+  $bgcolor: #39393a;
+  $fgcolor: #55515b;
+  $color: #d8d8d8;
+  @include call-style($bgcolor, $fgcolor, $color);
+}
+#main-display.thunderstorm {
+  $bgcolor: #221f27;
+  $fgcolor: #3a3443;
+  $color: #d8d8d8;
+  @include call-style($bgcolor, $fgcolor, $color);
+}
+#main-display.snow {
+  $bgcolor: #acacac;
+  $fgcolor: #cccccc;
+  $color: #292929;
+  @include call-style($bgcolor, $fgcolor, $color);
+}
+
+:root {
+  font-size: 100px;
+}
+body {
+  font-size: 0.22rem;
+  font-family: $fontfamt;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

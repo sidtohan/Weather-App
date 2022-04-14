@@ -5,7 +5,7 @@ import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 
 // SASS
-import "./index.css";
+import "./styles/main.scss";
 
 // Components + Functions
 import App from "./App";

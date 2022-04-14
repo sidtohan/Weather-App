@@ -17,9 +17,9 @@ const App = () => {
       updateState(name, data, dispatch);
     }
     firstCall();
-  }, []);
+  }, [dispatch]);
   return (
-    <div>
+    <div id="main-display">
       <MainCard />
       <InfoCard type="MinTemp" />
       <InfoCard type="MaxTemp" />

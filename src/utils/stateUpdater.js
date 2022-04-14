@@ -25,6 +25,9 @@ const updateState = (name, data, dispatch) => {
   dailyData[0].wind = weatherData.wind;
   // Map current data for the first day
 
+  // Update class of root
+  const mainDisplay = document.getElementById("main-display");
+  mainDisplay.className = weatherData.condition.toLowerCase();
   // Dispatch
   dispatch(updateWeather(weatherData));
   dispatch(updateCity(name));
