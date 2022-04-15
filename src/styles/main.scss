@@ -10,14 +10,13 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 @mixin main-style($bgcolor, $fgcolor, $color) {
   .city-search {
     position: relative;
-    width: 90%;
+    width: 80%;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
     input {
-      padding: 10px 40px;
-      padding-right: 70px;
-      border-radius: 100px;
+      padding: 10px 30px;
+      padding-right: 60px;
       width: 100%;
       font-size: 0.23rem;
       background-color: $bgcolor;
@@ -28,6 +27,23 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     input::placeholder {
       color: $color;
     }
+    input:focus {
+      outline: none;
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      caret-color: $color;
+      color: $color !important;
+      -webkit-text-fill-color: $color;
+      font-size: 0.23rem !important;
+      font-family: $fontfamt !important;
+      box-shadow: 0 0 0 50px inset $bgcolor;
+    }
+
     button {
       display: block;
       position: absolute;
@@ -88,12 +104,9 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
   }
   .main-card-switcher {
-    padding-top: 10px;
+    position: relative;
+    margin-top: 10px;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 30px;
-    justify-items: center;
     button {
       display: block;
       background-color: inherit;
@@ -108,18 +121,27 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         width: auto;
       }
     }
-    .left {
-      grid-column: 1/2;
+    .left-switch {
+      width: 20%;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
     }
-    .right {
-      grid-column: 4/5;
+    .right-switch {
+      width: 20%;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
   .day-name {
     font-weight: 600;
-    grid-column: 2/4;
+    text-align: center;
   }
   .info-card-holder {
+    width: 100%;
     margin-top: 20px;
     grid-gap: 10px;
     display: grid;
