@@ -13,6 +13,7 @@ import weatherReducer from "./reducers/weatherReducer";
 import cityReducer from "./reducers/cityReducer";
 import dailyReducer from "./reducers/dailyReducer";
 import dayReducer from "./reducers/dayReducer";
+import loadingReducer from "./reducers/loaderReducer";
 
 const store = createStore(
   combineReducers({
@@ -20,8 +21,10 @@ const store = createStore(
     weather: weatherReducer,
     day: dayReducer,
     daily: dailyReducer,
+    loading: loadingReducer,
   })
 );
+
 const root = createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

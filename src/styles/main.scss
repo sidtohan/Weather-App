@@ -125,6 +125,29 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
+  .loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: $bgcolor;
+    z-index: 1;
+    svg {
+      color: $color !important;
+      display: block;
+      height: auto;
+      width: 50%;
+    }
+    div {
+      font-family: $fontfamt;
+    }
+  }
 }
 
 @mixin call-style($bgcolor, $fgcolor, $color) {
@@ -145,8 +168,8 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
 // Weather Styles
 #main-display.clear {
-  $bgcolor: #1f89eb;
-  $fgcolor: #77b9f5;
+  $bgcolor: #fd7a00;
+  $fgcolor: #fda700;
   $color: #292929;
   @include call-style($bgcolor, $fgcolor, $color);
 }

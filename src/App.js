@@ -7,14 +7,18 @@ import InfoHolder from "./components/InfoHolder";
 // Api
 import getData from "./services/apiService";
 import updateState from "./utils/stateUpdater";
+import Loader from "./components/Loader";
+import { toggleLoader } from "./reducers/loaderReducer";
 
 const App = () => {
   const dispatch = useDispatch();
   // Passing dispatch as parameter
   useEffect(() => {
     async function firstCall() {
+      dispatch(toggleLoader());
       const { name, ...data } = await getData("Delhi");
       updateState(name, data, dispatch);
+      dispatch(toggleLoader());
     }
     firstCall();
   }, [dispatch]);
@@ -22,6 +26,7 @@ const App = () => {
     <div id="main-display">
       <MainCard />
       <InfoHolder />
+      <Loader />
     </div>
   );
 };
