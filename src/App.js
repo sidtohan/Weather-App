@@ -8,7 +8,7 @@ import InfoHolder from "./components/InfoHolder";
 import getData from "./services/apiService";
 import updateState from "./utils/stateUpdater";
 import Loader from "./components/Loader";
-import { loaderOff, loaderOn } from "./reducers/loaderReducer";
+import { loaderOff } from "./reducers/loaderReducer";
 
 const App = () => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
-import { motion, AnimatePresence, useDomEvent } from "framer-motion";
-import { useSelector, useDispatch } from "react-redux";
+import { motion, AnimatePresence } from "framer-motion";
+import { useSelector } from "react-redux";
 
 const loaderVariants = {
   exit: {
@@ -24,7 +24,6 @@ const pathVariants = {
   },
 };
 const Loader = () => {
-  const dispatch = useDispatch();
   const loading = useSelector((state) => state.loading);
   return (
     <AnimatePresence exitBeforeEnter>
