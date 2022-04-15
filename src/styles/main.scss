@@ -5,18 +5,19 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  backface-visibility: hidden;
 }
 
 @mixin main-style($bgcolor, $fgcolor, $color) {
   .city-search {
     position: relative;
-    width: 80%;
+    width: 85%;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
     input {
-      padding: 10px 30px;
-      padding-right: 60px;
+      padding: 10px 0;
+      padding-right: 20px;
       width: 100%;
       font-size: 0.23rem;
       background-color: $bgcolor;
@@ -62,6 +63,18 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
     }
   }
+  .city-search::after {
+    content: "";
+    width: 50px;
+    background-color: $bgcolor;
+    border-radius: 0 200px 200px 0;
+  }
+  .city-search::before {
+    content: "";
+    width: 50px;
+    background-color: $bgcolor;
+    border-radius: 100px 0 0 100px;
+  }
   .main-card,
   .info-card {
     font-family: $fontfamt;
@@ -90,9 +103,14 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.3rem;
   }
   .main-card-weather-icon {
-    width: 80%;
+    width: 70%;
     height: auto;
     color: $color !important;
+    svg {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
   }
   .main-card-heading,
   .info-card-heading {

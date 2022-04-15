@@ -1,6 +1,7 @@
 // Returns the corresponding icon to the given
 // weather condition
 import { Icon } from "@iconify/react";
+import { AnimatePresence, motion } from "framer-motion";
 const getIconName = (condition) => {
   switch (condition) {
     case "clear":
@@ -42,10 +43,39 @@ const getIconName = (condition) => {
       return "fluent:weather-duststorm-48-filled";
   }
 };
+
+const iconVariants = {
+  hidden: {
+    scale: 0,
+    opacity: 0,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      type: "spring",
+      stiffness: 150,
+    },
+  },
+};
 const iconMapper = (condition) => {
   condition = condition.toLowerCase();
   const iconName = getIconName(condition);
-  return <Icon icon={iconName} className="main-card-weather-icon" />;
+  return (
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        key={iconName}
+        className="main-card-weather-icon"
+        variants={iconVariants}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+      >
+        <Icon icon={iconName} />
+      </motion.div>
+    </AnimatePresence>
+  );
 };
 
 export const getSearch = () => {
