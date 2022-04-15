@@ -62,10 +62,12 @@ const iconVariants = {
 const iconMapper = (condition) => {
   condition = condition.toLowerCase();
   const iconName = getIconName(condition);
+  // using custom key to allow re rendering
+  const key = Date.now() + Math.random();
   return (
     <AnimatePresence exitBeforeEnter>
       <motion.div
-        key={iconName}
+        key={key}
         className="main-card-weather-icon"
         variants={iconVariants}
         initial="hidden"
