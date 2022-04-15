@@ -1,18 +1,25 @@
 // Toggles the loader
 // Be default set to true for the initial data fetch
-const loadingReducer = (loader = false, action) => {
+const loadingReducer = (loader = true, action) => {
   switch (action.type) {
-    case "TOGGLE_LOADER":
-      return !loader;
+    case "ON_LOADER":
+      return true;
+    case "OFF_LOADER":
+      return false;
     default:
       return loader;
   }
 };
 
-export const toggleLoader = () => {
+export const loaderOn = () => {
   return {
-    type: "TOGGLE_LOADER",
+    type: "ON_LOADER",
   };
 };
 
+export const loaderOff = () => {
+  return {
+    type: "OFF_LOADER",
+  };
+};
 export default loadingReducer;

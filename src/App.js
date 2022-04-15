@@ -8,22 +8,21 @@ import InfoHolder from "./components/InfoHolder";
 import getData from "./services/apiService";
 import updateState from "./utils/stateUpdater";
 import Loader from "./components/Loader";
-import { toggleLoader } from "./reducers/loaderReducer";
+import { loaderOff, loaderOn } from "./reducers/loaderReducer";
 
 const App = () => {
   const dispatch = useDispatch();
   // Passing dispatch as parameter
   useEffect(() => {
     async function firstCall() {
-      dispatch(toggleLoader());
       const { name, ...data } = await getData("Delhi");
       updateState(name, data, dispatch);
-      dispatch(toggleLoader());
+      dispatch(loaderOff());
     }
     firstCall();
   }, [dispatch]);
   return (
-    <div id="main-display">
+    <div id="main-display" className="clear">
       <MainCard />
       <InfoHolder />
       <Loader />

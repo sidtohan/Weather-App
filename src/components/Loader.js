@@ -2,11 +2,14 @@ import { motion, AnimatePresence, useDomEvent } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 
 const loaderVariants = {
-  hidden: {
+  exit: {
     opacity: 0,
   },
   visible: {
     opacity: 1,
+  },
+  transition: {
+    duration: 0.3,
   },
 };
 const pathVariants = {
@@ -30,8 +33,8 @@ const Loader = () => {
           className="loader"
           variants={loaderVariants}
           animate="visible"
-          initial="hidden"
-          exit="hidden"
+          initial="visible"
+          exit="exit"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
