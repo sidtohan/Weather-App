@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateDay } from "../reducers/dayReducer";
 import { updateWeather } from "../reducers/weatherReducer";
@@ -30,6 +31,15 @@ const Switcher = () => {
     dispatch(updateDay(day));
     dispatch(updateWeather(dailyData));
   };
+
+  // Add arrow navigation
+  useEffect(() => {
+    window.onkeydown = (e) => {
+      if (e.key === "ArrowLeft") handleDayChange(day - 1);
+      else if (e.key === "ArrowRight") handleDayChange(day + 1);
+      e.stopPropagation();
+    };
+  }, [day, daily]);
   return (
     <div className="main-card-switcher">
       <button
