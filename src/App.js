@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import MainCard from "./components/MainCard";
 import InfoHolder from "./components/InfoHolder";
+import Error from "./components/Error";
 
 // Api
 import getData from "./services/apiService";
@@ -26,6 +27,7 @@ const App = () => {
       <MainCard />
       <InfoHolder />
       <Loader />
+      <Error />
     </div>
   );
 };

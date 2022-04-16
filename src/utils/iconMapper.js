@@ -46,8 +46,9 @@ const getIconName = (condition) => {
 
 const iconVariants = {
   hidden: {
-    scale: 0,
+    scale: 0.5,
     opacity: 0,
+    y: 100,
     transition: {
       duration: 0.2,
     },
@@ -55,8 +56,10 @@ const iconVariants = {
   visible: {
     scale: 1,
     opacity: 1,
+    y: 0,
     transition: {
-      duration: 0.2,
+      type: "spring",
+      stiffness: 90,
     },
   },
 };

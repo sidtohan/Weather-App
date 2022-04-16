@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const key = process.env.REACT_APP_API_KEY;
 const geoEncode = async (city) => {
   // Returns the latitude and longitude of the city

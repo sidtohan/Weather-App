@@ -9,6 +9,29 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @mixin main-style($bgcolor, $fgcolor, $color) {
+  .error-div {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    background-color: $bgcolor;
+    color: $color;
+    font-size: 0.2rem;
+    padding: 30px;
+    width: 60%;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    box-shadow: 0 0 6px 1px $color;
+    border-radius: 10px;
+    text-align: center;
+    font-family: $fontfamh;
+    .error-icon {
+      color: $color;
+      height: 0.6rem;
+      width: auto;
+    }
+  }
   .city-search {
     position: relative;
     width: 85%;
@@ -24,6 +47,7 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: $color;
       font-family: $fontfamt;
       border: none;
+      border-radius: 0;
     }
     input::placeholder {
       color: $color;
