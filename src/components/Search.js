@@ -17,6 +17,7 @@ const Search = () => {
     }
 
     e.target.city.value = "";
+    e.target.city.blur();
     dispatch(loaderOn());
     // Use name given by API for uniformity
     try {

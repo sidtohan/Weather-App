@@ -22,7 +22,7 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     position: fixed;
     z-index: 1;
     top: 20px;
-    box-shadow: 0 0 6px 1px $color;
+    box-shadow: 0 0 6px 1px $fgcolor;
     border-radius: 10px;
     text-align: center;
     font-family: $fontfamh;
@@ -325,6 +325,9 @@ body {
 // MEDIA
 @media screen and (min-width: 768px) {
   #main-display {
+    .error-div {
+      font-size: 0.25rem !important;
+    }
     padding: 10px 0;
     flex-direction: row;
     align-items: center;
@@ -339,11 +342,11 @@ body {
     }
     .main-card-weather-icon {
       height: auto;
-      width: 70% !important;
-      max-width: 350px;
+      width: 60% !important;
+      max-width: 250px;
     }
     .main-card-info {
-      font-size: 0.25rem !important;
+      font-size: 0.30rem !important;
     }
     .city-search {
       input {
