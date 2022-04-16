@@ -84,10 +84,18 @@ const iconMapper = (condition) => {
 export const getSearch = () => {
   return <Icon icon="akar-icons:search" />;
 };
+export const getInfoIcons = () => {
+  return {
+    MinTemp: <Icon className="info-card-icon" icon="carbon:temperature-min" />,
+    MaxTemp: <Icon className="info-card-icon" icon="carbon:temperature-max" />,
+    Humidity: <Icon className="info-card-icon" icon="wi:humidity" />,
+    Wind: <Icon className="info-card-icon" icon="bx:wind" />,
+  };
+};
 export const getLeftRightArrow = () => {
   return {
-    left: <Icon icon="bxs:left-arrow" />,
-    right: <Icon icon="bxs:right-arrow" />,
+    left: <Icon icon="bxs:left-arrow-circle" />,
+    right: <Icon icon="bxs:right-arrow-circle" />,
   };
 };
 export default iconMapper;

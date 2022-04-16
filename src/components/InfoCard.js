@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { getInfoIcons } from "../utils/iconMapper";
 
 const InfoCard = ({ type }) => {
   // Returns info card with heading and data
@@ -9,16 +10,12 @@ const InfoCard = ({ type }) => {
   if (type === "MinTemp") data = `${weatherData.minTemp}°C`;
   else if (type === "MaxTemp") data = `${weatherData.maxTemp}°C`;
   else if (type === "Humidity") data = weatherData.humidity;
-  else data = weatherData.wind;
+  else data = `${weatherData.wind} m/s`;
 
-  let displayType;
-  if (type === "MinTemp") displayType = "Min";
-  else if (type === "MaxTemp") displayType = "Max";
-  else displayType = type;
   return (
     <div className="info-card">
-      <h2 className="info-card-heading">{displayType}</h2>
       <div className="info-card-data">{data}</div>
+      {getInfoIcons()[type]}
     </div>
   );
 };
