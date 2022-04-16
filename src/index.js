@@ -15,6 +15,7 @@ import dailyReducer from "./reducers/dailyReducer";
 import dayReducer from "./reducers/dayReducer";
 import loadingReducer from "./reducers/loaderReducer";
 import errorReducer from "./reducers/errorReducer";
+import cityListReducer from "./reducers/cityListReducer";
 
 const store = createStore(
   combineReducers({
@@ -24,6 +25,7 @@ const store = createStore(
     daily: dailyReducer,
     loading: loadingReducer,
     error: errorReducer,
+    cityList: cityListReducer,
   })
 );
 
