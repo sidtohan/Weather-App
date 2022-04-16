@@ -19,7 +19,7 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       padding: 10px 0;
       padding-right: 20px;
       width: 100%;
-      font-size: 0.23rem;
+      font-size: 0.2rem;
       background-color: $bgcolor;
       color: $color;
       font-family: $fontfamt;
@@ -27,6 +27,7 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
     input::placeholder {
       color: $color;
+      font-size: 0.18rem;
     }
     input:focus {
       outline: none;
@@ -40,7 +41,7 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       caret-color: $color;
       color: $color !important;
       -webkit-text-fill-color: $color;
-      font-size: 0.23rem !important;
+      font-size: 0.2rem !important;
       font-family: $fontfamt !important;
       box-shadow: 0 0 0 50px inset $bgcolor;
     }
@@ -100,7 +101,7 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 0.3rem;
+    font-size: 0.2rem;
   }
   .main-card-weather-icon {
     width: 70%;
@@ -114,11 +115,11 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
   .main-card-heading,
   .info-card-heading {
-    font-size: 0.25rem;
+    font-size: 0.21rem;
     font-family: $fontfamh;
   }
   .main-card-heading {
-    font-size: 0.4rem;
+    font-size: 0.38rem;
     font-weight: 600;
   }
   .main-card-switcher {
@@ -265,7 +266,7 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 100px;
 }
 body {
-  font-size: 0.22rem;
+  font-size: 0.2rem;
   font-family: $fontfamt;
   box-sizing: border-box;
   height: 100%;
@@ -274,4 +275,31 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+// MEDIA
+@media screen and (min-width: 768px) {
+  #main-display {
+    padding: 10px 0;
+    flex-direction: row;
+    gap: 20px;
+    height: 100vh;
+    overflow-y: hidden !important;
+  }
+  .info-card-holder {
+    height: 60vh;
+    margin: 0 !important;
+  }
+  .info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .info-card-heading {
+    font-size: 0.3rem !important;
+  }
+  .info-card-data {
+    font-size: 0.25rem !important;
+  }
 }
