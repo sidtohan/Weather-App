@@ -88,7 +88,12 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
     }
 
+    .city-list::-webkit-scrollbar {
+      display: none;
+    }
     .city-list {
+      z-index: 1;
+      scrollbar-width: 0;
       padding-top: 5px;
       width: 100%;
       position: absolute;
@@ -165,7 +170,7 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
   .main-card-weather-icon {
     width: 70%;
-    height: auto;
+    height: 80%;
     color: $color !important;
     svg {
       width: 100%;
