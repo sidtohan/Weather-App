@@ -87,6 +87,32 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         width: auto;
       }
     }
+
+    .city-list {
+      padding-top: 5px;
+      width: 100%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      top: 115%;
+      height: 200px;
+      overflow: scroll;
+      .city-list-option {
+        font-size: 0.2;
+        box-shadow: 0 0 1px $color;
+        width: 80%;
+        background-color: $bgcolor;
+        word-wrap: break-word;
+        padding: 10px;
+      }
+      .city-list-option:first-child {
+        border-radius: 10px 10px 0 0;
+      }
+      .city-list-option:last-child {
+        border-radius: 0 0 10px 10px;
+      }
+    }
   }
   .city-search::after {
     content: "";
@@ -346,7 +372,7 @@ body {
       max-width: 250px;
     }
     .main-card-info {
-      font-size: 0.30rem !important;
+      font-size: 0.3rem !important;
     }
     .city-search {
       input {

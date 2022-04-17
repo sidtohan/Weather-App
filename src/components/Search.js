@@ -5,11 +5,13 @@ import { getSearch } from "../utils/iconMapper";
 import { loaderOn, loaderOff } from "../reducers/loaderReducer";
 import { toggleError } from "../reducers/errorReducer";
 import { applyCityFilter } from "../reducers/cityListReducer";
+import { useRef } from "react";
 
 const Search = () => {
   // Form for city search
   const dispatch = useDispatch();
   const cityList = useSelector((state) => state.cityList);
+  const inputRef = useRef(null);
   const handleCitySearch = async (e) => {
     e.preventDefault();
     // Get City Name
@@ -26,8 +28,9 @@ const Search = () => {
       const { name, ...data } = await getData(city);
       updateState(name, data, dispatch);
       dispatch(loaderOff());
+      dispatch(applyCityFilter(""));
     } catch (error) {
-      dispatch(toggleError("Please enter a valid city"));
+      dispatch(toggleError("Invalid City"));
       dispatch(loaderOff());
     }
   };
@@ -37,22 +40,33 @@ const Search = () => {
     dispatch(applyCityFilter(cityName));
   };
 
+  const changeCityName = (city) => {
+    inputRef.current.value = city;
+    dispatch(applyCityFilter(""));
+  };
   return (
-    <form onSubmit={handleCitySearch} className="city-search">
+    <form
+      onSubmit={handleCitySearch}
+      className="city-search"
+      autoComplete="off"
+    >
       <input
         list="city-list"
         name="city"
         placeholder="Search"
         onChange={filterCity}
+        ref={inputRef}
       />
-      <datalist id="city-list">
-        {cityList.slice(0, 10).map((city) => (
-          <option value={city} key={city}>
+      <div className="city-list">
+        {cityList.slice(0, 5).map((city) => (
+          <div
+            className="city-list-option"
+            onClick={() => changeCityName(city)}
+          >
             {city}
-          </option>
+          </div>
         ))}
-      </datalist>
-
+      </div>
       <button type="submit">{getSearch()}</button>
     </form>
   );
