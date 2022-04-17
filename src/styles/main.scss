@@ -1,6 +1,136 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;600;700&display=swap");
 $fontfamt: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -37,7 +167,6 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     width: 85%;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
     input {
       padding: 10px 0;
       padding-right: 20px;
@@ -73,7 +202,7 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     button {
       display: block;
       position: absolute;
-      right: 20px;
+      right: 20px !important;
       top: 50%;
       transform: translateY(-50%);
       background-color: inherit;
@@ -83,8 +212,8 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       svg {
         color: $color;
         display: block;
-        height: 100%;
-        width: auto;
+        height: 0.25rem;
+        width: 100%;
       }
     }
 
@@ -93,8 +222,7 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
     .city-list {
       z-index: 1;
-      scrollbar-width: 0;
-      padding-top: 5px;
+      scrollbar-width: none;
       width: 100%;
       position: absolute;
       display: flex;
@@ -105,17 +233,21 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       overflow: scroll;
       .city-list-option {
         font-size: 0.2;
-        box-shadow: 0 0 1px $color;
-        width: 80%;
+        box-shadow: 0 0 2px $color;
+        width: 90%;
         background-color: $bgcolor;
         word-wrap: break-word;
-        padding: 10px;
+        padding: 15px;
       }
       .city-list-option:first-child {
-        border-radius: 10px 10px 0 0;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        margin-top: 5px;
       }
       .city-list-option:last-child {
-        border-radius: 0 0 10px 10px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-bottom: 5px;
       }
     }
   }
@@ -123,13 +255,13 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     content: "";
     width: 50px;
     background-color: $bgcolor;
-    border-radius: 0 200px 200px 0;
+    border-radius: 0 50px 50px 0;
   }
   .city-search::before {
     content: "";
     width: 50px;
     background-color: $bgcolor;
-    border-radius: 100px 0 0 100px;
+    border-radius: 50px 0 0 50px;
   }
   .main-card,
   .info-card {
@@ -157,8 +289,9 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    gap: 30px;
     padding: 20px 0;
+    align-items: center;
   }
   .main-card-info {
     width: 100%;
@@ -168,9 +301,16 @@ $fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     align-items: center;
     font-size: 0.2rem;
   }
+  .main-card-condition,
+  .main-card-temperature {
+    padding: 10px 0;
+  }
+  .main-card-temperature {
+    padding-top: 0;
+  }
   .main-card-weather-icon {
     width: 70%;
-    height: 80%;
+    height: auto;
     color: $color !important;
     svg {
       width: 100%;
@@ -369,11 +509,11 @@ body {
       overflow: hidden;
       height: 90vh !important;
       width: 80% !important;
-      flex-shrink: 1;
+      min-height: 0 !important;
     }
     .main-card-weather-icon {
       height: auto;
-      width: 60% !important;
+      width: 50% !important;
       max-width: 250px;
     }
     .main-card-info {

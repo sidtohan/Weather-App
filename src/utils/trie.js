@@ -6,11 +6,16 @@ const helperSet = new Set();
 const trie = new TrieSearch();
 for (let country in cityList) {
   for (let city of cityList[country]) {
-    city = city.split(" ")[0].toLowerCase();
-    city = city[0].toUpperCase() + city.slice(1);
+    city = city.toLowerCase();
     if (helperSet.has(city)) continue;
-    trie.map(city, city);
     helperSet.add(city);
+    city = city.split(" ");
+    const key = city.join("");
+    for (let i = 0; i < city.length; ++i) {
+      city[i] = city[i][0].toUpperCase() + city[i].slice(1);
+    }
+    const value = city.join(" ");
+    trie.map(key, value);
   }
 }
 

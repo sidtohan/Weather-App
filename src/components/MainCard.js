@@ -12,8 +12,8 @@ const MainCard = () => {
   return (
     <div className="main-card">
       <Search />
-      <h2 className="main-card-heading">{city.toUpperCase()}</h2>
       <div className="main-card-info">
+        <h2 className="main-card-heading">{city.toUpperCase()}</h2>
         {iconMapper(weather.condition)}
         <div className="main-card-condition">{weather.condition}</div>
         <div className="main-card-temperature">{weather.temp}°C</div>

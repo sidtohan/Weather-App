@@ -36,7 +36,8 @@ const Search = () => {
   };
 
   const filterCity = (e) => {
-    const cityName = e.target.value;
+    let cityName = e.target.value;
+    cityName = cityName.split(" ").join("").toLowerCase();
     dispatch(applyCityFilter(cityName));
   };
 
@@ -60,6 +61,7 @@ const Search = () => {
       <div className="city-list">
         {cityList.slice(0, 5).map((city) => (
           <div
+            key={city}
             className="city-list-option"
             onClick={() => changeCityName(city)}
           >
