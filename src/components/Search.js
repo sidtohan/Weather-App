@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import getData from "../services/apiService";
 import updateState from "../utils/stateUpdater";
+import { updateDay } from "../reducers/dayReducer";
 import { getSearch } from "../utils/iconMapper";
 import { loaderOn, loaderOff } from "../reducers/loaderReducer";
 import { toggleError } from "../reducers/errorReducer";
@@ -29,6 +30,11 @@ const Search = () => {
       updateState(name, data, dispatch);
       dispatch(loaderOff());
       dispatch(applyCityFilter(""));
+      dispatch(updateDay(0));
+
+      // Also swipe switcher to left most
+      document.querySelector(".switcher").scrollLeft = 0;
+      
     } catch (error) {
       dispatch(toggleError("Invalid City"));
       dispatch(loaderOff());
@@ -58,17 +64,19 @@ const Search = () => {
         onChange={filterCity}
         ref={inputRef}
       />
-      <div className="city-list">
-        {cityList.slice(0, 5).map((city) => (
-          <div
-            key={city}
-            className="city-list-option"
-            onClick={() => changeCityName(city)}
-          >
-            {city}
-          </div>
-        ))}
-      </div>
+      {cityList.length != 0 && (
+        <div className="city-list">
+          {cityList.slice(0, 5).map((city) => (
+            <div
+              key={city}
+              className="city-list-option"
+              onClick={() => changeCityName(city)}
+            >
+              {city}
+            </div>
+          ))}
+        </div>
+      )}
       <button type="submit">{getSearch()}</button>
     </form>
   );

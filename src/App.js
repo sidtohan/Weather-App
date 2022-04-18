@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import MainCard from "./components/MainCard";
 import InfoHolder from "./components/InfoHolder";
 import Error from "./components/Error";
+import Search from "./components/Search";
 
 // Api
 import getData from "./services/apiService";
@@ -30,6 +31,7 @@ const App = () => {
       <Loader />
       <Error />
       <Switcher />
+      <Search />
     </div>
   );
 };

@@ -4,8 +4,8 @@ import { updateDay } from "../reducers/dayReducer";
 import { updateWeather } from "../reducers/weatherReducer";
 import iconMapper from "../utils/iconMapper";
 
-const SwitcherCard = ({ data, onClick, refHook }) => {
-  if (data.date == "Today") {
+const SwitcherCard = ({ data, onClick, refHook, day, i }) => {
+  if (i == day) {
     return (
       <div
         className="switcher-card current"
@@ -13,7 +13,9 @@ const SwitcherCard = ({ data, onClick, refHook }) => {
         ref={refHook}
       >
         <h2 className="switcher-card-heading">{data.date}</h2>
-        {iconMapper(data.condition)}
+        <div className="switcher-card-weather-icon">
+          {iconMapper(data.condition)}
+        </div>
         <div className="switcher-card-temp">{data.temp}°C</div>
       </div>
     );
@@ -21,7 +23,9 @@ const SwitcherCard = ({ data, onClick, refHook }) => {
   return (
     <div className="switcher-card" onClickCapture={onClick}>
       <h2 className="switcher-card-heading">{data.date}</h2>
-      {iconMapper(data.condition)}
+      <div className="switcher-card-weather-icon">
+        {iconMapper(data.condition)}
+      </div>
       <div className="switcher-card-temp">{data.temp}°C</div>
     </div>
   );
@@ -46,24 +50,10 @@ const Switcher = () => {
     const mainDisplay = document.getElementById("main-display");
     mainDisplay.className = condition.toLowerCase();
 
-    // switch current
-    currentRef.current.classList.remove("current");
-    currentRef.current = e.target;
-    e.target.classList.add("current");
-
     // Dispatch actions
-    dispatch(updateDay(day));
+    dispatch(updateDay(i));
     dispatch(updateWeather(dailyData));
   };
-
-  // Add arrow navigation
-  useEffect(() => {
-    window.onkeydown = (e) => {
-      if (e.key === "ArrowLeft") handleDayChange(day - 1);
-      else if (e.key === "ArrowRight") handleDayChange(day + 1);
-      e.stopPropagation();
-    };
-  }, [day, daily]);
 
   return (
     <div className="switcher">
@@ -71,6 +61,8 @@ const Switcher = () => {
         <SwitcherCard
           data={data}
           key={i}
+          day={day}
+          i={i}
           onClick={(e) => handleDayChange(e, i)}
           refHook={currentRef}
         />

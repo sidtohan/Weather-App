@@ -163,6 +163,8 @@ table {
     }
   }
   .city-search {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.422);
+    border-radius: 30px;
     position: relative;
     width: 85%;
     display: flex;
@@ -172,9 +174,9 @@ table {
       padding-right: 20px;
       width: 100%;
       font-size: 0.2rem;
-      background-color: $bgcolor;
       color: $color;
       font-family: $fontfamt;
+      background-color: $fgcolor;
       border: none;
       border-radius: 0;
     }
@@ -221,32 +223,29 @@ table {
       display: none;
     }
     .city-list {
-      z-index: 1;
-      scrollbar-width: none;
+      color: $color;
       width: 100%;
       position: absolute;
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       align-items: center;
-      top: 115%;
+      bottom: 100%;
       height: 200px;
       overflow: scroll;
       .city-list-option {
         font-size: 0.2;
         box-shadow: 0 0 2px $color;
         width: 90%;
-        background-color: $bgcolor;
+        background-color: $fgcolor;
         word-wrap: break-word;
         padding: 15px;
       }
-      .city-list-option:first-child {
+      .city-list-option:last-child {
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         margin-top: 5px;
       }
-      .city-list-option:last-child {
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
+      .city-list-option:first-child {
         margin-bottom: 5px;
       }
     }
@@ -254,13 +253,13 @@ table {
   .city-search::after {
     content: "";
     width: 50px;
-    background-color: $bgcolor;
+    background-color: $fgcolor;
     border-radius: 0 50px 50px 0;
   }
   .city-search::before {
     content: "";
     width: 50px;
-    background-color: $bgcolor;
+    background-color: $fgcolor;
     border-radius: 50px 0 0 50px;
   }
   .main-card,
@@ -269,6 +268,7 @@ table {
     background-color: $fgcolor;
     color: $color !important;
     border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.422);
   }
   .info-card {
     height: 0.8rem;
@@ -278,19 +278,21 @@ table {
     align-items: center;
   }
   .info-card-data {
-    font-size: 0.2rem;
+    opacity: 0.9;
+    font-size: 0.25rem;
+    font-weight: 600;
   }
   .info-card-icon {
     height: 40%;
     width: auto;
   }
   .main-card {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 30px;
-    padding: 20px 0;
+    gap: 20px;
+    padding: 40px 0;
     align-items: center;
   }
   .main-card-info {
@@ -299,16 +301,16 @@ table {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 0.2rem;
-  }
-  .main-card-condition,
-  .main-card-temperature {
-    padding: 10px 0;
   }
   .main-card-temperature {
-    padding-top: 0;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    opacity: 0.8;
+    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.422);
   }
-  .main-card-weather-icon {
+  .main-card-weather-icon,
+  .switcher-card-weather-icon {
     width: 70%;
     height: auto;
     color: $color !important;
@@ -316,16 +318,20 @@ table {
       width: 100%;
       height: auto;
       margin: 0 auto;
+      filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 0.422));
     }
   }
   .main-card-heading {
-    font-size: 0.36rem;
+    text-align: center;
+    font-size: 0.5rem;
     font-weight: 600;
+    padding: 0 20px;
+    text-shadow: 0px 6px 2px $bgcolor;
     font-family: $fontfamh;
   }
 
   .info-card-holder {
-    width: 100%;
+    width: 90%;
     margin-top: 20px;
     grid-gap: 10px;
     display: grid;
@@ -370,11 +376,12 @@ table {
   .switcher {
     padding: 20px 10px;
     display: flex;
-    width: 100%;
+    width: 95%;
     overflow: scroll;
     gap: 10%;
     scrollbar-width: none;
     .switcher-card {
+      transition: 0.32s ease-in-out;
       border-radius: 10px;
       display: flex;
       flex-direction: column;
@@ -387,6 +394,7 @@ table {
       * {
         pointer-events: none;
       }
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.422);
     }
     .switcher-card.current {
       background-color: $color;
@@ -540,6 +548,7 @@ body {
       align-items: center;
       flex-direction: row;
       justify-content: center;
+
       .info-card-data {
         font-size: 0.3rem;
       }

@@ -44,42 +44,12 @@ const getIconName = (condition) => {
   }
 };
 
-const iconVariants = {
-  hidden: {
-    scale: 0.5,
-    opacity: 0,
-    transition: {
-      duration: 0.2,
-    },
-  },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 90,
-    },
-  },
-};
 const iconMapper = (condition) => {
   condition = condition.toLowerCase();
   const iconName = getIconName(condition);
   // using custom key to allow re rendering
   const key = Date.now() + Math.random();
-  return (
-    <AnimatePresence exitBeforeEnter>
-      <motion.div
-        key={key}
-        className="main-card-weather-icon"
-        variants={iconVariants}
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-      >
-        <Icon icon={iconName} />
-      </motion.div>
-    </AnimatePresence>
-  );
+  return <Icon icon={iconName} />;
 };
 
 export const getSearch = () => {
