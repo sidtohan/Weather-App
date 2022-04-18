@@ -10,6 +10,7 @@ const dataMapper = (day, i) => {
   const condition = day.weather[0].main;
   const humidity = day.humidity;
   const wind = day.wind_speed;
+  const date = dayMapper(i);
   return {
     temp,
     minTemp,
@@ -17,6 +18,7 @@ const dataMapper = (day, i) => {
     condition,
     humidity,
     wind,
+    date,
   };
 };
 

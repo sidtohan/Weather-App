@@ -1,7 +1,5 @@
 import { useSelector } from "react-redux";
-import { dayMapper } from "../utils/dataMapper";
 import Search from "./Search";
-import Switcher from "./Switcher";
 import iconMapper from "../utils/iconMapper";
 
 const MainCard = () => {
@@ -17,7 +15,6 @@ const MainCard = () => {
         {iconMapper(weather.condition)}
         <div className="main-card-condition">{weather.condition}</div>
         <div className="main-card-temperature">{weather.temp}°C</div>
-        <Switcher />
       </div>
     </div>
   );

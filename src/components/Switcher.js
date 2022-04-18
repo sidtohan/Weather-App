@@ -1,31 +1,55 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateDay } from "../reducers/dayReducer";
 import { updateWeather } from "../reducers/weatherReducer";
-import { dayMapper } from "../utils/dataMapper";
-import { getLeftRightArrow } from "../utils/iconMapper";
+import iconMapper from "../utils/iconMapper";
 
+const SwitcherCard = ({ data, onClick, refHook }) => {
+  if (data.date == "Today") {
+    return (
+      <div
+        className="switcher-card current"
+        onClickCapture={onClick}
+        ref={refHook}
+      >
+        <h2 className="switcher-card-heading">{data.date}</h2>
+        {iconMapper(data.condition)}
+        <div className="switcher-card-temp">{data.temp}°C</div>
+      </div>
+    );
+  }
+  return (
+    <div className="switcher-card" onClickCapture={onClick}>
+      <h2 className="switcher-card-heading">{data.date}</h2>
+      {iconMapper(data.condition)}
+      <div className="switcher-card-temp">{data.temp}°C</div>
+    </div>
+  );
+};
 const Switcher = () => {
   // Responsible for switching the current day
   const day = useSelector((state) => state.day);
   const daily = useSelector((state) => state.daily);
   const dispatch = useDispatch();
-  const { left, right } = getLeftRightArrow();
 
-  // Convert day to word form
-  const dayName = dayMapper(day);
-
-  const handleDayChange = (day) => {
-    if (day < 0) day = 6;
-    else day = day % 7;
-
+  const currentRef = useRef(null);
+  // Add logic for changing day
+  const handleDayChange = (e, i) => {
+    if (e.target === currentRef.current) {
+      return;
+    }
     // update data now
-    const dailyData = daily[day];
+    const dailyData = daily[i];
     const condition = dailyData.condition;
 
     // update main display
     const mainDisplay = document.getElementById("main-display");
     mainDisplay.className = condition.toLowerCase();
+
+    // switch current
+    currentRef.current.classList.remove("current");
+    currentRef.current = e.target;
+    e.target.classList.add("current");
 
     // Dispatch actions
     dispatch(updateDay(day));
@@ -40,23 +64,17 @@ const Switcher = () => {
       e.stopPropagation();
     };
   }, [day, daily]);
+
   return (
-    <div className="main-card-switcher">
-      <button
-        className="left-switch"
-        type="button"
-        onClick={() => handleDayChange(day - 1)}
-      >
-        {left}
-      </button>
-      <div className="day-name">{dayName}</div>
-      <button
-        className="right-switch"
-        type="button"
-        onClick={() => handleDayChange(day + 1)}
-      >
-        {right}
-      </button>
+    <div className="switcher">
+      {daily.map((data, i) => (
+        <SwitcherCard
+          data={data}
+          key={i}
+          onClick={(e) => handleDayChange(e, i)}
+          refHook={currentRef}
+        />
+      ))}
     </div>
   );
 };

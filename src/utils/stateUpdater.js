@@ -16,6 +16,7 @@ const updateState = (name, data, dispatch) => {
     condition: data.current.weather[0].main,
     humidity: data.current.humidity,
     wind: data.current.wind_speed,
+    date: "Today",
   };
 
   // Daily Data

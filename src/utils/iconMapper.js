@@ -93,10 +93,5 @@ export const getInfoIcons = () => {
     Wind: <Icon className="info-card-icon" icon="bx:wind" />,
   };
 };
-export const getLeftRightArrow = () => {
-  return {
-    left: <Icon icon="bxs:left-arrow-circle" />,
-    right: <Icon icon="bxs:right-arrow-circle" />,
-  };
-};
+
 export default iconMapper;

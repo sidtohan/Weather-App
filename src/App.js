@@ -10,6 +10,7 @@ import getData from "./services/apiService";
 import updateState from "./utils/stateUpdater";
 import Loader from "./components/Loader";
 import { loaderOff } from "./reducers/loaderReducer";
+import Switcher from "./components/Switcher";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const App = () => {
       <InfoHolder />
       <Loader />
       <Error />
+      <Switcher />
     </div>
   );
 };

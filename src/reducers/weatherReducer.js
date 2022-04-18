@@ -6,6 +6,7 @@ const initialState = {
   condition: "Clear",
   humidity: 3,
   wind: 4,
+  date: "Nope",
 };
 
 const weatherReducer = (state = initialState, action) => {

@@ -323,45 +323,7 @@ table {
     font-weight: 600;
     font-family: $fontfamh;
   }
-  .main-card-switcher {
-    position: relative;
-    margin-top: 10px;
-    width: 100%;
-    button {
-      display: block;
-      background-color: inherit;
-      border: none;
-      height: 100%;
-      width: 100%;
-      svg {
-        margin: auto;
-        color: $color;
-        display: block;
-        height: 90%;
-        width: auto;
-      }
-    }
-    .left-switch {
-      width: 30%;
-      height: 0.4rem;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .right-switch {
-      width: 30%;
-      height: 0.4rem;
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-  .day-name {
-    font-weight: 600;
-    text-align: center;
-  }
+
   .info-card-holder {
     width: 100%;
     margin-top: 20px;
@@ -404,6 +366,39 @@ table {
     div {
       font-family: $fontfamt;
     }
+  }
+  .switcher {
+    padding: 20px 10px;
+    display: flex;
+    width: 100%;
+    overflow: scroll;
+    gap: 10%;
+    scrollbar-width: none;
+    .switcher-card {
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 45%;
+      background-color: $fgcolor;
+      color: $color;
+      padding: 20px 0;
+      * {
+        pointer-events: none;
+      }
+    }
+    .switcher-card.current {
+      background-color: $color;
+      svg,
+      div,
+      h2 {
+        color: $fgcolor;
+      }
+    }
+  }
+  .switcher::-webkit-scrollbar {
+    display: none;
   }
 }
 
