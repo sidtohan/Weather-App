@@ -136,6 +136,7 @@ table {
   padding: 0;
   margin: 0;
   backface-visibility: hidden;
+  scroll-behavior: smooth !important;
 }
 
 @mixin main-style($bgcolor, $fgcolor, $color) {
@@ -233,6 +234,7 @@ table {
       height: 200px;
       overflow: scroll;
       margin: 3px 0;
+      scrollbar-width: none;
       .city-list-option {
         font-size: 0.2;
         box-shadow: 0 0 2px rgba(0, 0, 0, 0.422);
