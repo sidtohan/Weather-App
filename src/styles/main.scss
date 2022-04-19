@@ -204,7 +204,7 @@ table {
     button {
       display: block;
       position: absolute;
-      right: 20px !important;
+      right: 5%;
       top: 50%;
       transform: translateY(-50%);
       background-color: inherit;
@@ -232,21 +232,19 @@ table {
       bottom: 100%;
       height: 200px;
       overflow: scroll;
+      margin: 3px 0;
       .city-list-option {
         font-size: 0.2;
-        box-shadow: 0 0 2px $color;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.422);
         width: 90%;
         background-color: $fgcolor;
         word-wrap: break-word;
         padding: 15px;
       }
       .city-list-option:last-child {
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        margin-top: 5px;
-      }
-      .city-list-option:first-child {
-        margin-bottom: 5px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        margin-top: 2px;
       }
     }
   }
@@ -271,6 +269,7 @@ table {
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.422);
   }
   .info-card {
+    padding: 10px;
     height: 0.8rem;
     display: flex;
     justify-content: center;
@@ -279,11 +278,11 @@ table {
   }
   .info-card-data {
     opacity: 0.9;
-    font-size: 0.25rem;
+    font-size: min(0.25rem, 6vw);
     font-weight: 600;
   }
   .info-card-icon {
-    height: 40%;
+    height: 70%;
     width: auto;
   }
   .main-card {
@@ -321,11 +320,13 @@ table {
       filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 0.422));
     }
   }
+  .switcher-card-heading {
+    font-size: min(0.23rem, 6vw);
+  }
   .main-card-heading {
     text-align: center;
-    font-size: 0.5rem;
+    font-size: min(0.5rem, 12vw);
     font-weight: 600;
-    padding: 0 20px;
     text-shadow: 0px 6px 2px $bgcolor;
     font-family: $fontfamh;
   }
@@ -499,74 +500,55 @@ body {
 // MEDIA
 @media screen and (min-width: 768px) {
   #main-display {
-    .error-div {
-      font-size: 0.25rem !important;
-    }
-    padding: 10px 0;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-    height: 100vh;
-    overflow-y: hidden !important;
+    padding: 0 12% !important;
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: minmax(10vh, auto);
+    justify-items: center;
     .main-card {
-      overflow: hidden;
+      grid-column: 1/5;
+      grid-row: 1/11;
       height: 90vh !important;
-      width: 80% !important;
-      min-height: 0 !important;
-    }
-    .main-card-weather-icon {
-      height: auto;
-      width: 50% !important;
-      max-width: 250px;
-    }
-    .main-card-info {
-      font-size: 0.3rem !important;
-    }
-    .city-search {
-      input {
-        font-size: 0.25rem !important;
-      }
-      input::placeholder {
-        font-size: 0.25rem !important;
-      }
-      input:-webkit-autofill,
-      input:-webkit-autofill:hover,
-      input:-webkit-autofill:focus,
-      select:-webkit-autofill,
-      select:-webkit-autofill:hover,
-      select:-webkit-autofill:focus {
-        font-size: 0.25rem !important;
-      }
     }
     .info-card-holder {
-      height: 80vh !important;
+      grid-column: 5/9;
+      grid-row: 3/6;
+      align-self: flex-start;
     }
-    .info-card {
-      height: 40vh !important;
-      display: flex;
-      height: 3rem;
-      align-items: center;
-      flex-direction: row;
-      justify-content: center;
-
-      .info-card-data {
-        font-size: 0.3rem;
-      }
-      .info-card-icon {
-        height: 30%;
-        width: auto;
+    .city-search {
+      grid-row: 1/3;
+      grid-column: 5/9;
+    }
+    .switcher {
+      padding: 0 !important;
+      width: 90% !important;
+      height: 80%;
+      align-self: center;
+      grid-column: 5/9;
+      grid-row: 6/11;
+      .switcher-card {
+        height: 100% !important;
       }
     }
-  }
-  .info-card-holder {
-    height: 60vh;
-    margin: 0 !important;
-  }
-  .loader {
-    font-size: 0.25rem !important;
-    height: 100%;
-    svg {
-      width: 30% !important;
+    .city-list {
+      top: 100%;
+      flex-direction: column !important;
+      .city-list-option:last-child {
+        border-top-right-radius: 0 !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        margin-top: 0 !important;
+        margin-bottom: 2px !important;
+      }
+    }
+    .loader {
+      font-size: 0.25rem !important;
+      height: 100%;
+      svg {
+        width: 30% !important;
+      }
     }
   }
 }
