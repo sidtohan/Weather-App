@@ -7,15 +7,17 @@ const MainCard = () => {
   const weather = useSelector((state) => state.weather);
 
   return (
-    <div className="main-card">
-      <div className="main-card-info">
-        <h2 className="main-card-heading">{city.toUpperCase()}</h2>
-        <div className="main-card-temperature">{weather.temp}°C</div>
-        <div className="main-card-weather-icon">
-          {iconMapper(weather.condition)}
+    <>
+      <h2 className="city-name">{city.toUpperCase()}</h2>
+      <div className="main-card">
+        <div className="main-card-info">
+          <div className="main-card-temperature">{weather.temp}°C</div>
+          <div className="main-card-weather-icon">
+            {iconMapper(weather.condition)}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

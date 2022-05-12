@@ -26,12 +26,12 @@ const App = () => {
   }, [dispatch]);
   return (
     <div id="main-display" className="clear">
+      <Search />
       <MainCard />
       <InfoHolder />
       <Loader />
       <Error />
       <Switcher />
-      <Search />
     </div>
   );
 };

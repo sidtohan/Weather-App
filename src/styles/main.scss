@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;600;700&display=swap");
-$fontfamt: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-$fontfamh: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap");
+$fontfamt: "DM Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$fontfamh: "DM Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -139,7 +139,7 @@ table {
   scroll-behavior: smooth !important;
 }
 
-@mixin main-style($bgcolor, $fgcolor, $color) {
+@mixin main-style($bgcolor, $fgcolor, $color, $pcolor) {
   .error-div {
     display: flex;
     justify-content: center;
@@ -279,7 +279,7 @@ table {
   .info-card-data {
     opacity: 0.9;
     font-size: min(0.25rem, 6vw);
-    font-weight: 600;
+    font-weight: 500;
   }
   .info-card-icon {
     height: 70%;
@@ -304,7 +304,7 @@ table {
   .main-card-temperature {
     padding-top: 20px;
     font-size: 0.8rem;
-    font-weight: bold;
+    font-weight: 700;
     opacity: 0.8;
     text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.422);
   }
@@ -323,10 +323,12 @@ table {
   .switcher-card-heading {
     font-size: min(0.23rem, 6vw);
   }
-  .main-card-heading {
+  .city-name {
     text-align: center;
+    letter-spacing: 0.1em;
+    color: $pcolor;
     font-size: min(0.5rem, 12vw);
-    font-weight: 600;
+    font-weight: 500;
     text-shadow: 0px 6px 2px $bgcolor;
     font-family: $fontfamh;
   }
@@ -411,11 +413,11 @@ table {
   }
 }
 
-@mixin call-style($bgcolor, $fgcolor, $color) {
+@mixin call-style($bgcolor, $fgcolor, $color, $pcolor) {
   background-color: $bgcolor;
   padding: 20px;
   transition: 0.32s ease-in-out;
-  @include main-style($bgcolor, $fgcolor, $color);
+  @include main-style($bgcolor, $fgcolor, $color, $pcolor);
 }
 
 #main-display {
@@ -424,62 +426,65 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 30px;
   align-items: center;
 }
 
 // Weather Styles
 #main-display.clear {
-  $bgcolor: #fd7a00;
-  $fgcolor: #fda700;
-  $color: #292929;
-  @include call-style($bgcolor, $fgcolor, $color);
+  $bgcolor: #0059ab;
+  $fgcolor: rgba(255, 255, 255, 0.11);
+  $pcolor: #fda700;
+  $color: #ffffff;
+  @include call-style($bgcolor, $fgcolor, $color, $pcolor);
 }
 #main-display.rain {
   $bgcolor: #382c4d;
-  $fgcolor: #524569;
-  $color: #d8d8d8;
-  @include call-style($bgcolor, $fgcolor, $color);
+  $fgcolor: rgba(255, 255, 255, 0.11);
+  $pcolor: #fda700;
+  $color: #ffffff;
+  @include call-style($bgcolor, $fgcolor, $color, $pcolor);
 }
 #main-display.clouds {
   $bgcolor: #39393a;
-  $fgcolor: #55515b;
-  $color: #d8d8d8;
-  @include call-style($bgcolor, $fgcolor, $color);
+  $fgcolor: rgba(255, 255, 255, 0.11);
+  $pcolor: #fda700;
+  $color: #ffffff;
+  @include call-style($bgcolor, $fgcolor, $color, $pcolor);
 }
 #main-display.thunderstorm {
   $bgcolor: #221f27;
-  $fgcolor: #3a3443;
-  $color: #d8d8d8;
-  @include call-style($bgcolor, $fgcolor, $color);
+  $fgcolor: rgba(255, 255, 255, 0.11);
+  $pcolor: #fda700;
+  $color: #ffffff;
+  @include call-style($bgcolor, $fgcolor, $color, $pcolor);
 }
-#main-display.snow {
-  $bgcolor: #acacac;
-  $fgcolor: #cccccc;
-  $color: #292929;
-  @include call-style($bgcolor, $fgcolor, $color);
-}
+#main-display.snow,
 #main-display.haze,
 #main-display.fog,
 #main-display.mist,
 #main-display.smoke {
-  $bgcolor: #c3c3c3;
-  $fgcolor: #dcdcdc;
-  $color: #292929;
-  @include call-style($bgcolor, $fgcolor, $color);
+  $bgcolor: #b3bfca;
+  $fgcolor: rgba(255, 255, 255, 0.11);
+  $pcolor: #003566;
+  $color: #1a1a1a;
+  @include call-style($bgcolor, $fgcolor, $color, $pcolor);
 }
 #main-display.dust,
 #main-display.sand {
   $bgcolor: #ffe073;
-  $fgcolor: #fcff81;
-  $color: #292929;
-  @include call-style($bgcolor, $fgcolor, $color);
+  $fgcolor: rgba(255, 255, 255, 0.11);
+  $pcolor: #003566;
+  $color: #1a1a1a;
+  @include call-style($bgcolor, $fgcolor, $color, $pcolor);
 }
 #main-display.squall,
 #main-display.tornado {
   $bgcolor: #374b63;
-  $fgcolor: #243241;
-  $color: #d8d8d8;
-  @include call-style($bgcolor, $fgcolor, $color);
+  $fgcolor: rgba(255, 255, 255, 0.11);
+  $pcolor: #fda700;
+  $color: #ffffff;
+  @include call-style($bgcolor, $fgcolor, $color, $pcolor);
 }
 
 :root {
