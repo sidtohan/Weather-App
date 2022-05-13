@@ -145,7 +145,7 @@ table {
     align-items: center;
     background-color: $bgcolor;
     color: $color;
-    font-size: 0.2rem;
+    font-size: 0.25rem;
     padding: 30px;
     width: 60%;
     position: fixed;
@@ -172,7 +172,7 @@ table {
       padding: 10px 20px;
       padding-left: 0;
       width: 100%;
-      font-size: 0.2rem;
+      font-size: 0.25rem;
       color: $color;
       font-family: $fontfamt;
       background-color: $fgcolor;
@@ -181,7 +181,7 @@ table {
     }
     input::placeholder {
       color: $color;
-      font-size: 0.2rem;
+      font-size: 0.25rem;
     }
     input:focus {
       outline: none;
@@ -195,7 +195,7 @@ table {
       caret-color: $color;
       color: $color !important;
       -webkit-text-fill-color: $color;
-      font-size: 0.2rem;
+      font-size: 0.25rem;
       font-family: $fontfamt !important;
     }
 
@@ -278,59 +278,65 @@ table {
     height: 70%;
     width: auto;
   }
+
+  .city-name {
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: $pcolor;
+    font-size: min(0.7rem, max(0.35rem, 8vw));
+    text-shadow: 0px 6px 2px $bgcolor;
+    font-family: $fontfamh;
+  }
+
   .main-card {
+    $fontSizeSmall: min(0.5rem, max(0.25rem, 6vw));
+    $fontSizeLarge: min(0.8rem, max(0.4rem, 10vw));
     width: 90%;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-column-gap: 20px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
     grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 0.2rem;
     padding: 20px 40px;
     padding-right: 20px;
     align-items: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
+
+    .main-card-day {
+      font-size: $fontSizeSmall;
+      color: $pcolor;
+      grid-row: 1/2;
+      align-self: center;
+    }
+    .main-card-temperature {
+      grid-row: 2/3;
+      font-size: $fontSizeLarge;
+      font-weight: 700;
+      padding-bottom: 10px;
+      color: $color;
+    }
+    .main-card-temperature > sup {
+      vertical-align: top;
+      color: $pcolor;
+    }
+    .main-card-condition {
+      font-size: $fontSizeSmall;
+      color: $pcolor;
+      align-self: center;
+    }
+    .main-card-weather-icon {
+      grid-row: 1/4;
+      grid-column: 2/3;
+      align-self: center;
+      width: 100%;
+      height: auto;
+      color: $color !important;
+      filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+    }
   }
-  .main-card-day {
-    font-size: 0.3rem;
-    color: $pcolor;
-    grid-row: 1/2;
-    align-self: center;
-  }
-  .main-card-temperature {
-    grid-row: 2/3;
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding-bottom: 10px;
-    color: $color;
-  }
-  .main-card-temperature > sup {
-    vertical-align: top;
-    color: $pcolor;
-  }
-  .main-card-condition {
-    font-size: 0.3rem;
-    color: $pcolor;
-    align-self: center;
-  }
-  .main-card-weather-icon {
-    grid-row: 1/4;
-    grid-column: 2/3;
-    align-self: center;
-    width: 100%;
-    height: auto;
-    color: $color !important;
- }
+
   .switcher-card-heading {
     font-size: min(0.23rem, 6vw);
-  }
-  .city-name {
-    text-align: center;
-    letter-spacing: 0.1em;
-    color: $pcolor;
-    font-size: min(0.5rem, 12vw);
-    font-weight: 500;
-    text-shadow: 0px 6px 2px $bgcolor;
-    font-family: $fontfamh;
   }
 
   .info-card-holder {
