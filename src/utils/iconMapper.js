@@ -1,7 +1,6 @@
 // Returns the corresponding icon to the given
 // weather condition
 import { Icon } from "@iconify/react";
-import { AnimatePresence, motion } from "framer-motion";
 const getIconName = (condition) => {
   switch (condition) {
     case "clear":
@@ -49,7 +48,7 @@ const iconMapper = (condition) => {
   const iconName = getIconName(condition);
   // using custom key to allow re rendering
   const key = Date.now() + Math.random();
-  return <Icon icon={iconName} />;
+  return <Icon icon={iconName} className="main-card-weather-icon" />;
 };
 
 export const getSearch = () => {

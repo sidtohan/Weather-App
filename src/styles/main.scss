@@ -41,8 +41,6 @@ samp,
 small,
 strike,
 strong,
-sub,
-sup,
 tt,
 var,
 b,
@@ -153,7 +151,6 @@ table {
     position: fixed;
     z-index: 1;
     top: 20px;
-    box-shadow: 0 0 6px 1px $fgcolor;
     border-radius: 10px;
     text-align: center;
     font-family: $fontfamh;
@@ -164,7 +161,6 @@ table {
     }
   }
   .city-search {
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.422);
     border-radius: 30px;
     width: 85%;
     display: flex;
@@ -201,7 +197,6 @@ table {
       -webkit-text-fill-color: $color;
       font-size: 0.2rem;
       font-family: $fontfamt !important;
-      box-shadow: 0 0 0 50px inset $bgcolor;
     }
 
     button {
@@ -235,7 +230,6 @@ table {
       scrollbar-width: none;
       .city-list-option {
         font-size: 0.2;
-        box-shadow: 0 0 2px rgba(0, 0, 0, 0.422);
         width: 90%;
         background-color: $fgcolor;
         word-wrap: break-word;
@@ -266,7 +260,6 @@ table {
     background-color: $fgcolor;
     color: $color !important;
     border-radius: 10px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.422);
   }
   .info-card {
     padding: 10px;
@@ -287,39 +280,46 @@ table {
   }
   .main-card {
     width: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    padding: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 20px;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 20px 40px;
+    padding-right: 20px;
     align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
   }
-  .main-card-info {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .main-card-day {
+    font-size: 0.3rem;
+    color: $pcolor;
+    grid-row: 1/2;
+    align-self: center;
   }
   .main-card-temperature {
-    padding-top: 20px;
+    grid-row: 2/3;
     font-size: 0.8rem;
     font-weight: 700;
-    opacity: 0.8;
-    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.422);
+    padding-bottom: 10px;
+    color: $color;
   }
-  .main-card-weather-icon,
-  .switcher-card-weather-icon {
-    width: 70%;
+  .main-card-temperature > sup {
+    vertical-align: top;
+    color: $pcolor;
+  }
+  .main-card-condition {
+    font-size: 0.3rem;
+    color: $pcolor;
+    align-self: center;
+  }
+  .main-card-weather-icon {
+    grid-row: 1/4;
+    grid-column: 2/3;
+    align-self: center;
+    width: 100%;
     height: auto;
     color: $color !important;
-    svg {
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-      filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 0.422));
-    }
-  }
+ }
   .switcher-card-heading {
     font-size: min(0.23rem, 6vw);
   }
@@ -397,7 +397,6 @@ table {
       * {
         pointer-events: none;
       }
-      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.422);
     }
     .switcher-card.current {
       background-color: $color;
@@ -491,7 +490,6 @@ table {
   font-size: 100px;
 }
 body {
-  font-size: 0.2rem;
   font-family: $fontfamt;
   box-sizing: border-box;
   height: 100%;
