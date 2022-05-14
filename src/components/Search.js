@@ -16,6 +16,9 @@ const Search = () => {
   const dispatch = useDispatch();
   const cityList = useSelector((state) => state.cityList);
   const inputRef = useRef(null);
+  const formRef = useRef(null);
+  const buttonRef = useRef(null);
+
   const handleCitySearch = async (e) => {
     e.preventDefault();
     // Get City Name
@@ -37,6 +40,10 @@ const Search = () => {
 
       // Also swipe switcher to left most
       document.querySelector(".switcher").scrollLeft = 0;
+
+      // Reset searching
+      formRef.current.classList.remove("searching");
+      buttonRef.current.classList.remove("searching");
     } catch (error) {
       dispatch(toggleError("Invalid City"));
       dispatch(loaderOff());
@@ -45,12 +52,21 @@ const Search = () => {
 
   const filterCity = (e) => {
     let cityName = e.target.value;
+    if (cityName === "") {
+      formRef.current.classList.remove("searching");
+      buttonRef.current.classList.remove("searching");
+    } else {
+      formRef.current.classList.add("searching");
+      buttonRef.current.classList.add("searching");
+    }
     cityName = cityName.split(" ").join("").toLowerCase();
     dispatch(applyCityFilter(cityName));
   };
 
   const changeCityName = (city) => {
     inputRef.current.value = city;
+    formRef.current.classList.remove("searching");
+    buttonRef.current.classList.remove("searching");
     dispatch(applyCityFilter(""));
   };
   return (
@@ -58,6 +74,7 @@ const Search = () => {
       onSubmit={handleCitySearch}
       className="city-search"
       autoComplete="off"
+      ref={formRef}
     >
       <input
         list="city-list"
@@ -79,7 +96,9 @@ const Search = () => {
           ))}
         </div>
       )}
-      <button type="submit">{getSearch()}</button>
+      <button type="submit" ref={buttonRef}>
+        {getSearch()}
+      </button>
     </form>
   );
 };

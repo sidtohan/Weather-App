@@ -38,7 +38,7 @@
     $pcolor: $pcolor
   );
   @include switcher.style;
-  
+
   .error-div {
     display: flex;
     justify-content: center;
@@ -79,6 +79,7 @@
   }
 
   .main-card {
+    z-index: 0;
     width: 90%;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
@@ -120,6 +121,7 @@
       height: auto;
       color: $color !important;
       filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+      z-index: 1;
     }
   }
 
