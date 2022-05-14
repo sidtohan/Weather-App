@@ -48,19 +48,11 @@ const iconMapper = (condition) => {
   const iconName = getIconName(condition);
   // using custom key to allow re rendering
   const key = Date.now() + Math.random();
-  return <Icon icon={iconName} className="main-card-weather-icon" />;
+  return <Icon key={key} icon={iconName} className="main-card-weather-icon" />;
 };
 
 export const getSearch = () => {
   return <Icon icon="akar-icons:search" />;
-};
-export const getInfoIcons = () => {
-  return {
-    MinTemp: <Icon className="info-card-icon" icon="carbon:temperature-min" />,
-    MaxTemp: <Icon className="info-card-icon" icon="carbon:temperature-max" />,
-    Humidity: <Icon className="info-card-icon" icon="wi:humidity" />,
-    Wind: <Icon className="info-card-icon" icon="bx:wind" />,
-  };
 };
 
 export default iconMapper;

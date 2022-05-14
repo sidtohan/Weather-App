@@ -13,6 +13,7 @@ const updateState = (name, data, dispatch) => {
     temp: Math.round(data.current.temp) - 273,
     minTemp: Math.round(data.daily[0].temp.min) - 273,
     maxTemp: Math.round(data.daily[0].temp.max) - 273,
+    feelsLike: Math.round(data.current.feels_like) - 273,
     condition: data.current.weather[0].main,
     humidity: data.current.humidity,
     wind: data.current.wind_speed,

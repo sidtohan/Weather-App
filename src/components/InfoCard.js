@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { getInfoIcons } from "../utils/iconMapper";
 
 const InfoCard = ({ type }) => {
   // Returns info card with heading and data
@@ -7,15 +6,22 @@ const InfoCard = ({ type }) => {
   const weatherData = useSelector((state) => state.weather);
 
   // Get data
-  if (type === "MinTemp") data = `${weatherData.minTemp}°C`;
-  else if (type === "MaxTemp") data = `${weatherData.maxTemp}°C`;
-  else if (type === "Humidity") data = weatherData.humidity;
-  else data = `${weatherData.wind} m/s`;
+  if (type === "MinTemp") {
+    data = `${weatherData.minTemp}°C`;
+    type = "Min Temp";
+  } else if (type === "MaxTemp") {
+    data = `${weatherData.maxTemp}°C`;
+    type = "Max Temp";
+  } else if (type === "Humidity") data = `${weatherData.humidity}%`;
+  else {
+    data = `${weatherData.feelsLike}°C`;
+    type = "Feels Like";
+  }
 
   return (
     <div className="info-card">
+      <h2 className="info-card-heading">{type}</h2>
       <div className="info-card-data">{data}</div>
-      {getInfoIcons()[type]}
     </div>
   );
 };

@@ -1,0 +1,67 @@
+@use "../abstracts/typography" as *;
+
+$-bgcolor: null !default;
+$-fgcolor: null !default;
+$-color: null !default;
+$-pcolor: null !default;
+$-fontfamily: null !default;
+
+@mixin style {
+  .info-card-holder {
+    width: 90%;
+    margin-top: 20px;
+    grid-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    grid-row-gap: min(50px, 5vw);
+  }
+  .info-card {
+    font-family: $-fontfamily;
+    color: $-color !important;
+    border-radius: 10px;
+    padding: 10px;
+    height: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .info-card-heading {
+    font-size: $fontSizeVerySmall;
+    font-weight: 700;
+    color: $-color;
+    opacity: 0.44;
+  }
+  .info-card-data {
+    font-size: $fontSizeSmall;
+    font-weight: 700;
+    color: $-pcolor;
+  }
+}
+
+@mixin configure(
+  $bgcolor: null,
+  $fgcolor: null,
+  $color: null,
+  $pcolor: null,
+  $fontfamily: null
+) {
+  @if $bgcolor {
+    $-bgcolor: $bgcolor !global;
+  }
+  @if $fgcolor {
+    $-fgcolor: $fgcolor !global;
+  }
+  @if $color {
+    $-color: $color !global;
+  }
+  @if $pcolor {
+    $-pcolor: $pcolor !global;
+  }
+  @if $fontfamily {
+    $-fontfamily: $fontfamily !global;
+  }
+}

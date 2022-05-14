@@ -1,23 +1,33 @@
 // Converts raw response data to a uniform format
-const computeAverageTemp = (a, b) => {
-  return Math.round((a + b) / 2);
+const computeAverageTemp = (...a) => {
+  let sum = 0;
+  for (let num of a) {
+    sum += num;
+  }
+  return Math.round(sum / a.length);
 };
 
+const convertToCel = (temp) => Math.round(temp) - 273;
 const dataMapper = (day, i) => {
-  const minTemp = Math.round(day.temp.min) - 273;
-  const maxTemp = Math.round(day.temp.max) - 273;
+  const minTemp = convertToCel(day.temp.min);
+  const maxTemp = convertToCel(day.temp.max);
   const temp = computeAverageTemp(minTemp, maxTemp);
   const condition = day.weather[0].main;
   const humidity = day.humidity;
-  const wind = day.wind_speed;
   const date = dayMapper(i);
+  const feelsLike = computeAverageTemp(
+    convertToCel(day.feels_like.day),
+    convertToCel(day.feels_like.night),
+    convertToCel(day.feels_like.eve),
+    convertToCel(day.feels_like.morn)
+  );
   return {
     temp,
     minTemp,
     maxTemp,
+    feelsLike,
     condition,
     humidity,
-    wind,
     date,
   };
 };
