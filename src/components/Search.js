@@ -1,4 +1,8 @@
+// Libraries
 import { useDispatch, useSelector } from "react-redux";
+import { useRef } from "react";
+
+// Functions/Method imports
 import getData from "../services/apiService";
 import updateState from "../utils/stateUpdater";
 import { updateDay } from "../reducers/dayReducer";
@@ -6,7 +10,6 @@ import { getSearch } from "../utils/iconMapper";
 import { loaderOn, loaderOff } from "../reducers/loaderReducer";
 import { toggleError } from "../reducers/errorReducer";
 import { applyCityFilter } from "../reducers/cityListReducer";
-import { useRef } from "react";
 
 const Search = () => {
   // Form for city search
@@ -34,7 +37,6 @@ const Search = () => {
 
       // Also swipe switcher to left most
       document.querySelector(".switcher").scrollLeft = 0;
-      
     } catch (error) {
       dispatch(toggleError("Invalid City"));
       dispatch(loaderOff());

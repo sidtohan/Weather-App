@@ -1,0 +1,134 @@
+$-bgcolor: null !default;
+$-fgcolor: null !default;
+$-color: null !default;
+$-pcolor: null !default;
+$-fontfamily: null !default;
+
+@mixin style() {
+  border-radius: 30px;
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $-fgcolor;
+  position: relative;
+  grid-row: 1/3;
+  grid-column: 5/9;
+
+  // &::after {
+  //   content: "";
+  //   width: 30px;
+  //   height: 0.5em;
+  //   border-radius: 0 50px 50px 0;
+  //   background-color: $-pcolor !important;
+  // }
+  // &::before {
+  //   content: "";
+  //   width: 30px;
+  //   background-color: $-fgcolor;
+  //   border-radius: 50px 0 0 50px;
+  // }
+
+  input {
+    padding: 10px 20px;
+    padding-left: 30px;
+    width: 100%;
+    font-size: 0.25rem;
+    color: $-color;
+    background-color: transparent;
+    font-family: $-fontfamily;
+    border: none;
+    border-radius: 0;
+  }
+  input::placeholder {
+    color: $-color;
+    font-size: 0.25rem;
+    font-family: $-fontfamily;
+    opacity: 0.8;
+  }
+  input:focus {
+    outline: none;
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    caret-color: $-color;
+    color: $-color !important;
+    -webkit-text-fill-color: $-color;
+    font-size: 0.25rem;
+    font-family: $-fontfamily;
+  }
+
+  button {
+    display: block;
+    padding: 0 10px;
+    background-color: $-pcolor;
+    border: none;
+    height: 0.55rem;
+    width: auto;
+    border-radius: 0 50px 50px 0;
+    svg {
+      color: $-bgcolor;
+      margin: 0 auto;
+      display: block;
+      height: 70%;
+      width: 100%;
+    }
+  }
+
+  .city-list::-webkit-scrollbar {
+    display: none;
+  }
+  .city-list {
+    color: $-color;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    bottom: 100%;
+    height: 200px;
+    overflow: scroll;
+    margin: 3px 0;
+    scrollbar-width: none;
+    .city-list-option {
+      font-size: 0.2;
+      width: 90%;
+      background-color: $-fgcolor;
+      word-wrap: break-word;
+      padding: 15px;
+    }
+    .city-list-option:last-child {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      margin-top: 2px;
+    }
+  }
+}
+
+@mixin configure(
+  $bgcolor: null,
+  $fgcolor: null,
+  $color: null,
+  $pcolor: null,
+  $fontfamily: null
+) {
+  @if $bgcolor {
+    $-bgcolor: $bgcolor !global;
+  }
+  @if $fgcolor {
+    $-fgcolor: $fgcolor !global;
+  }
+  @if $color {
+    $-color: $color !global;
+  }
+  @if $pcolor {
+    $-pcolor: $pcolor !global;
+  }
+  @if $fontfamily {
+    $-fontfamily: $fontfamily !global;
+  }
+}
