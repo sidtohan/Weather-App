@@ -28,10 +28,10 @@ const App = () => {
     <div id="main-display" className="clear">
       <Search />
       <MainCard />
+      <Switcher />
       <InfoHolder />
       <Loader />
       <Error />
-      <Switcher />
     </div>
   );
 };

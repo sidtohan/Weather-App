@@ -1,32 +1,26 @@
-import { useEffect, useRef } from "react";
+// Libraries
+import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+// Reducers
 import { updateDay } from "../reducers/dayReducer";
 import { updateWeather } from "../reducers/weatherReducer";
-import iconMapper from "../utils/iconMapper";
 
-const SwitcherCard = ({ data, onClick, refHook, day, i }) => {
+const SwitcherElement = ({ data, onClick, refHook, day, i }) => {
   if (i == day) {
     return (
       <div
-        className="switcher-card current"
+        className="switcher-element current"
         onClickCapture={onClick}
         ref={refHook}
       >
-        <h2 className="switcher-card-heading">{data.date}</h2>
-        <div className="switcher-card-weather-icon">
-          {iconMapper(data.condition)}
-        </div>
-        <div className="switcher-card-temp">{data.temp}°C</div>
+        {data.date}
       </div>
     );
   }
   return (
-    <div className="switcher-card" onClickCapture={onClick}>
-      <h2 className="switcher-card-heading">{data.date}</h2>
-      <div className="switcher-card-weather-icon">
-        {iconMapper(data.condition)}
-      </div>
-      <div className="switcher-card-temp">{data.temp}°C</div>
+    <div className="switcher-element" onClickCapture={onClick}>
+      {data.date}
     </div>
   );
 };
@@ -58,7 +52,7 @@ const Switcher = () => {
   return (
     <div className="switcher">
       {daily.map((data, i) => (
-        <SwitcherCard
+        <SwitcherElement
           data={data}
           key={i}
           day={day}

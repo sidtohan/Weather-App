@@ -1,0 +1,56 @@
+// IMPORTS
+@use "../abstracts/typography" as *;
+
+// Global Vars
+$-bgcolor: null !default;
+$-fgcolor: null !default;
+$-color: null !default;
+$-pcolor: null !default;
+
+@mixin style {
+  .switcher {
+    padding-top: 20px;
+    display: flex;
+    width: 70%;
+    overflow: scroll;
+    gap: 15%;
+    scrollbar-width: none;
+    .switcher-element {
+      font-size: $fontSizeSmall;
+      transition: 0.2s ease-in-out;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 40%;
+      color: $-color;
+      opacity: 0.8;
+      transform-origin: bottom center;
+    }
+    .switcher-element.current {
+      transform: scale(1.1);
+      transform-origin: bottom center;
+      color: $-pcolor;
+      opacity: 1;
+    }
+  }
+  .switcher::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin configure($bgcolor: null, $fgcolor: null, $color: null, $pcolor: null) {
+  @if $bgcolor {
+    $-bgcolor: $bgcolor !global;
+  }
+  @if $fgcolor {
+    $-fgcolor: $fgcolor !global;
+  }
+  @if $color {
+    $-color: $color !global;
+  }
+  @if $pcolor {
+    $-pcolor: $pcolor !global;
+  }
+}
