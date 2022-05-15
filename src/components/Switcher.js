@@ -1,41 +1,43 @@
 // Libraries
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { InView } from "react-intersection-observer";
 
 // Reducers
 import { updateDay } from "../reducers/dayReducer";
 import { updateWeather } from "../reducers/weatherReducer";
 
-const SwitcherElement = ({ data, onClick, refHook, day, i }) => {
+const SwitcherElement = ({ data, i, day, handleDayChange, switcherRef }) => {
   if (i == day) {
     return (
-      <div
-        className="switcher-element current"
-        onClickCapture={onClick}
-        ref={refHook}
-      >
-        {data.date}
-      </div>
+      <InView onChange={() => handleDayChange(i)} threshold={0.75}>
+        {({ inView, ref }) => (
+          <div className="switcher-element current" ref={ref}>
+            {data.date}
+          </div>
+        )}
+      </InView>
     );
   }
   return (
-    <div className="switcher-element" onClickCapture={onClick}>
-      {data.date}
-    </div>
+    <InView onChange={() => handleDayChange(i)} threshold={0.9}>
+      {({ inView, ref }) => (
+        <div className="switcher-element" ref={ref}>
+          {data.date}
+        </div>
+      )}
+    </InView>
   );
 };
+
 const Switcher = () => {
   // Responsible for switching the current day
   const day = useSelector((state) => state.day);
   const daily = useSelector((state) => state.daily);
   const dispatch = useDispatch();
 
-  const currentRef = useRef(null);
   // Add logic for changing day
-  const handleDayChange = (e, i) => {
-    if (e.target === currentRef.current) {
-      return;
-    }
+  const handleDayChange = (i) => {
     // update data now
     const dailyData = daily[i];
     const condition = dailyData.condition;
@@ -55,10 +57,9 @@ const Switcher = () => {
         <SwitcherElement
           data={data}
           key={i}
-          day={day}
           i={i}
-          onClick={(e) => handleDayChange(e, i)}
-          refHook={currentRef}
+          day={day}
+          handleDayChange={handleDayChange}
         />
       ))}
     </div>

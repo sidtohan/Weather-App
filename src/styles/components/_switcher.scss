@@ -11,8 +11,9 @@ $-pcolor: null !default;
   .switcher {
     padding-top: 20px;
     display: flex;
-    width: 50%;
+    width: 90%;
     overflow: scroll;
+    overflow-y: hidden;
     scrollbar-width: none;
     .switcher-element {
       font-size: $fontSizeSmall;

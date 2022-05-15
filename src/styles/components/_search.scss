@@ -7,9 +7,10 @@ $-color: null !default;
 $-pcolor: null !default;
 
 @mixin style() {
+  $border-rad: max(25px,4vw);
   .city-search {
     height: 100%;
-    border-radius: 25px;
+    border-radius: $border-rad;
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -77,7 +78,7 @@ $-pcolor: null !default;
       background-color: $-pcolor;
       border: none;
       height: 100%;
-      border-radius: 0 25px 25px 0;
+      border-radius: 0 $border-rad $border-rad 0;
       svg {
         color: $-bgcolor;
         margin: 0 auto;
