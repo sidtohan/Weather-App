@@ -11,9 +11,8 @@ $-pcolor: null !default;
   .switcher {
     padding-top: 20px;
     display: flex;
-    width: 70%;
+    width: 50%;
     overflow: scroll;
-    gap: 15%;
     scrollbar-width: none;
     .switcher-element {
       font-size: $fontSizeSmall;
@@ -23,7 +22,7 @@ $-pcolor: null !default;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-width: 40%;
+      min-width: 100%;
       color: $-color;
       opacity: 0.8;
       transform-origin: bottom center;
