@@ -16,6 +16,7 @@ $-pcolor: null !default;
     overflow-y: hidden;
     scrollbar-width: none;
     .switcher-element {
+      text-align: center;
       font-size: $fontSizeSmall;
       transition: 0.2s ease-in-out;
       border-radius: 10px;

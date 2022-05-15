@@ -10,7 +10,11 @@ import { updateWeather } from "../reducers/weatherReducer";
 const SwitcherElement = ({ data, i, day, handleDayChange, switcherRef }) => {
   if (i == day) {
     return (
-      <InView onChange={() => handleDayChange(i)} threshold={0.75}>
+      <InView
+        onChange={() => handleDayChange(i)}
+        threshold={0.7}
+        root={switcherRef.current}
+      >
         {({ inView, ref }) => (
           <div className="switcher-element current" ref={ref}>
             {data.date}
@@ -20,7 +24,11 @@ const SwitcherElement = ({ data, i, day, handleDayChange, switcherRef }) => {
     );
   }
   return (
-    <InView onChange={() => handleDayChange(i)} threshold={0.9}>
+    <InView
+      onChange={() => handleDayChange(i)}
+      threshold={0.7}
+      root={switcherRef.current}
+    >
       {({ inView, ref }) => (
         <div className="switcher-element" ref={ref}>
           {data.date}
@@ -35,6 +43,9 @@ const Switcher = () => {
   const day = useSelector((state) => state.day);
   const daily = useSelector((state) => state.daily);
   const dispatch = useDispatch();
+
+  // Switcher Ref
+  const switcherRef = useRef(null);
 
   // Add logic for changing day
   const handleDayChange = (i) => {
@@ -52,7 +63,7 @@ const Switcher = () => {
   };
 
   return (
-    <div className="switcher">
+    <div className="switcher" ref={switcherRef}>
       {daily.map((data, i) => (
         <SwitcherElement
           data={data}
@@ -60,6 +71,7 @@ const Switcher = () => {
           i={i}
           day={day}
           handleDayChange={handleDayChange}
+          switcherRef={switcherRef}
         />
       ))}
     </div>
