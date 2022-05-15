@@ -58,12 +58,6 @@
     $pcolor: $pcolor
   );
   @include error.style;
-  .main-card {
-    font-family: $fontfamt;
-    background-color: $fgcolor;
-    color: $color !important;
-    border-radius: 10px;
-  }
 
   .city-name {
     text-align: center;
@@ -76,6 +70,12 @@
 
   .main-card {
     z-index: 0;
+    font-family: $fontfamt;
+    background-color: $fgcolor;
+    color: $color !important;
+    border-radius: 10px;
+    word-break: keep-all;
+
     width: 90%;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
@@ -130,6 +130,7 @@
 }
 
 #main-display {
+  word-break: break-word;
   width: 100%;
   min-height: 100%;
   display: flex;
