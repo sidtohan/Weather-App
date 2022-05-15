@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 
 // Functions/Method imports
+import Error from "./Error";
 import getData from "../services/apiService";
 import updateState from "../utils/stateUpdater";
 import { updateDay } from "../reducers/dayReducer";
@@ -30,6 +31,11 @@ const Search = () => {
     e.target.city.value = "";
     e.target.city.blur();
     dispatch(loaderOn());
+
+    // Reset searching
+    formRef.current.classList.remove("searching");
+    buttonRef.current.classList.remove("searching");
+
     // Use name given by API for uniformity
     try {
       const { name, ...data } = await getData(city);
@@ -40,10 +46,6 @@ const Search = () => {
 
       // Also swipe switcher to left most
       document.querySelector(".switcher").scrollLeft = 0;
-
-      // Reset searching
-      formRef.current.classList.remove("searching");
-      buttonRef.current.classList.remove("searching");
     } catch (error) {
       dispatch(toggleError("Invalid City"));
       dispatch(loaderOff());
@@ -52,6 +54,7 @@ const Search = () => {
 
   const filterCity = (e) => {
     let cityName = e.target.value;
+    // if length is 0, don't round
     if (cityName === "") {
       formRef.current.classList.remove("searching");
       buttonRef.current.classList.remove("searching");
@@ -99,6 +102,7 @@ const Search = () => {
       <button type="submit" ref={buttonRef}>
         {getSearch()}
       </button>
+      <Error />
     </form>
   );
 };

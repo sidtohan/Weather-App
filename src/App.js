@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import MainCard from "./components/MainCard";
 import InfoHolder from "./components/InfoHolder";
-import Error from "./components/Error";
 import Search from "./components/Search";
 
 // Api
@@ -31,7 +30,6 @@ const App = () => {
       <Switcher />
       <InfoHolder />
       <Loader />
-      <Error />
     </div>
   );
 };

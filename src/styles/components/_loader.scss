@@ -1,0 +1,50 @@
+// IMPORT FONTS
+@use "../abstracts/typography" as *;
+
+$-bgcolor: null !default;
+$-fgcolor: null !default;
+$-color: null !default;
+$-pcolor: null !default;
+
+@mixin style {
+  .loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: $-bgcolor;
+    z-index: 1;
+    svg {
+      color: $-color !important;
+      display: block;
+      height: auto;
+      width: 50%;
+    }
+    div {
+      font-size: $fontSizeSmall;
+      color: $-pcolor;
+      font-weight: 500;
+      font-family: $fontfamt;
+    }
+  }
+}
+
+@mixin configure($bgcolor: null, $fgcolor: null, $color: null, $pcolor: null) {
+  @if $bgcolor {
+    $-bgcolor: $bgcolor !global;
+  }
+  @if $fgcolor {
+    $-fgcolor: $fgcolor !global;
+  }
+  @if $color {
+    $-color: $color !global;
+  }
+  @if $pcolor {
+    $-pcolor: $pcolor !global;
+  }
+}

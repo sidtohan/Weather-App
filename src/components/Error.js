@@ -7,12 +7,14 @@ import { toggleError } from "../reducers/errorReducer";
 
 const errorVariants = {
   hidden: {
-    scaleX: 0,
-    y: -50,
+    scale: 0,
+    y: -40,
+    opacity: 0,
   },
   visible: {
-    scaleX: 1,
+    scale: 1,
     y: 0,
+    opacity: 1,
     transition: {
       type: "spring",
     },

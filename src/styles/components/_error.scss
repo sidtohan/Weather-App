@@ -1,0 +1,61 @@
+// IMPORT FONTS
+@use "../abstracts/typography" as *;
+
+$-bgcolor: null !default;
+$-fgcolor: null !default;
+$-color: null !default;
+$-pcolor: null !default;
+
+@mixin style {
+  // ERROR DIV
+  .error-div {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+    background-color: $-pcolor;
+    color: $-bgcolor;
+    font-size: $fontSizeSmall;
+    padding: 30px;
+    padding-left: 20px;
+    width: 100%;
+    position: absolute;
+    top: 120%;
+    z-index: 1;
+    border-radius: 15px;
+    text-align: center;
+    font-family: $fontfamt;
+    .error-icon {
+      color: $-bgcolor;
+      height: 1.5em;
+      width: auto;
+    }
+    &::before {
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      content: "";
+      border: 10px solid transparent;
+      border-top: 0;
+      border-bottom: 20px solid $-pcolor;
+    }
+  }
+}
+
+@mixin configure($bgcolor: null, $fgcolor: null, $color: null, $pcolor: null) {
+  @if $bgcolor {
+    $-bgcolor: $bgcolor !global;
+  }
+  @if $fgcolor {
+    $-fgcolor: $fgcolor !global;
+  }
+  @if $color {
+    $-color: $color !global;
+  }
+  @if $pcolor {
+    $-pcolor: $pcolor !global;
+  }
+}
