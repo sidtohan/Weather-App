@@ -4,10 +4,10 @@ const InfoHolder = () => {
   // Returns a div containing all the info cards
   return (
     <div className="info-card-holder">
-      <InfoCard type="FeelsLike" />
-      <InfoCard type="Humidity" />
-      <InfoCard type="MinTemp" />
-      <InfoCard type="MaxTemp" />
+      <InfoCard type="FeelsLike" index={1} />
+      <InfoCard type="Humidity" index={2} />
+      <InfoCard type="MinTemp" index={3} />
+      <InfoCard type="MaxTemp" index={4} />
     </div>
   );
 };

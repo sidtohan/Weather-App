@@ -2,7 +2,7 @@
 import { useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 
-const InfoCard = ({ type }) => {
+const InfoCard = ({ type, index }) => {
   // Returns info card with heading and data
   let data;
   const weatherData = useSelector((state) => state.weather);
@@ -30,11 +30,17 @@ const InfoCard = ({ type }) => {
       scale: 1,
       y: 0,
       opacity: 1,
+      transition: {
+        delay: 0.08 * index,
+      },
     },
     exit: {
       scale: 0,
       y: 30,
       opacity: 0,
+      transition: {
+        delay: 0.1 * index,
+      },
     },
     transition: {
       type: "spring",

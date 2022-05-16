@@ -62,6 +62,9 @@ const Switcher = () => {
     dispatch(updateWeather(dailyData));
   };
 
+  useEffect(() => {
+    dispatch(updateDay(0));
+  }, [daily]);
   return (
     <div className="switcher" ref={switcherRef}>
       {daily.map((data, i) => (
