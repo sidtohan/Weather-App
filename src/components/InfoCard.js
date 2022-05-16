@@ -36,10 +36,9 @@ const InfoCard = ({ type, index }) => {
     },
     exit: {
       scale: 0,
-      y: 30,
       opacity: 0,
       transition: {
-        delay: 0.1 * index,
+        delay: 0.2 * index,
       },
     },
     transition: {
