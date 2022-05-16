@@ -31,14 +31,7 @@ const InfoCard = ({ type, index }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 0.08 * index,
-      },
-    },
-    exit: {
-      scale: 0,
-      opacity: 0,
-      transition: {
-        delay: 0.2 * index,
+        delay: 0.1 * index,
       },
     },
     transition: {
@@ -50,19 +43,16 @@ const InfoCard = ({ type, index }) => {
   return (
     <div className="info-card">
       <h2 className="info-card-heading">{type}</h2>
-      <AnimatePresence exitBeforeEnter>
-        <motion.div
-          className="info-card-data"
-          key={keyObj.getUTCMilliseconds()}
-          variants={variants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          transition="transition"
-        >
-          {data}
-        </motion.div>
-      </AnimatePresence>
+      <motion.div
+        className="info-card-data"
+        key={keyObj.getUTCMilliseconds()}
+        variants={variants}
+        initial="initial"
+        animate="animate"
+        transition="transition"
+      >
+        {data}
+      </motion.div>
     </div>
   );
 };
