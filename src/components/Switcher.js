@@ -8,7 +8,7 @@ import { updateDay } from "../reducers/dayReducer";
 import { updateWeather } from "../reducers/weatherReducer";
 
 const SwitcherElement = ({ data, i, day, handleDayChange, switcherRef }) => {
-  if (i == day) {
+  if (i === day) {
     return (
       <InView
         onChange={() => handleDayChange(i)}
@@ -63,8 +63,36 @@ const Switcher = () => {
   };
 
   useEffect(() => {
-    if (day === 6) dispatch(updateDay(0));
-  }, [daily]);
+    document.body.onkeydown = (e) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+
+      e.preventDefault();
+      const children = switcherRef.current.children;
+      if (e.key === "ArrowLeft") {
+        const target = day - 1;
+        if (target < 0) return;
+        // Update Day
+        // Scroll to it
+        switcherRef.current.scrollBy({
+          left: -children[day].clientWidth,
+          behaviour: "smooth",
+        });
+      } else if (e.key === "ArrowRight") {
+        const target = day + 1;
+        if (target >= 7) return;
+        // Update Day
+        // Scroll to it
+        switcherRef.current.scrollBy({
+          left: children[day].clientWidth,
+          behaviour: "smotth",
+        });
+      }
+    };
+  }, [day, daily]);
+
+  useEffect(() => {
+    dispatch(updateDay(0));
+  }, [daily, dispatch]);
   return (
     <div className="switcher" ref={switcherRef}>
       {daily.map((data, i) => (
