@@ -1,0 +1,94 @@
+@use "../abstracts/typography" as *;
+
+$-bgcolor: null !default;
+$-fgcolor: null !default;
+$-color: null !default;
+$-pcolor: null !default;
+$-fontfamily: null !default;
+
+@mixin style {
+  .city-name {
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: $-pcolor;
+    font-size: min(0.7rem, max(0.35rem, 8vw));
+    font-family: $fontfamh;
+  }
+
+  .main-card {
+    z-index: 0;
+    font-family: $fontfamt;
+    background-color: $-fgcolor;
+    color: $-color !important;
+    border-radius: 10px;
+    word-break: keep-all;
+
+    width: 90%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 0.2rem;
+    padding: 20px 40px;
+    padding-right: 20px;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+
+    .main-card-day {
+      font-size: $fontSizeSmall;
+      color: $-pcolor;
+      grid-row: 1/2;
+      align-self: center;
+    }
+    .main-card-temperature {
+      grid-row: 2/3;
+      font-size: $fontSizeLarge;
+      font-weight: 700;
+      padding-bottom: 10px;
+      color: $-color;
+    }
+    .main-card-temperature > sup {
+      vertical-align: top;
+      color: $-pcolor;
+    }
+    .main-card-condition {
+      font-size: $fontSizeSmall;
+      color: $-pcolor;
+      align-self: center;
+    }
+    .main-card-weather-icon {
+      grid-row: 1/4;
+      grid-column: 2/3;
+      align-self: center;
+      width: 100%;
+      height: auto;
+      color: $-color !important;
+      filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+      z-index: 1;
+    }
+  }
+}
+
+@mixin configure(
+  $bgcolor: null,
+  $fgcolor: null,
+  $color: null,
+  $pcolor: null,
+  $fontfamily: null
+) {
+  @if $bgcolor {
+    $-bgcolor: $bgcolor !global;
+  }
+  @if $fgcolor {
+    $-fgcolor: $fgcolor !global;
+  }
+  @if $color {
+    $-color: $color !global;
+  }
+  @if $pcolor {
+    $-pcolor: $pcolor !global;
+  }
+  @if $fontfamily {
+    $-fontfamily: $fontfamily !global;
+  }
+}

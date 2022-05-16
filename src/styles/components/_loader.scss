@@ -23,7 +23,7 @@ $-pcolor: null !default;
       color: $-color !important;
       display: block;
       height: auto;
-      width: 50%;
+      width: min(50%, 450px);
     }
     div {
       font-size: $fontSizeSmall;

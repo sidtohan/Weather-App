@@ -1,0 +1,50 @@
+// MEDIA
+@media screen and (min-width: 900px) {
+  #main-display {
+    padding-top: 5vh !important;
+    padding-bottom: 5vh !important;
+    display: grid !important;
+    grid-template-columns: 1.5fr minmax(0, 1.5fr);
+    grid-row-gap: 0 !important;
+    grid-template-rows: repeat(5, 18vh) !important;
+  }
+
+  // City Search
+  .city-search {
+    grid-row: 1/2 !important;
+    grid-column: 2/3 !important;
+    height: 50% !important;
+    button {
+      padding: 0 20px !important;
+    }
+  }
+  // City-Name
+  .city-name {
+    align-self: center !important;
+    grid-row: 1/2 !important;
+    grid-column: 1/2 !important;
+  }
+  // Main Card
+  .main-card {
+    justify-self: flex-end;
+    width: 90% !important;
+    align-self: center !important;
+    grid-row: 2/6 !important;
+    grid-column: 1/2 !important;
+  }
+  // Info
+  .info-card-holder {
+    align-self: center !important;
+    grid-row: 2/5 !important;
+    grid-column: 2/3 !important;
+  }
+  // Switcher
+  .switcher {
+    grid-row: 5/6 !important;
+    grid-column: 2/3 !important;
+  }
+  // Loader
+  .loader {
+    min-height: 100vh !important;
+  }
+}

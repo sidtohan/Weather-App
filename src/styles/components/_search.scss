@@ -7,7 +7,7 @@ $-color: null !default;
 $-pcolor: null !default;
 
 @mixin style() {
-  $border-rad: max(25px,4vw);
+  $border-rad: min(35px,max(25px, 3vw));
   .city-search {
     height: 100%;
     border-radius: $border-rad;
@@ -107,6 +107,7 @@ $-pcolor: null !default;
       overflow: scroll;
       scrollbar-width: none;
       .city-list-option {
+        cursor: pointer;
         z-index: 0;
         font-size: $fontSizeVerySmall;
         background-color: $-pcolor;

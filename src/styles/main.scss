@@ -4,16 +4,27 @@
 
 // IMPORT SASS
 @use "base/reset";
+@use "base/responsive";
 @use "components/search" as search;
 @use "components/info" as info;
 @use "components/switcher" as switcher;
 @use "components/loader" as loader;
 @use "components/error" as error;
+@use "components/maincard" as maincard;
 
 // Google Fonts
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap");
 
 @mixin main-style($bgcolor, $fgcolor, $color, $pcolor) {
+  // Error
+  @include error.configure(
+    $bgcolor: $bgcolor,
+    $fgcolor: $fgcolor,
+    $color: $color,
+    $pcolor: $pcolor
+  );
+  @include error.style;
+
   // Search Bar Here
   @include search.configure(
     $bgcolor: $bgcolor,
@@ -23,6 +34,15 @@
   );
   @include search.style;
 
+  // Main Card
+  @include maincard.configure(
+    $bgcolor: $bgcolor,
+    $fgcolor: $fgcolor,
+    $color: $color,
+    $pcolor: $pcolor
+  );
+  @include maincard.style;
+  
   // Info Card
   @include info.configure(
     $bgcolor: $bgcolor,
@@ -49,76 +69,6 @@
     $pcolor: $pcolor
   );
   @include loader.style;
-
-  // Error
-  @include error.configure(
-    $bgcolor: $bgcolor,
-    $fgcolor: $fgcolor,
-    $color: $color,
-    $pcolor: $pcolor
-  );
-  @include error.style;
-
-  .city-name {
-    text-align: center;
-    letter-spacing: 0.1em;
-    color: $pcolor;
-    font-size: min(0.7rem, max(0.35rem, 8vw)); 
-    font-family: $fontfamh;
-  }
-
-  .main-card {
-    z-index: 0;
-    font-family: $fontfamt;
-    background-color: $fgcolor;
-    color: $color !important;
-    border-radius: 10px;
-    word-break: keep-all;
-
-    width: 90%;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-row-gap: 0.2rem;
-    padding: 20px 40px;
-    padding-right: 20px;
-    align-items: center;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-
-    .main-card-day {
-      font-size: $fontSizeSmall;
-      color: $pcolor;
-      grid-row: 1/2;
-      align-self: center;
-    }
-    .main-card-temperature {
-      grid-row: 2/3;
-      font-size: $fontSizeLarge;
-      font-weight: 700;
-      padding-bottom: 10px;
-      color: $color;
-    }
-    .main-card-temperature > sup {
-      vertical-align: top;
-      color: $pcolor;
-    }
-    .main-card-condition {
-      font-size: $fontSizeSmall;
-      color: $pcolor;
-      align-self: center;
-    }
-    .main-card-weather-icon {
-      grid-row: 1/4;
-      grid-column: 2/3;
-      align-self: center;
-      width: 100%;
-      height: auto;
-      color: $color !important;
-      filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
-      z-index: 1;
-    }
-  }
 }
 
 @mixin call-style($bgcolor, $fgcolor, $color, $pcolor) {
@@ -215,56 +165,4 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-// MEDIA
-@media screen and (min-width: 768px) {
-  #main-display {
-    padding: 0 12% !important;
-    display: grid;
-    min-height: 100vh;
-    grid-template-columns: repeat(8, 1fr);
-    grid-auto-rows: minmax(10vh, auto);
-    justify-items: center;
-    .main-card {
-      grid-column: 1/5;
-      grid-row: 1/11;
-      height: 90vh !important;
-    }
-    .info-card-holder {
-      grid-column: 5/9;
-      grid-row: 3/6;
-      align-self: flex-start;
-    }
-    .switcher {
-      padding: 0 !important;
-      width: 90% !important;
-      height: 80%;
-      align-self: center;
-      grid-column: 5/9;
-      grid-row: 6/11;
-      .switcher-card {
-        height: 100% !important;
-      }
-    }
-    .city-list {
-      top: 100%;
-      flex-direction: column !important;
-      .city-list-option:last-child {
-        border-top-right-radius: 0 !important;
-        border-top-left-radius: 0 !important;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        margin-top: 0 !important;
-        margin-bottom: 2px !important;
-      }
-    }
-    .loader {
-      font-size: 0.25rem !important;
-      height: 100%;
-      svg {
-        width: 30% !important;
-      }
-    }
-  }
 }
