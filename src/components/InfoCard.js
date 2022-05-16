@@ -1,4 +1,6 @@
+// Libs
 import { useSelector } from "react-redux";
+import { motion, AnimatePresence } from "framer-motion";
 
 const InfoCard = ({ type }) => {
   // Returns info card with heading and data
@@ -18,10 +20,44 @@ const InfoCard = ({ type }) => {
     type = "Feels Like";
   }
 
+  const variants = {
+    initial: {
+      scale: 0,
+      y: -30,
+      opacity: 0,
+    },
+    animate: {
+      scale: 1,
+      y: 0,
+      opacity: 1,
+    },
+    exit: {
+      scale: 0,
+      y: 30,
+      opacity: 0,
+    },
+    transition: {
+      type: "spring",
+      stiffness: 300,
+    },
+  };
+  const keyObj = new Date();
   return (
     <div className="info-card">
       <h2 className="info-card-heading">{type}</h2>
-      <div className="info-card-data">{data}</div>
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          className="info-card-data"
+          key={keyObj.getUTCMilliseconds()}
+          variants={variants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition="transition"
+        >
+          {data}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };
