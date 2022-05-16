@@ -49,9 +49,7 @@ const iconMapper = (condition) => {
   const iconName = getIconName(condition);
   // using custom key to allow re rendering
   const key = Date.now() + Math.random();
-  return (
-    <Icon key={key} icon={iconName} />
-  );
+  return <Icon key={key} icon={iconName} className="main-card-weather-icon" />;
 };
 
 export const getSearch = () => {

@@ -39,20 +39,7 @@ const MainCard = () => {
           {weather.temp}
           <sup>°C</sup>
         </div>
-
-        <AnimatePresence exitBeforeEnter>
-          <motion.div
-            className="main-card-weather-icon"
-            key={`${weather.condition}${keyObj.getMilliseconds()}`}
-            variants={variants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition="transition"
-          >
-            {iconMapper(weather.condition)}
-          </motion.div>
-        </AnimatePresence>
+        {iconMapper(weather.condition)}
         <div className="main-card-condition">{weather.condition}</div>
       </div>
     </>
