@@ -43,9 +43,9 @@ const Search = () => {
       dispatch(loaderOff());
       dispatch(applyCityFilter(""));
       dispatch(updateDay(0));
-
       // Also swipe switcher to left most
       document.querySelector(".switcher").scrollLeft = 0;
+
     } catch (error) {
       dispatch(toggleError("Invalid City"));
       dispatch(loaderOff());
@@ -86,7 +86,7 @@ const Search = () => {
         onChange={filterCity}
         ref={inputRef}
       />
-      {cityList.length != 0 && (
+      {cityList.length !== 0 && (
         <div className="city-list">
           {cityList.slice(0, 5).map((city) => (
             <div

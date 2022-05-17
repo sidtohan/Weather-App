@@ -12,7 +12,7 @@ const SwitcherElement = ({ data, i, day, handleDayChange, switcherRef }) => {
     return (
       <InView
         onChange={() => handleDayChange(i)}
-        threshold={0.6}
+        threshold={0.7}
         root={switcherRef.current}
       >
         {({ inView, ref }) => (
@@ -26,7 +26,7 @@ const SwitcherElement = ({ data, i, day, handleDayChange, switcherRef }) => {
   return (
     <InView
       onChange={() => handleDayChange(i)}
-      threshold={0.6}
+      threshold={0.7}
       root={switcherRef.current}
     >
       {({ inView, ref }) => (
@@ -90,9 +90,6 @@ const Switcher = () => {
     };
   }, [day, daily]);
 
-  useEffect(() => {
-    dispatch(updateDay(0));
-  }, [daily, dispatch]);
   return (
     <div className="switcher" ref={switcherRef}>
       {daily.map((data, i) => (
