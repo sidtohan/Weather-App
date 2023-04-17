@@ -2,7 +2,7 @@
   "name": "new-weather-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sidtohan.github.io/Weather-App",
+  "homepage": ".",
   "dependencies": {
     "axios": "^0.26.1",
     "cra-template": "1.1.3",
